@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { IoCartOutline, IoSearchOutline } from 'react-icons/io5'
-import { tittleFont } from '@/config/fonts'
+import { titleFont } from '@/config/fonts'
 import { useUiStore } from '@/store'
 
 export const TopMenu = () => {
@@ -13,7 +13,7 @@ export const TopMenu = () => {
       {/* logo */}
       <div>
         <Link href={'/'}>
-          <span className={`${tittleFont.className} antialiased font-bold`}>Teslo | Shop</span>
+          <span className={`${titleFont.className} antialiased font-bold`}>Teslo | Shop</span>
         </Link>
       </div>
 
@@ -21,7 +21,7 @@ export const TopMenu = () => {
       <div className='hidden sm:block'>
         <Link href={'/category/men'} className='m-2 p-2 rounded-md transition-all hover:bg-gray-100'>Hombres</Link>
         <Link href={'/category/women'} className='m-2 p-2 rounded-md transition-all hover:bg-gray-100'>Mujeres</Link>
-        <Link href={'/category/kids'} className='m-2 p-2 rounded-md transition-all hover:bg-gray-100'>Niños</Link>
+        <Link href={'/category/kid'} className='m-2 p-2 rounded-md transition-all hover:bg-gray-100'>Niños</Link>
       </div>
 
       {/* search cart menu */}
