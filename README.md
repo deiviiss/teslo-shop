@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Description
+Teslo-Shop is a modern, full-stack eCommerce application template designed to jumpstart the development of online stores with efficiency and ease. Built on the robust foundations of Next.js, React, and Prisma, it offers a seamless development experience with out-of-the-box support for responsive layouts, dynamic routing, and server-side rendering, ensuring fast, scalable, and SEO-friendly web applications.
 
-## Getting Started
+# Development
+Steps to start the app in development
 
-First, run the development server:
-
-```bash
+1. Rename the .env.example to .env
+2. Replace the enviroment variables
+3. Execute the command:
+```
+npm install
+```
+4. Set up the db
+```
+docker-compose up -d
+```
+5. Execute these prisma commands:
+```
+npx prisma migrate dev; npx prisma generate
+```
+6. Execute SEED 
+```
+npm run seed
+```
+7. Run server with command:
+```
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Notes: default user
+__user__ admin@mail.com
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+__password__ admin
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Prisma commands
+```
+npx prisma init
+npx prisma migrate dev
+npx prisma generate
+```
