@@ -1,9 +1,9 @@
 import { PageNotFound } from '@/components'
 
-const NotFoundPage = () => {
+const GenderNotFoundPage = () => {
   return (
     <PageNotFound />
   )
 }
 
-export default NotFoundPage
+export default GenderNotFoundPage

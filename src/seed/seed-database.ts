@@ -28,12 +28,11 @@ const main = async () => {
 
   // products
   products.forEach(async (product) => {
-    const { type, images, title, ...rest } = product
+    const { type, images, ...rest } = product
 
     const dbProduct = await prisma.product.create({
       data: {
         ...rest,
-        name: title,
         categoryId: categoriesMap[type]
       }
     })

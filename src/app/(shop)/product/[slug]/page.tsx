@@ -39,7 +39,7 @@ export default function ProductPage({ params }: ProductPageProps) {
       </div>
 
       {/* details */}
-      <div className="col-span-1 px-5 bg-blue-200">
+      <div className="col-span-1 p-5 bg-blue-200 h-fit">
         <h1 className={`${titleFont.className} antialiased font-bold text-xl`}>
           {product.title}
         </h1>

@@ -1,5 +1,5 @@
 export interface Product {
-  // id: string
+  id: string
   description: string
   images: string[]
   inStock: number
@@ -8,11 +8,11 @@ export interface Product {
   slug: string
   tags: string[]
   title: string
-  type: ValidType
-  gender: ValidCategory
+  // type: ValidType
+  gender: ValidGender
 }
 
-export type ValidCategory = 'men' | 'women' | 'kid' | 'unisex'
+export type ValidGender = 'men' | 'women' | 'kid' | 'unisex'
 
 export type Size = 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL' | 'XXXL'
 

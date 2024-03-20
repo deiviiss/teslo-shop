@@ -1,9 +1,34 @@
-import { ProductGrid, Title } from '@/components'
-import { initialData } from '@/seed/seed'
+import { notFound, redirect } from 'next/navigation'
+import { getPaginationProductsWithImages } from '@/actions'
+import { Pagination, ProductGrid, Title } from '@/components'
 
-const products = initialData.products
+interface Props {
+  searchParams: {
+    page?: string
+    take?: string
+  }
+}
 
-export default function ShopPage() {
+export default async function ShopPage({ searchParams }: Props) {
+  const page = searchParams.page ? Number(searchParams.page) : 1
+
+  const result = await getPaginationProductsWithImages({ page })
+
+  if (!result) {
+    return notFound()
+  }
+
+  const { products, totalPages } = result
+
+  if (products.length === 0) {
+    redirect('/')
+  }
+
+  const processedProducts = products.map(product => ({
+    ...product,
+    description: product.description || 'No description provided'
+  }))
+
   return (
     <>
       <Title
@@ -11,7 +36,9 @@ export default function ShopPage() {
         subtitle="Toda la ropa que necesitas para estar a la moda."
         className="mb-2" />
 
-      <ProductGrid products={products} />
+      <ProductGrid products={processedProducts} />
+
+      <Pagination totalPages={totalPages} />
     </>
   )
 }
