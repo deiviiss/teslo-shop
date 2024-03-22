@@ -1,17 +1,36 @@
+import { type Metadata, type ResolvingMetadata } from 'next'
 import { notFound } from 'next/navigation'
-import { ProductMobileSlideshow, ProductSlideshow, QuantitySelector, SizeSelector } from '@/components'
+import { getProductBySlug } from '@/actions'
+import { ProductMobileSlideshow, ProductSlideshow, QuantitySelector, SizeSelector, StockLabel } from '@/components'
 import { titleFont } from '@/config/fonts'
-import { initialData } from '@/seed/seed'
+export const revalidate = 60 * 60 * 24 * 7 // 1 week
 
-interface ProductPageProps {
+interface Props {
   params: {
     slug: string
   }
 }
 
-export default function ProductPage({ params }: ProductPageProps) {
+export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
+  const slug = params.slug
+
+  const product = await getProductBySlug(slug)
+
+  return {
+    title: product?.title || 'Product page title',
+    description: product?.description || 'Product page description',
+    openGraph: {
+      title: product?.title || 'Product page title',
+      description: product?.description || 'Product page description',
+      images: [`/products/${product?.images[1]}`]
+    }
+
+  }
+}
+
+export default async function ProductPage({ params }: Props) {
   const { slug } = params
-  const product = initialData.products.find(product => product.slug === slug)
+  const product = await getProductBySlug(slug)
 
   if (!product) {
     notFound()
@@ -40,9 +59,12 @@ export default function ProductPage({ params }: ProductPageProps) {
 
       {/* details */}
       <div className="col-span-1 p-5 bg-blue-200 h-fit">
+        <StockLabel slug={product.slug} />
+
         <h1 className={`${titleFont.className} antialiased font-bold text-xl`}>
           {product.title}
         </h1>
+
         <p className="text-lg mb-5">$ {product.price}</p>
 
         {/* color selector */}

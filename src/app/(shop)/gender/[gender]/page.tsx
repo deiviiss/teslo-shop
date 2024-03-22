@@ -1,9 +1,10 @@
+import { type Metadata, type ResolvingMetadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getPaginationProductsWithImages } from '@/actions'
 import { Pagination, ProductGrid, Title } from '@/components'
 import { type ValidGender } from '@/interfaces'
 
-interface PageProps {
+interface Props {
   params: {
     gender: ValidGender
   }
@@ -13,7 +14,34 @@ interface PageProps {
   }
 }
 
-export default async function GenderByPage({ params, searchParams }: PageProps) {
+const description: Record<ValidGender, string> = {
+  men: 'Hombres',
+  women: 'Mujeres',
+  kid: 'Niños',
+  unisex: 'Unisex'
+}
+
+const labels: Record<ValidGender, string> = {
+  men: 'de hombre',
+  women: 'de mujer',
+  kid: 'de niño',
+  unisex: 'unisex'
+}
+
+export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
+  const gender = params.gender
+
+  return {
+    title: `Categoria de ${description[gender]}`,
+    description: `Toda la ropa ${labels[gender]} que necesitas para estar a la moda.`,
+    openGraph: {
+      title: `Categoria de ${description[gender]}`,
+      description: `Toda la ropa ${labels[gender]} que necesitas para estar a la moda.`
+    }
+  }
+}
+
+export default async function GenderByPage({ params, searchParams }: Props) {
   const { gender } = params
   const page = searchParams.page ? Number(searchParams.page) : 1
 
@@ -29,20 +57,6 @@ export default async function GenderByPage({ params, searchParams }: PageProps) 
   }
 
   const { products, totalPages } = result
-
-  const labels: Record<ValidGender, string> = {
-    men: 'de hombre',
-    women: 'de mujer',
-    kid: 'de niño',
-    unisex: 'unisex'
-  }
-
-  const description: Record<ValidGender, string> = {
-    men: 'Hombres',
-    women: 'Mujeres',
-    kid: 'Niños',
-    unisex: 'Unisex'
-  }
 
   const processedProducts = products.map(product => ({
     ...product,

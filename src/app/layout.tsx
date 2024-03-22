@@ -3,8 +3,11 @@ import { inter } from '@/config/fonts'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Teslo | Shop',
-  description: 'Shop for the best products.'
+  title: {
+    template: '%s - Teslo | Shop',
+    default: 'Teslo | Shop'
+  },
+  description: 'Tienda de ropa online. Encuentra la ropa que necesitas para estar a la moda.'
 }
 
 export default function RootLayout({
@@ -13,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body className={inter.className}>{children}</body>
     </html>
   )
