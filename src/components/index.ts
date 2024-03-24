@@ -12,7 +12,7 @@ export * from './product/stock-label/StockLabel'
 // UI
 export * from './ui/sidebar/Sidebar'
 export * from './ui/title/Title'
-export * from './ui/top-menu'
+export * from './ui/top-menu/TopMenu'
 export * from './ui/not-found/PageNotFound'
 export * from './ui/pagination/Pagination'
 

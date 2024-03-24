@@ -1,7 +1,8 @@
 import { type Metadata, type ResolvingMetadata } from 'next'
 import { notFound } from 'next/navigation'
+import { AddToCart } from './ui/AddToCart'
 import { getProductBySlug } from '@/actions'
-import { ProductMobileSlideshow, ProductSlideshow, QuantitySelector, SizeSelector, StockLabel } from '@/components'
+import { ProductMobileSlideshow, ProductSlideshow, StockLabel } from '@/components'
 import { titleFont } from '@/config/fonts'
 export const revalidate = 60 * 60 * 24 * 7 // 1 week
 
@@ -67,14 +68,7 @@ export default async function ProductPage({ params }: Props) {
 
         <p className="text-lg mb-5">$ {product.price}</p>
 
-        {/* color selector */}
-        {/* size selector */}
-        <SizeSelector selectedSize={product.sizes[2]} availableSizes={product.sizes} />
-        {/* count selector */}
-        <QuantitySelector quantity={3} />
-
-        {/* button */}
-        <button className='btn-primary my-5'>Agregar al carrito</button>
+        <AddToCart product={product} />
 
         {/* description */}
         <h3 className='font-bold text-sm'>Descripción</h3>

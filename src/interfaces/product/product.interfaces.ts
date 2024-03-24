@@ -1,6 +1,6 @@
 export interface Product {
   id: string
-  description: string
+  description?: string | null
   images: string[]
   inStock: number
   price: number
@@ -10,6 +10,16 @@ export interface Product {
   title: string
   // type: ValidType
   gender: ValidGender
+}
+
+export interface CartProduct {
+  id: string
+  slug: string
+  title: string
+  price: number
+  size: Size
+  quantity: number
+  image: string
 }
 
 export type ValidGender = 'men' | 'women' | 'kid' | 'unisex'
