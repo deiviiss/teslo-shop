@@ -6,9 +6,15 @@ const main = async () => {
   await prisma.productImage.deleteMany()
   await prisma.product.deleteMany()
   await prisma.category.deleteMany()
+  await prisma.user.deleteMany()
 
   // seed categories
-  const { categories, products } = initialData
+  const { categories, products, users } = initialData
+
+  // users
+  await prisma.user.createMany({
+    data: users
+  })
 
   const categoriesData = categories.map((category) => ({
     name: category
