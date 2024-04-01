@@ -821,13 +821,13 @@ export const initialData: SeedData = {
     {
       email: 'admin@mail.com',
       name: 'David Hilera',
-      password: bcrypt.hashSync('admin123'),
+      password: bcrypt.hashSync('userseed'),
       role: 'admin'
     },
     {
       email: 'user@mail.com',
       name: 'User',
-      password: bcrypt.hashSync('user01'),
+      password: bcrypt.hashSync('userseed'),
       role: 'user'
     }
   ]

@@ -1,8 +1,11 @@
 import { initialData } from './seed'
+import { countries } from './seed-countries'
 import prisma from '../lib/prisma'
 
 const main = async () => {
   // delete all data
+  await prisma.userAddress.deleteMany()
+  await prisma.country.deleteMany()
   await prisma.productImage.deleteMany()
   await prisma.product.deleteMany()
   await prisma.category.deleteMany()
@@ -53,6 +56,11 @@ const main = async () => {
     })
   }
   )
+
+  // countries
+  await prisma.country.createMany({
+    data: countries
+  })
 
   // eslint-disable-next-line no-console
   console.log('Seed executed successfully')

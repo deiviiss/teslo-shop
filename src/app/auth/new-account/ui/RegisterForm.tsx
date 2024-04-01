@@ -2,6 +2,7 @@
 
 import clsx from 'clsx'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 import { type SubmitHandler, useForm } from 'react-hook-form'
 import { registerUser } from '@/actions'
@@ -14,6 +15,7 @@ interface FormInputs {
 }
 
 export const RegisterForm = () => {
+  const searchParams = useSearchParams()
   const [errorMessage, setErrorMessage] = useState('')
   const { register, handleSubmit, formState: { errors } } = useForm<FormInputs>()
 
@@ -27,8 +29,9 @@ export const RegisterForm = () => {
     }
 
     await login(data.email, data.password)
+    const redirectTo = searchParams.get('redirectTo') || '/profile'
 
-    window.location.replace('/')
+    window.location.replace(redirectTo)
   }
 
   return (

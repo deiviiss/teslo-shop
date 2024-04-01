@@ -12,11 +12,10 @@ import { authenticate } from '@/actions'
 export const LoginForm = () => {
   const searchParams = useSearchParams()
   const [state, dispatch] = useFormState(authenticate, undefined)
+  const redirectTo = searchParams.get('redirectTo') || '/profile'
 
   useEffect(() => {
     if (state === 'SuccessSignin') {
-      const redirectTo = searchParams.get('redirectTo') || '/profile'
-
       window.location.replace(redirectTo)
     }
   }, [state])
@@ -62,12 +61,12 @@ export const LoginForm = () => {
       </div>
 
       <Link
-        href="/auth/new-account"
+        href={`/auth/new-account?redirectTo=${redirectTo}`}
         className="btn-secondary text-center">
         Crear una nueva cuenta
       </Link>
 
-    </form>
+    </form >
   )
 }
 
