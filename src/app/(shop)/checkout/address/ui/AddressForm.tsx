@@ -1,13 +1,13 @@
 'use client'
 
 import clsx from 'clsx'
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { deleteUserAddress, setUserAddress } from '@/actions'
 import { type UserAddress, type Country } from '@/interfaces'
-import { useAddressStore } from '@/store'
+import { useAddressStore, useCartStore } from '@/store'
 
 interface FormInputs {
   firstName: string
@@ -32,6 +32,12 @@ export const AddressForm = ({ countries, userStoredAddress = {} }: Props) => {
 
   const router = useRouter()
 
+  const { itemsInCart } = useCartStore(state => state.getSummaryInformation())
+
+  if (itemsInCart === 0) {
+    redirect('/empty')
+  }
+
   const { handleSubmit, register, formState: { isValid }, reset } = useForm<FormInputs>({
     defaultValues: {
       ...userStoredAddress,
@@ -49,12 +55,12 @@ export const AddressForm = ({ countries, userStoredAddress = {} }: Props) => {
   }, [address])
 
   const onSubmit = (data: FormInputs) => {
-    setAddress(data)
-
     const { rememberAddress, ...restAddress } = data
 
+    setAddress({ ...restAddress, userId })
+
     if (rememberAddress) {
-      setUserAddress(restAddress, userId)
+      setUserAddress({ ...restAddress, userId }, userId)
     }
 
     if (!rememberAddress) {
@@ -181,7 +187,6 @@ export const AddressForm = ({ countries, userStoredAddress = {} }: Props) => {
         <button
           disabled={!isValid}
           type="submit"
-          // className="btn-primary flex w-full sm:w-1/2 justify-center "
           className={clsx(
             {
               'btn-primary': isValid,

@@ -19,3 +19,8 @@ export { registerUser } from './auth/register'
 export { setUserAddress } from './address/set-user-address'
 export { deleteUserAddress } from './address/delete-user-address'
 export { getUserAddress } from './address/get-user-address'
+
+// order
+export { placeOrder } from './order/place-order'
+export { getOrderById } from './order/get-order-by-id'
+export { getOrdersByUser } from './order/get-orders-by-user'

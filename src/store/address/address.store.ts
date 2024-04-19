@@ -13,6 +13,7 @@ export const useAddressStore = create<State>()(
   persist(
     (set, get) => ({
       address: {
+        userId: '',
         firstName: '',
         lastName: '',
         address: '',

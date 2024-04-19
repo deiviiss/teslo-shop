@@ -20,7 +20,7 @@ export const OrderSummary = () => {
 
   if (!loaded) {
     return (
-      <p>Loading...</p>
+      <p>Cargando...</p>
     )
   }
 
@@ -32,7 +32,7 @@ export const OrderSummary = () => {
       <span className='text-right'>Subtotal</span>
       <span className='text-right'>{currencyFormat(subtotal)}</span>
 
-      <span className='text-right'>Impuestos (15%)</span>
+      <span className='text-right'>IVA(16%)</span>
       <span className='text-right'>{currencyFormat(tax)}</span>
 
       <span className='mt-5 text-2xl text-right'>Total</span>

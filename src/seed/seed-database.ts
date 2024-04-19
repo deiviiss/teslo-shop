@@ -4,6 +4,10 @@ import prisma from '../lib/prisma'
 
 const main = async () => {
   // delete all data
+  await prisma.orderItem.deleteMany()
+  await prisma.orderAddress.deleteMany()
+  await prisma.order.deleteMany()
+
   await prisma.userAddress.deleteMany()
   await prisma.country.deleteMany()
   await prisma.productImage.deleteMany()
