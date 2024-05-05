@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { ProviderAuth } from '@/actions'
+import { Providers } from '@/components'
 import { inter } from '@/config/fonts'
 import './globals.css'
 
@@ -18,9 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <ProviderAuth>
+      <Providers>
         <body className={inter.className}>{children}</body>
-      </ProviderAuth>
+      </Providers>
     </html>
   )
 }

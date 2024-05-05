@@ -1,3 +1,12 @@
+// orders
+export * from './orders/OrderStatus'
+
+// Providers
+export * from './providers/Providers'
+
+// PayPal
+export * from './paypal/PayPalButton'
+
 // Products
 export * from './products/product-grid/ProductGrid'
 export * from './products/product-grid/ProductGridItem'

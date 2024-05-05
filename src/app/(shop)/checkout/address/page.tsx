@@ -5,7 +5,6 @@ import { Title } from '@/components'
 export default async function AddressPage() {
   const countries = await getCountries()
   const user = await getUserSessionServer()
-  // const address: UserAddress | undefined | null
 
   if (!user) {
     return (
@@ -28,7 +27,6 @@ export default async function AddressPage() {
         <AddressForm countries={countries} userStoredAddress={address} />
 
       </div>
-
     </div>
   )
 }

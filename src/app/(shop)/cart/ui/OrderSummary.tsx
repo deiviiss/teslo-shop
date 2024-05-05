@@ -10,12 +10,11 @@ export const OrderSummary = () => {
 
   const { subtotal, tax, total, itemsInCart } = useCartStore(state => state.getSummaryInformation())
 
-  if (itemsInCart === 0) {
-    redirect('/empty')
-  }
-
   useEffect(() => {
     setLoaded(true)
+    if (itemsInCart === 0) {
+      redirect('/empty')
+    }
   }, [])
 
   if (!loaded) {

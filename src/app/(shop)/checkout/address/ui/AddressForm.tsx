@@ -3,7 +3,7 @@
 import clsx from 'clsx'
 import { redirect, useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { deleteUserAddress, setUserAddress } from '@/actions'
 import { type UserAddress, type Country } from '@/interfaces'
@@ -29,14 +29,11 @@ interface Props {
 export const AddressForm = ({ countries, userStoredAddress = {} }: Props) => {
   const { data: session } = useSession()
   const userId = session?.user?.id || ''
+  const [loaded, setLoaded] = useState(false)
 
   const router = useRouter()
 
   const { itemsInCart } = useCartStore(state => state.getSummaryInformation())
-
-  if (itemsInCart === 0) {
-    redirect('/empty')
-  }
 
   const { handleSubmit, register, formState: { isValid }, reset } = useForm<FormInputs>({
     defaultValues: {
@@ -49,6 +46,10 @@ export const AddressForm = ({ countries, userStoredAddress = {} }: Props) => {
   const address = useAddressStore((state) => state.address)
 
   useEffect(() => {
+    setLoaded(true)
+    if (itemsInCart === 0) {
+      redirect('/empty')
+    }
     if (address.firstName) {
       reset(address)
     }
@@ -68,6 +69,12 @@ export const AddressForm = ({ countries, userStoredAddress = {} }: Props) => {
     }
 
     router.push('/checkout')
+  }
+
+  if (!loaded) {
+    return (
+      <p>Cargando...</p>
+    )
   }
 
   return (
