@@ -34,9 +34,6 @@ export const paypalCheckPayment = async (transactionId: string) => {
   }
 
   try {
-    console.log('Pago completado')
-    console.log('purchaseUnits')
-    console.log(purchaseUnits)
     await prisma.order.update({
       where: { id: orderId },
       data: {

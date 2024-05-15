@@ -17,7 +17,6 @@ export default async function ProductPage({ params }: Props) {
   ])
 
   if (!product && slug !== 'create') {
-    console.log('Producto no encontrado')
     redirect('/admin/products')
   }
 
