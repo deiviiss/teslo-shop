@@ -105,7 +105,7 @@ export const PlaceOrder = () => {
           className={
             clsx({
               'btn-primary': !isPlacingOrder,
-              'btn-disable': isPlacingOrder
+              'btn-disabled': isPlacingOrder
             })
           }
           onClick={async () => { await onPlaceOrder() }}

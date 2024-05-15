@@ -78,7 +78,7 @@ function LoginButton() {
       type='submit'
       className={
         clsx({
-          'btn-disable': pending,
+          'btn-disabled': pending,
           'btn-primary': !pending
         }
         )

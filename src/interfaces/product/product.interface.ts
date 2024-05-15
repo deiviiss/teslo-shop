@@ -27,3 +27,15 @@ export type ValidGender = 'men' | 'women' | 'kid' | 'unisex'
 export type Size = 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL' | 'XXXL'
 
 export type ValidType = 'shirts' | 'pants' | 'hoodies' | 'hats'
+
+export interface ProductImage {
+  id: string
+  url: string
+  productId?: string
+}
+
+export interface Category {
+  id: string
+  description: string | null
+  name: string
+}

@@ -1,7 +1,8 @@
 'use client'
-import Image from 'next/image'
+
 import Link from 'next/link'
 import { useState } from 'react'
+import { ProductImage } from '@/components'
 import { type Product } from '@/interfaces'
 
 interface ProductGridItemProps {
@@ -17,7 +18,7 @@ export const ProductGridItem = ({ product }: ProductGridItemProps) => {
   return (
     <div className='rounded-md overflow-hidden fade-in'>
       <Link href={`/product/${product.slug}`}>
-        <Image src={`/products/${displayImage}`}
+        <ProductImage src={displayImage}
           alt={product.title}
           className='w-full object-cover rounded'
           width={500}
@@ -30,7 +31,7 @@ export const ProductGridItem = ({ product }: ProductGridItemProps) => {
       <div className='p-4 flex flex-col'>
         <Link
           className='hover:text-blue-600'
-          href={`/product/${product.slug}`}>
+          href={`/ product / ${product.slug}`}>
           {product.title}
         </Link>
         <span className='font-bold'>$ {product.price}</span>

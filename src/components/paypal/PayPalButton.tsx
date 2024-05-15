@@ -54,7 +54,7 @@ export const PayPalButton = ({ orderId, amount }: Props) => {
   }
 
   return (
-    <div className='pb-6 pt-12'>
+    <div className='pb-6 pt-12 relative z-0'>
       <PayPalButtons
         createOrder={createOrder}
         onApprove={onApprove}

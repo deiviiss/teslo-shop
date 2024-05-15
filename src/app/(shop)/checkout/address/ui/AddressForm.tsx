@@ -197,7 +197,7 @@ export const AddressForm = ({ countries, userStoredAddress = {} }: Props) => {
           className={clsx(
             {
               'btn-primary': isValid,
-              'btn-disable': !isValid
+              'btn-disabled': !isValid
             }
           )}
         >

@@ -93,25 +93,28 @@ export const Sidebar = () => {
           }
 
           {/* divisor */}
-          <div className="w-full h-px bg-gray-100 rounded transition-all"></div>
+          <div className="w-full h-px bg-gray-100 rounded transition-all mt-5"></div>
         </div>
 
         {
           isAdmin && (
             <>
-              <Link href='/'
-                className='flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all'>
+              <Link href='/admin/products'
+                onClick={() => { closeMenu() }}
+                className='flex items-center mt-5 p-2 hover:bg-gray-100 rounded transition-all'>
                 <IoShirtOutline size={30} />
                 <span className='ml-3 text-xl'>Productos</span>
               </Link>
 
-              <Link href='/'
+              <Link href='/admin/orders'
+                onClick={() => { closeMenu() }}
                 className='flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all'>
                 <IoTicketOutline size={30} />
                 <span className='ml-3 text-xl'>Ordenes</span>
               </Link>
 
-              <Link href='/'
+              <Link href='/admin/users'
+                onClick={() => { closeMenu() }}
                 className='flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all'>
                 <IoPeopleOutline size={30} />
                 <span className='ml-3 text-xl'>Usuarios</span>

@@ -1,11 +1,13 @@
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { IoCardOutline } from 'react-icons/io5'
-import { getOrdersByUser } from '@/actions'
+import { getPaginatedOrders, validateUserAdmin } from '@/actions'
 import { Pagination, Title } from '@/components'
 
 export default async function OrdersPage() {
-  const { ok, orders } = await getOrdersByUser()
+  await validateUserAdmin()
+
+  const { ok, orders } = await getPaginatedOrders()
 
   if (!ok) {
     redirect('/auth/login')
@@ -13,7 +15,7 @@ export default async function OrdersPage() {
 
   return (
     <>
-      <Title title="Ordenes" subtitle='Lista de ordenes' />
+      <Title title="Todas las ordenes" subtitle='Lista de ordenes de todos los usuarios' />
 
       <div className="mb-10">
         <table className="min-w-full">

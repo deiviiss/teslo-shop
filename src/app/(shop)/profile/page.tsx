@@ -1,11 +1,11 @@
 import { redirect } from 'next/navigation'
-import { auth } from '@/auth.config'
+import { getUserSessionServer } from '@/actions'
 import { Title } from '@/components'
 
 export default async function ProfilePage() {
-  const session = await auth()
+  const user = await getUserSessionServer()
 
-  if (!session?.user) {
+  if (!user) {
     redirect('/')
   }
 
@@ -13,8 +13,8 @@ export default async function ProfilePage() {
     <div>
       <Title title="Perfil" subtitle='Datos del perfil' />
 
-      <p>{session?.user.name}</p>
-      <p>{session?.user.role}</p>
+      <p>{user.name}</p>
+      <p>{user.role}</p>
     </div>
   )
 }
