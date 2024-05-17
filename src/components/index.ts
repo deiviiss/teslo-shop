@@ -1,3 +1,6 @@
+// aut
+export * from './auth/ButtonLogout'
+
 // orders
 export * from './orders/OrderStatus'
 

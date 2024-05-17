@@ -33,7 +33,7 @@ export const ProductsInCart = () => {
     <>
       {
         productsInCart.map(product => (
-          <div key={`${product.slug}-${product.size}`} className="flex flex-col mt-5">
+          <div key={`${product.slug}-${product.size}`} className="flex flex-col gap-1 mt-5">
 
             <ProductImage
               src={product.image}
@@ -43,7 +43,7 @@ export const ProductsInCart = () => {
               className="w-20 h-20 object-cover rounded-lg"
             />
 
-            <div>
+            <div className='flex flex-col gap-2'>
               <Link
                 className='hover:underline cursor-pointer'
                 href={`/product/${product.slug}`}>

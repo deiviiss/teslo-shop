@@ -5,7 +5,7 @@ import { Title } from '@/components'
 
 export default function CartPage() {
   return (
-    <div className="flex justify-center items-center mb-72 px-10 sm:px-0">
+    <div className="flex justify-center items-center mb-72 px-1 sm:px-0">
 
       <div className="flex flex-col w-[1000px]">
         <Title title='Carrito' subtitle="Tus compras en el carrito" />
@@ -13,7 +13,7 @@ export default function CartPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
 
           {/* cart */}
-          <div className="flex flex-col mt-5">
+          <div className="flex flex-col gap-1 mt-3">
             <span className=" text-xl">Agregar más items</span>
             <Link href="/" className="underline mb-5">
               Continua comprando

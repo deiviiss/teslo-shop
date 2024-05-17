@@ -4,8 +4,15 @@ import { Pagination, Title, UsersTable } from '@/components'
 
 export const revalidate = 0
 
-export default async function UsersPage() {
-  const { ok, users = [] } = await getPaginatedUsers()
+interface Props {
+  searchParams: {
+    page?: string
+  }
+}
+
+export default async function UsersPage({ searchParams }: Props) {
+  const page = searchParams.page ? parseInt(searchParams.page) : 1
+  const { ok, users = [], totalPages } = await getPaginatedUsers({ page })
 
   if (!ok) {
     redirect('/auth/login')
@@ -18,7 +25,7 @@ export default async function UsersPage() {
       <div className="mb-10">
         <UsersTable users={users} />
 
-        <Pagination totalPages={3} />
+        <Pagination totalPages={totalPages || 1} />
       </div>
     </>
   )

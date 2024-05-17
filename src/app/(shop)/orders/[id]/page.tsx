@@ -21,9 +21,8 @@ export default async function OrdersByIdPage({ params }: Props) {
 
   const orderItem = order.orderItem
   const orderAddress = order.orderAddresses
-
   return (
-    <div className="flex justify-center items-center mb-72 px-10 sm:px-0">
+    <div className="flex justify-center items-center mb-72 px-1 sm:px-0">
 
       <div className="flex flex-col w-[1000px]">
         <Title className='' title={`Orden #${id.split('-').at(-1)}`} subtitle="Estos son los datos de tu orden" />

@@ -2,8 +2,14 @@
 
 import { validateUserAdmin } from '@/actions'
 import prisma from '@/lib/prisma'
+import { validatePageNumber } from '@/utils'
 
-export const getPaginatedUsers = async () => {
+interface PaginationOptions {
+  page?: number
+  take?: number
+}
+
+export const getPaginatedUsers = async ({ page = 1, take = 12 }: PaginationOptions) => {
   const isAdmin = await validateUserAdmin()
 
   if (!isAdmin) {
@@ -13,7 +19,11 @@ export const getPaginatedUsers = async () => {
     }
   }
 
+  page = validatePageNumber(page)
+
   const users = await prisma.user.findMany({
+    take,
+    skip: (page - 1) * take,
     orderBy: {
       name: 'desc'
     }
@@ -26,8 +36,14 @@ export const getPaginatedUsers = async () => {
     }
   }
 
+  const totalCount = await prisma.order.count({})
+
+  const totalPages = Math.ceil(totalCount / take)
+
   return {
     ok: true,
-    users
+    users,
+    currentPage: page,
+    totalPages
   }
 }

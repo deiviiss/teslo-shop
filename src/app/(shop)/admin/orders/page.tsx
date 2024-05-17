@@ -4,10 +4,18 @@ import { IoCardOutline } from 'react-icons/io5'
 import { getPaginatedOrders, validateUserAdmin } from '@/actions'
 import { Pagination, Title } from '@/components'
 
-export default async function OrdersPage() {
+interface Props {
+  searchParams: {
+    page?: string
+  }
+}
+
+export default async function OrdersPage({ searchParams }: Props) {
   await validateUserAdmin()
 
-  const { ok, orders } = await getPaginatedOrders()
+  const page = searchParams.page ? parseInt(searchParams.page) : 1
+
+  const { ok, orders, totalPages } = await getPaginatedOrders({ page })
 
   if (!ok) {
     redirect('/auth/login')
@@ -78,7 +86,7 @@ export default async function OrdersPage() {
           </tbody>
         </table>
 
-        <Pagination totalPages={3} />
+        <Pagination totalPages={totalPages || 1} />
       </div>
     </>
   )

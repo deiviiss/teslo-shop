@@ -55,6 +55,8 @@ export const PlaceOrder = () => {
     // order success
     clearCart()
     router.replace(`/orders/${rta.order?.id}`)
+    // todo: sweet alert confirm order
+    alert('Pedido realizado con éxito')
   }
 
   return (
@@ -93,7 +95,7 @@ export const PlaceOrder = () => {
 
         <p className="mb-5">
           <span>
-            Al hacer clic en &quot;Confirmar compra&quot;, aceptas nuestros <Link href="/" className="underline">términos y condiciones</Link> y <Link href={'/'} className='underline'>política de privacidad</Link>
+            Al hacer clic en &quot;Confirmar compra&quot;, aceptas nuestros <Link href="/terms-privacy" className="underline">términos y condiciones</Link> y <Link href={'/terms-privacy'} className='underline'>política de privacidad</Link>
           </span>
         </p>
 

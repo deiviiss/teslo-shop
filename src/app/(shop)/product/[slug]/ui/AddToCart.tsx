@@ -35,6 +35,8 @@ export const AddToCart = ({ product }: Props) => {
     setAttempted(false)
     setQuantity(1)
     setSize(undefined)
+    // Todo: show success message use sweet
+    alert('Producto agregado al carrito')
   }
 
   return (
@@ -43,17 +45,19 @@ export const AddToCart = ({ product }: Props) => {
 
       {
         attempted && !size && (
-          <span className='mt-2 text-red-500 fade-in'>
+          <span className='mb-10 text-red-500 fade-in'>
             Selecciona una talla*
           </span>
         )
       }
+
       {/* size selector */}
       <SizeSelector
         selectedSize={size}
         availableSizes={product.sizes}
         onSizeChange={setSize}
       />
+
       {/* count selector */}
       <QuantitySelector quantity={quantity} onQuantityChange={setQuantity} />
 
