@@ -43,11 +43,11 @@ export const getPaginatedOrders = async ({ page = 1, take = 12 }: PaginationOpti
       message: 'No se encontraron ordenes'
     }
   }
-  console.log(orders)
+
   const totalCount = await prisma.order.count({})
-  console.log(totalCount)
+
   const totalPages = Math.ceil(totalCount / take)
-  console.log(totalPages)
+
   return {
     ok: true,
     orders,
