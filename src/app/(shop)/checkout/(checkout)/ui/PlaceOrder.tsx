@@ -56,7 +56,7 @@ export const PlaceOrder = () => {
     clearCart()
     router.replace(`/orders/${rta.order?.id}`)
     // todo: sweet alert confirm order
-    alert('Pedido realizado con éxito')
+    alert('Pedido generado con éxito, procede con el pago')
   }
 
   return (
@@ -95,14 +95,13 @@ export const PlaceOrder = () => {
 
         <p className="mb-5">
           <span>
-            Al hacer clic en &quot;Confirmar compra&quot;, aceptas nuestros <Link href="/terms-privacy" className="underline">términos y condiciones</Link> y <Link href={'/terms-privacy'} className='underline'>política de privacidad</Link>
+            Al hacer clic en &quot;Confirmar compra&quot;, aceptas nuestros <Link href="/terms" className="underline">términos y condiciones</Link> y <Link href={'/privacy'} className='underline'>política de privacidad</Link>
           </span>
         </p>
 
         <p className='pb-4 text-red-500'>{errorMessage}</p>
 
         <button
-          // href="/orders/123"
           disabled={isPlacingOrder}
           className={
             clsx({

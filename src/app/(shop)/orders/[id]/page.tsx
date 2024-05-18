@@ -25,7 +25,7 @@ export default async function OrdersByIdPage({ params }: Props) {
     <div className="flex justify-center items-center mb-72 px-1 sm:px-0">
 
       <div className="flex flex-col w-[1000px]">
-        <Title className='' title={`Orden #${id.split('-').at(-1)}`} subtitle="Estos son los datos de tu orden" />
+        <Title className='' title={`Orden #${id.split('-').at(-1)}`} subtitle="Estos son los datos de tu pedido" />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
 

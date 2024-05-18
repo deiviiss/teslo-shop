@@ -51,6 +51,8 @@ export const PayPalButton = ({ orderId, amount }: Props) => {
     if (!details) return
 
     await paypalCheckPayment(details.id)
+    // TODO: sweet alert payment completed
+    alert('Pago completado, en breve te contactaremos para enviar tu pedido')
   }
 
   return (

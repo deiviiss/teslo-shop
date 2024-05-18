@@ -21,7 +21,7 @@ interface SeedUser {
 }
 
 type ValidSizes = 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL' | 'XXXL'
-type ValidTypes = 'shirts' | 'pants' | 'hoodies' | 'hats'
+type ValidTypes = 'camisas' | 'pants' | 'sudaderas' | 'gorros'
 
 interface SeedData {
   categories: ValidTypes[]
@@ -30,7 +30,7 @@ interface SeedData {
 }
 
 export const initialData: SeedData = {
-  categories: ['shirts', 'pants', 'hoodies', 'hats'],
+  categories: ['camisas', 'pants', 'sudaderas', 'gorros'],
 
   products: [
     {
@@ -43,7 +43,7 @@ export const initialData: SeedData = {
       price: 75,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'mens_chill_crew_neck_sweatshirt',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['sweatshirt'],
       title: 'Men’s Chill Crew Neck Sweatshirt',
       gender: 'men'
@@ -58,7 +58,7 @@ export const initialData: SeedData = {
       price: 200,
       sizes: ['XS', 'S', 'M', 'XL', 'XXL'],
       slug: 'men_quilted_shirt_jacket',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['jacket'],
       title: "Men's Quilted Shirt Jacket",
       gender: 'men'
@@ -74,7 +74,7 @@ export const initialData: SeedData = {
       price: 130,
       sizes: ['S', 'M', 'L', 'XL', 'XXL'],
       slug: 'men_raven_lightweight_zip_up_bomber_jacket',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Men's Raven Lightweight Zip Up Bomber Jacket",
       gender: 'men'
@@ -90,7 +90,7 @@ export const initialData: SeedData = {
       price: 45,
       sizes: ['XS', 'S', 'M', 'L'],
       slug: 'men_turbine_long_sleeve_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Men's Turbine Long Sleeve Tee",
       gender: 'men'
@@ -105,7 +105,7 @@ export const initialData: SeedData = {
       price: 40,
       sizes: ['M', 'L', 'XL', 'XXL'],
       slug: 'men_turbine_short_sleeve_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Men's Turbine Short Sleeve Tee",
       gender: 'men'
@@ -120,7 +120,7 @@ export const initialData: SeedData = {
       price: 35,
       sizes: ['M', 'L', 'XL', 'XXL'],
       slug: 'men_cybertruck_owl_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Men's Cybertruck Owl Tee",
       gender: 'men'
@@ -135,7 +135,7 @@ export const initialData: SeedData = {
       price: 35,
       sizes: ['S', 'M', 'L', 'XL'],
       slug: 'men_solar_roof_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Men's Solar Roof Tee",
       gender: 'men'
@@ -150,7 +150,7 @@ export const initialData: SeedData = {
       price: 35,
       sizes: ['XS', 'S', 'XL', 'XXL'],
       slug: 'men_let_the_sun_shine_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Men's Let the Sun Shine Tee",
       gender: 'men'
@@ -165,7 +165,7 @@ export const initialData: SeedData = {
       price: 35,
       sizes: ['XS', 'S', 'M'],
       slug: 'men_3d_large_wordmark_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Men's 3D Large Wordmark Tee",
       gender: 'men'
@@ -180,7 +180,7 @@ export const initialData: SeedData = {
       price: 35,
       sizes: ['XS', 'S'],
       slug: 'men_3d_t_logo_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Men's 3D T Logo Tee",
       gender: 'men'
@@ -195,7 +195,7 @@ export const initialData: SeedData = {
       price: 35,
       sizes: ['XS', 'S', 'M'],
       slug: 'men_3d_small_wordmark_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: 'Men’s 3D Small Wordmark Tee',
       gender: 'men'
@@ -210,7 +210,7 @@ export const initialData: SeedData = {
       price: 35,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'men_plaid_mode_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Men's Plaid Mode Tee",
       gender: 'men'
@@ -225,7 +225,7 @@ export const initialData: SeedData = {
       price: 35,
       sizes: ['XL', 'XXL'],
       slug: 'men_powerwall_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Men's Powerwall Tee",
       gender: 'men'
@@ -240,7 +240,7 @@ export const initialData: SeedData = {
       price: 30,
       sizes: ['XS', 'S', 'XXL'],
       slug: 'men_battery_day_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Men's Battery Day Tee",
       gender: 'men'
@@ -255,7 +255,7 @@ export const initialData: SeedData = {
       price: 30,
       sizes: ['M', 'L'],
       slug: 'men_cybertruck_bulletproof_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: 'Men’s Cybertruck Bulletproof Tee',
       gender: 'men'
@@ -270,7 +270,7 @@ export const initialData: SeedData = {
       price: 35,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'men_haha_yes_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Men's Haha Yes Tee",
       gender: 'men'
@@ -285,7 +285,7 @@ export const initialData: SeedData = {
       price: 35,
       sizes: ['XS', 'S', 'M', 'L'],
       slug: 'men_s3xy_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Men's S3XY Tee",
       gender: 'men'
@@ -300,7 +300,7 @@ export const initialData: SeedData = {
       price: 40,
       sizes: ['XL', 'XXL'],
       slug: 'men_3d_wordmark_long_sleeve_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Men's 3D Wordmark Long Sleeve Tee",
       gender: 'men'
@@ -315,7 +315,7 @@ export const initialData: SeedData = {
       price: 40,
       sizes: ['XS', 'XXL'],
       slug: 'men_3d_t_logo_long_sleeve_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Men's 3D T Logo Long Sleeve Tee",
       gender: 'men'
@@ -330,7 +330,7 @@ export const initialData: SeedData = {
       price: 115,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'men_raven_lightweight_hoodie',
-      type: 'hoodies',
+      type: 'sudaderas',
       tags: ['hoodie'],
       title: "Men's Raven Lightweight Hoodie",
       gender: 'men'
@@ -345,7 +345,7 @@ export const initialData: SeedData = {
       price: 130,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'chill_pullover_hoodie',
-      type: 'hoodies',
+      type: 'sudaderas',
       tags: ['hoodie'],
       title: 'Chill Pullover Hoodie',
       gender: 'unisex'
@@ -360,7 +360,7 @@ export const initialData: SeedData = {
       price: 85,
       sizes: ['XS', 'L', 'XL', 'XXL'],
       slug: 'men_chill_full_zip_hoodie',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Men's Chill Full Zip Hoodie",
       gender: 'men'
@@ -375,7 +375,7 @@ export const initialData: SeedData = {
       price: 85,
       sizes: ['XS', 'S', 'M'],
       slug: 'men_chill_quarter_zip_pullover_-_gray',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Men's Chill Quarter Zip Pullover - Gray",
       gender: 'men'
@@ -390,7 +390,7 @@ export const initialData: SeedData = {
       price: 85,
       sizes: ['XS', 'S', 'M', 'L'],
       slug: 'men_chill_quarter_zip_pullover_-_white',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Men's Chill Quarter Zip Pullover - White",
       gender: 'men'
@@ -405,7 +405,7 @@ export const initialData: SeedData = {
       price: 70,
       sizes: ['XS', 'S', 'XL', 'XXL'],
       slug: '3d_large_wordmark_pullover_hoodie',
-      type: 'hoodies',
+      type: 'sudaderas',
       tags: ['hoodie'],
       title: '3D Large Wordmark Pullover Hoodie',
       gender: 'unisex'
@@ -420,7 +420,7 @@ export const initialData: SeedData = {
       price: 60,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'cybertruck_graffiti_hoodie',
-      type: 'hoodies',
+      type: 'sudaderas',
       tags: ['hoodie'],
       title: 'Cybertruck Graffiti Hoodie',
       gender: 'unisex'
@@ -435,8 +435,8 @@ export const initialData: SeedData = {
       price: 30,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'relaxed_t_logo_hat',
-      type: 'hats',
-      tags: ['hats'],
+      type: 'gorros',
+      tags: ['gorros'],
       title: 'Relaxed T Logo Hat',
       gender: 'unisex'
     },
@@ -450,8 +450,8 @@ export const initialData: SeedData = {
       price: 35,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'thermal_cuffed_beanie',
-      type: 'hats',
-      tags: ['hats'],
+      type: 'gorros',
+      tags: ['gorros'],
       title: 'Thermal Cuffed Beanie',
       gender: 'unisex'
     },
@@ -465,7 +465,7 @@ export const initialData: SeedData = {
       price: 225,
       sizes: ['XS', 'S', 'M'],
       slug: 'women_cropped_puffer_jacket',
-      type: 'hoodies',
+      type: 'sudaderas',
       tags: ['hoodie'],
       title: "Women's Cropped Puffer Jacket",
       gender: 'women'
@@ -480,7 +480,7 @@ export const initialData: SeedData = {
       price: 130,
       sizes: ['XS', 'S', 'M', 'XXL'],
       slug: 'women_chill_half_zip_cropped_hoodie',
-      type: 'hoodies',
+      type: 'sudaderas',
       tags: ['hoodie'],
       title: "Women's Chill Half Zip Cropped Hoodie",
       gender: 'women'
@@ -495,7 +495,7 @@ export const initialData: SeedData = {
       price: 110,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'women_raven_slouchy_crew_sweatshirt',
-      type: 'hoodies',
+      type: 'sudaderas',
       tags: ['hoodie'],
       title: "Women's Raven Slouchy Crew Sweatshirt",
       gender: 'women'
@@ -510,7 +510,7 @@ export const initialData: SeedData = {
       price: 45,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'women_turbine_cropped_long_sleeve_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Women's Turbine Cropped Long Sleeve Tee",
       gender: 'women'
@@ -525,7 +525,7 @@ export const initialData: SeedData = {
       price: 40,
       sizes: ['XS', 'S'],
       slug: 'women_turbine_cropped_short_sleeve_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Women's Turbine Cropped Short Sleeve Tee",
       gender: 'women'
@@ -540,7 +540,7 @@ export const initialData: SeedData = {
       price: 35,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'women_t_logo_short_sleeve_scoop_neck_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Women's T Logo Short Sleeve Scoop Neck Tee",
       gender: 'women'
@@ -555,7 +555,7 @@ export const initialData: SeedData = {
       price: 40,
       sizes: ['XS', 'S', 'L', 'XL', 'XXL'],
       slug: 'women_t_logo_long_sleeve_scoop_neck_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Women's T Logo Long Sleeve Scoop Neck Tee",
       gender: 'women'
@@ -570,7 +570,7 @@ export const initialData: SeedData = {
       price: 35,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'women_small_wordmark_short_sleeve_v-neck_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Women's Small Wordmark Short Sleeve V-Neck Tee",
       gender: 'women'
@@ -585,7 +585,7 @@ export const initialData: SeedData = {
       price: 35,
       sizes: ['XL', 'XXL'],
       slug: 'women_large_wordmark_short_sleeve_crew_neck_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Women's Large Wordmark Short Sleeve Crew Neck Tee",
       gender: 'women'
@@ -600,7 +600,7 @@ export const initialData: SeedData = {
       price: 35,
       sizes: ['S', 'M'],
       slug: 'women_plaid_mode_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Women's Plaid Mode Tee",
       gender: 'women'
@@ -615,7 +615,7 @@ export const initialData: SeedData = {
       price: 130,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'women_powerwall_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: 'Women’s Powerwall Tee',
       gender: 'women'
@@ -630,7 +630,7 @@ export const initialData: SeedData = {
       price: 90,
       sizes: ['M', 'L', 'XL', 'XXL'],
       slug: 'women_corp_jacket',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Women's Corp Jacket",
       gender: 'women'
@@ -645,7 +645,7 @@ export const initialData: SeedData = {
       price: 100,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'women_raven_joggers',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: "Women's Raven Joggers",
       gender: 'women'
@@ -660,7 +660,7 @@ export const initialData: SeedData = {
       price: 30,
       sizes: ['XS', 'S', 'M'],
       slug: 'kids_cybertruck_long_sleeve_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: 'Kids Cybertruck Long Sleeve Tee',
       gender: 'kid'
@@ -675,7 +675,7 @@ export const initialData: SeedData = {
       price: 25,
       sizes: ['XS', 'S', 'M'],
       slug: 'kids_scribble_t_logo_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: 'Kids Scribble T Logo Tee',
       gender: 'kid'
@@ -690,7 +690,7 @@ export const initialData: SeedData = {
       price: 25,
       sizes: ['XS', 'S', 'M'],
       slug: 'kids_cybertruck_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: 'Kids Cybertruck Tee',
       gender: 'kid'
@@ -705,7 +705,7 @@ export const initialData: SeedData = {
       price: 30,
       sizes: ['XS', 'S', 'M'],
       slug: 'kids_racing_stripe_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: 'Kids Racing Stripe Tee',
       gender: 'kid'
@@ -720,7 +720,7 @@ export const initialData: SeedData = {
       price: 30,
       sizes: ['XS', 'S', 'M'],
       slug: 'kids_3d_t_logo_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: 'Kids 3D T Logo Tee',
       gender: 'kid'
@@ -735,7 +735,7 @@ export const initialData: SeedData = {
       price: 30,
       sizes: ['XS', 'S', 'M'],
       slug: 'kids_checkered_tee',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: 'Kids Checkered Tee',
       gender: 'kid'
@@ -750,7 +750,7 @@ export const initialData: SeedData = {
       price: 25,
       sizes: ['XS', 'S'],
       slug: 'made_on_earth_by_humans_onesie',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: 'Made on Earth by Humans Onesie',
       gender: 'kid'
@@ -765,7 +765,7 @@ export const initialData: SeedData = {
       price: 30,
       sizes: ['XS', 'S'],
       slug: 'scribble_t_logo_onesie',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: 'Scribble T Logo Onesie',
       gender: 'kid'
@@ -780,7 +780,7 @@ export const initialData: SeedData = {
       price: 30,
       sizes: ['XS', 'S'],
       slug: 'zero_emissions_(almost)_onesie',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: 'Zero Emissions (Almost) Onesie',
       gender: 'kid'
@@ -795,7 +795,7 @@ export const initialData: SeedData = {
       price: 65,
       sizes: ['XS', 'S', 'M'],
       slug: 'kids_cyberquad_bomber_jacket',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: 'Kids Cyberquad Bomber Jacket',
       gender: 'kid'
@@ -810,7 +810,7 @@ export const initialData: SeedData = {
       price: 30,
       sizes: ['XS', 'S', 'M'],
       slug: 'kids_corp_jacket',
-      type: 'shirts',
+      type: 'camisas',
       tags: ['shirt'],
       title: 'Kids Corp Jacket',
       gender: 'kid'
@@ -819,14 +819,14 @@ export const initialData: SeedData = {
 
   users: [
     {
-      email: 'admin@mail.com',
-      name: 'David Hilera',
+      email: 'admin@hotmail.com',
+      name: 'Wendy Hilera',
       password: bcrypt.hashSync('userseed'),
       role: 'admin'
     },
     {
-      email: 'user@mail.com',
-      name: 'User',
+      email: 'david.hilera@hotmail.com',
+      name: 'David Hilera',
       password: bcrypt.hashSync('userseed'),
       role: 'user'
     }

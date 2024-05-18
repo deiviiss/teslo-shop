@@ -92,7 +92,7 @@ export const ProductForm = ({ product, categories }: Props) => {
     const { ok, product } = await createUpdateProduct(formData)
 
     if (!ok) {
-      //! change to sweetalert
+      // TODO: change to sweetalert
       alert('Error al guardar el producto')
       return
     }
@@ -250,7 +250,9 @@ export const ProductForm = ({ product, categories }: Props) => {
             {
               product.ProductImage &&
               product.ProductImage.map(image => (
-                <div key={image.id}>
+                <div
+                  className='flex flex-col items-center justify-center'
+                  key={image.id}>
                   <ProductImage
                     src={image.url}
                     alt={product.title ? product.title : 'Producto'}
