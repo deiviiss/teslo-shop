@@ -1,0 +1,71 @@
+diff --git a/src/app/(shop)/admin/orders/page.tsx b/src/app/(shop)/admin/orders/page.tsx
+index 80ddedd..5cc50e5 100644
+--- a/src/app/(shop)/admin/orders/page.tsx
++++ b/src/app/(shop)/admin/orders/page.tsx
+@@ -21,6 +21,20 @@ export default async function OrdersPage({ searchParams }: Props) {
+     redirect('/auth/login')
+   }
+ 
++  if (orders?.length === 0) {
++    return (
++      <div className='flex flex-col gap-3 items-center justify-center h-[300px] max-w-[920px] my-5 text-center'>
++
++        <h1>No tienes ordenes registradas</h1>
++
++        <Link href="/" className='hover:underline'>
++          Comienza a comprar
++        </Link>
++
++      </div>
++    )
++  }
++
+   return (
+     <>
+       <Title title="Todas las ordenes" subtitle='Lista de ordenes de todos los usuarios' />
+diff --git a/src/app/(shop)/orders/page.tsx b/src/app/(shop)/orders/page.tsx
+index 39cf305..6073ee6 100644
+--- a/src/app/(shop)/orders/page.tsx
++++ b/src/app/(shop)/orders/page.tsx
+@@ -18,6 +18,20 @@ export default async function OrdersPage({ searchParams }: Props) {
+     redirect('/auth/login')
+   }
+ 
++  if (orders?.length === 0) {
++    return (
++      <div className='flex flex-col gap-3 items-center justify-center h-[300px] max-w-[920px] my-5 text-center'>
++
++        <h1>No tienes ordenes registradas</h1>
++
++        <Link href="/" className='hover:underline'>
++          Comienza a comprar
++        </Link>
++
++      </div>
++    )
++  }
++
+   return (
+     <>
+       <Title title="Ordenes" subtitle='Lista de ordenes' />
+diff --git a/src/seed/seed.ts b/src/seed/seed.ts
+index ee0a618..9036d2a 100644
+--- a/src/seed/seed.ts
++++ b/src/seed/seed.ts
+@@ -819,13 +819,13 @@ export const initialData: SeedData = {
+ 
+   users: [
+     {
+-      email: 'admin@hotmail.com',
+-      name: 'Wendy Hilera',
++      email: 'admin@mail.com',
++      name: 'Admin propetario',
+       password: bcrypt.hashSync('userseed'),
+       role: 'admin'
+     },
+     {
+-      email: 'david.hilera@hotmail.com',
++      email: 'cliente@mail.com',
+       name: 'David Hilera',
+       password: bcrypt.hashSync('userseed'),
+       role: 'user'

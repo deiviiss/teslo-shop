@@ -18,6 +18,20 @@ export default async function OrdersPage({ searchParams }: Props) {
     redirect('/auth/login')
   }
 
+  if (orders?.length === 0) {
+    return (
+      <div className='flex flex-col gap-3 items-center justify-center h-[300px] max-w-[920px] my-5 text-center'>
+
+        <h1>No tienes ordenes registradas</h1>
+
+        <Link href="/" className='hover:underline'>
+          Comienza a comprar
+        </Link>
+
+      </div>
+    )
+  }
+
   return (
     <>
       <Title title="Ordenes" subtitle='Lista de ordenes' />
