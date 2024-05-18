@@ -34,8 +34,8 @@ export const ProductGridItem = ({ product }: ProductGridItemProps) => {
           href={`/product/${product.slug}`}>
           {product.title}
         </Link>
-        <span className='font-bold'>$ {product.price}</span>
         <span className='text-sm'>Tallas: {product.sizes.join(' - ')}</span>
+        <span className='font-bold'>$ {product.price}</span>
       </div>
     </div>
   )
