@@ -4,15 +4,41 @@ import clsx from 'clsx'
 import Link from 'next/link'
 import { redirect, useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 import { placeOrder } from '@/actions'
+
 import { useAddressStore, useCartStore } from '@/store'
 import { currencyFormat } from '@/utils'
+
+const MySwal = withReactContent(Swal)
 
 export const PlaceOrder = () => {
   const router = useRouter()
   const [loaded, setLoaded] = useState(false)
   const [isPlacingOrder, setIsPlacingOrder] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
+
+  const NoticeConfirm = () => {
+    return (
+      <p>Pedido generado con éxito, procede con el pago</p>
+    )
+  }
+
+  const noticeConfirmOrder = async (id?: string) => {
+    if (!id) return
+
+    await MySwal.fire({
+      html: <NoticeConfirm />,
+      background: '#ffffff',
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'Ver pedido',
+      color: '#000000',
+      preConfirm: () => {
+        router.replace(`/orders/${id}`)
+      }
+    })
+  }
 
   const cart = useCartStore(state => state.cart)
   const clearCart = useCartStore(state => state.clearCart)
@@ -54,9 +80,7 @@ export const PlaceOrder = () => {
 
     // order success
     clearCart()
-    router.replace(`/orders/${rta.order?.id}`)
-    // todo: sweet alert confirm order
-    alert('Pedido generado con éxito, procede con el pago')
+    noticeConfirmOrder(rta.order?.id)
   }
 
   return (

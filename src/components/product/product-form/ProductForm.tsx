@@ -3,9 +3,13 @@
 import clsx from 'clsx'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 import { createUpdateProduct, deleteProductImage } from '@/actions'
-import { ProductImage } from '@/components'
+import { ProductImage, Title } from '@/components'
 import { type ProductImage as ProductWithImage, type Product, type Category } from '@/interfaces'
+
+const MySwal = withReactContent(Swal)
 
 interface Props {
   product: Partial<Product> & { ProductImage?: ProductWithImage[] }
@@ -28,6 +32,19 @@ interface FormInputs {
 }
 
 const sizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
+
+const noticeFailSaved = async () => {
+  await MySwal.fire({
+    html: <Title title='Error al guardar el producto' subtitle='' />,
+    background: '#ffffff',
+    icon: 'error',
+    cancelButtonColor: '#d33',
+    showConfirmButton: false,
+    cancelButtonText: 'Cerrar',
+    showCancelButton: true,
+    color: '#000000'
+  })
+}
 
 export const ProductForm = ({ product, categories }: Props) => {
   const router = useRouter()
@@ -92,8 +109,7 @@ export const ProductForm = ({ product, categories }: Props) => {
     const { ok, product } = await createUpdateProduct(formData)
 
     if (!ok) {
-      // TODO: change to sweetalert
-      alert('Error al guardar el producto')
+      noticeFailSaved()
       return
     }
 

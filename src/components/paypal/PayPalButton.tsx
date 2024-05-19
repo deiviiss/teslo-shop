@@ -2,11 +2,23 @@
 
 import { type CreateOrderData, type CreateOrderActions, type OnApproveActions, type OnApproveData } from '@paypal/paypal-js'
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js'
+import Swal from 'sweetalert2'
 import { paypalCheckPayment, setTransactionId } from '@/actions'
 
 interface Props {
   orderId: string
   amount: number
+}
+
+const noticeConfirmPaid = async () => {
+  await Swal.fire({
+    text: 'Pago completado, estamos preparando tu pedido',
+    background: '#ffffff',
+    showConfirmButton: false,
+    timer: 2000,
+    confirmButtonColor: '#3085d6',
+    color: '#000000'
+  })
 }
 
 export const PayPalButton = ({ orderId, amount }: Props) => {
@@ -51,8 +63,8 @@ export const PayPalButton = ({ orderId, amount }: Props) => {
     if (!details) return
 
     await paypalCheckPayment(details.id)
-    // TODO: sweet alert payment completed
-    alert('Pago completado, en breve te contactaremos para enviar tu pedido')
+
+    noticeConfirmPaid()
   }
 
   return (

@@ -1,12 +1,24 @@
 'use client'
 
 import { useState } from 'react'
+import Swal from 'sweetalert2'
 import { QuantitySelector, SizeSelector } from '@/components'
 import { type Size, type Product, type CartProduct } from '@/interfaces'
 import { useCartStore } from '@/store'
 
 interface Props {
   product: Product
+}
+
+const noticeAddToCart = async () => {
+  await Swal.fire({
+    background: '#ffffff',
+    showConfirmButton: false,
+    color: '#000000',
+    position: 'top-end',
+    text: 'Producto agregado al carrito',
+    timer: 1000
+  })
 }
 
 export const AddToCart = ({ product }: Props) => {
@@ -36,7 +48,7 @@ export const AddToCart = ({ product }: Props) => {
     setQuantity(1)
     setSize(undefined)
     // Todo: show success message use sweet
-    alert('Producto agregado al carrito')
+    noticeAddToCart()
   }
 
   return (

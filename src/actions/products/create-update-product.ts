@@ -123,7 +123,7 @@ export const createUpdateProduct = async (formData: FormData) => {
     revalidatePath(`/products/${prismaTx?.product.slug}`)
 
     return {
-      ok: true,
+      ok: false,
       product: prismaTx?.product
     }
   } catch (error) {

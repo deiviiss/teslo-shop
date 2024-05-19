@@ -25,10 +25,10 @@ export default async function OrdersPage({ searchParams }: Props) {
     return (
       <div className='flex flex-col gap-3 items-center justify-center h-[300px] max-w-[920px] my-5 text-center'>
 
-        <h1>No tienes ordenes registradas</h1>
+        <h1>No se ha hecho ninguna orden</h1>
 
         <Link href="/" className='hover:underline'>
-          Comienza a comprar
+          Haz una compra!
         </Link>
 
       </div>
