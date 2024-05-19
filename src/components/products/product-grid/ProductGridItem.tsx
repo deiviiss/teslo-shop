@@ -20,7 +20,7 @@ export const ProductGridItem = ({ product }: ProductGridItemProps) => {
       <Link href={`/product/${product.slug}`}>
         <ProductImage src={displayImage}
           alt={product.title}
-          className='w-full object-cover rounded'
+          className='w-full object-cover object-top rounded max-h-[160px] md:max-h-[200px] lg:max-h-[300px] xl:max-h-[400px] '
           width={500}
           height={500}
           onMouseEnter={handleMouseEnter}
