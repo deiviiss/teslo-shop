@@ -5,13 +5,10 @@ import Link from 'next/link'
 import { redirect, useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
 import { placeOrder } from '@/actions'
 
 import { useAddressStore, useCartStore } from '@/store'
 import { currencyFormat } from '@/utils'
-
-const MySwal = withReactContent(Swal)
 
 export const PlaceOrder = () => {
   const router = useRouter()
@@ -19,17 +16,11 @@ export const PlaceOrder = () => {
   const [isPlacingOrder, setIsPlacingOrder] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
 
-  const NoticeConfirm = () => {
-    return (
-      <p>Pedido generado con éxito, procede con el pago</p>
-    )
-  }
-
   const noticeConfirmOrder = async (id?: string) => {
     if (!id) return
 
-    await MySwal.fire({
-      html: <NoticeConfirm />,
+    await Swal.fire({
+      text: 'Pedido generado con éxito, procede con el pago',
       background: '#ffffff',
       confirmButtonColor: '#3085d6',
       confirmButtonText: 'Ver pedido',

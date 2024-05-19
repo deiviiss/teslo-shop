@@ -14,9 +14,8 @@ const noticeConfirmPaid = async () => {
   await Swal.fire({
     text: 'Pago completado, estamos preparando tu pedido',
     background: '#ffffff',
-    showConfirmButton: false,
-    timer: 2000,
     confirmButtonColor: '#3085d6',
+    confirmButtonText: 'Ver pedido',
     color: '#000000'
   })
 }
