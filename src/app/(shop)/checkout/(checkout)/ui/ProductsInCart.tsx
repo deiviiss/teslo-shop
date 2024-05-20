@@ -1,7 +1,7 @@
 'use client'
 
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import { ProductImage } from '@/components'
 import { useCartStore } from '@/store'
 import { currencyFormat } from '@/utils'
 
@@ -26,12 +26,12 @@ export const ProductsInCart = () => {
         productsInCart.map(product => (
           <div key={`${product.slug}-${product.size}`} className="flex flex-col mt-5">
 
-            <Image
-              src={`/products/${product.image}`}
+            <ProductImage
+              src={product.image}
               alt={product.title}
               width={100}
               height={100}
-              className='mr-5 rounded'
+              className='mr-5 rounded w-20 h-20 object-cover'
             />
 
             <div>

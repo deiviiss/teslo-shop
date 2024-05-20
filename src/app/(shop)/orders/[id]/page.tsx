@@ -1,7 +1,6 @@
-import Image from 'next/image'
 import { redirect } from 'next/navigation'
 import { getOrderById } from '@/actions'
-import { OrderStatus, PayPalButton, Title } from '@/components'
+import { OrderStatus, PayPalButton, ProductImage, Title } from '@/components'
 import { currencyFormat } from '@/utils'
 
 interface Props {
@@ -38,8 +37,8 @@ export default async function OrdersByIdPage({ params }: Props) {
             {
               orderItem.map((item, index) => (
                 <div key={index} className="flex flex-col mt-5">
-                  <Image
-                    src={`/products/${item.product.ProductImage[0].url}`}
+                  <ProductImage
+                    src={item.product.ProductImage[0].url}
                     alt={item.product.title}
                     width={100}
                     height={100}
@@ -61,7 +60,7 @@ export default async function OrdersByIdPage({ params }: Props) {
 
             <h2 className='text-2xl mb-2'>Dirección de entrega</h2>
             <div className="mb-10">
-              <p>{orderAddress?.firstName}</p>
+              <p>{orderAddress?.firstName} {orderAddress?.lastName}</p>
               <p>{orderAddress?.address}</p>
               <p>{orderAddress?.city}</p>
               <p>CP {orderAddress?.postalCode}</p>

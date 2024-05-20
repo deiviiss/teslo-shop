@@ -1,19 +1,21 @@
 'use client'
 
 import clsx from 'clsx'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
 import { createUpdateProduct, deleteProductImage } from '@/actions'
-import { ProductImage, Title } from '@/components'
+import { ProductImage } from '@/components'
 import { type ProductImage as ProductWithImage, type Product, type Category } from '@/interfaces'
-
-const MySwal = withReactContent(Swal)
 
 interface Props {
   product: Partial<Product> & { ProductImage?: ProductWithImage[] }
   categories: Category[]
+  params: {
+    slug: string
+  }
 }
 
 interface FormInputs {
@@ -34,8 +36,8 @@ interface FormInputs {
 const sizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
 
 const noticeFailSaved = async () => {
-  await MySwal.fire({
-    html: <Title title='Error al guardar el producto' subtitle='' />,
+  await Swal.fire({
+    text: 'No se pudo guardar el producto, intente nuevamente',
     background: '#ffffff',
     icon: 'error',
     cancelButtonColor: '#d33',
@@ -46,8 +48,31 @@ const noticeFailSaved = async () => {
   })
 }
 
-export const ProductForm = ({ product, categories }: Props) => {
+const noticeSuccessSaved = async () => {
+  await Swal.fire({
+    text: 'Producto guardado correctamente',
+    background: '#ffffff',
+    icon: 'success',
+    showConfirmButton: false,
+    color: '#000000',
+    timer: 1500
+  })
+}
+
+const noticeSuccessDeleteImage = async () => {
+  await Swal.fire({
+    text: 'Producto eliminado correctamente',
+    background: '#ffffff',
+    showConfirmButton: false,
+    color: '#000000',
+    position: 'top-end',
+    timer: 1500
+  })
+}
+
+export const ProductForm = ({ product, categories, params }: Props) => {
   const router = useRouter()
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const {
     handleSubmit,
@@ -85,6 +110,7 @@ export const ProductForm = ({ product, categories }: Props) => {
   watch('sizes')
 
   const onSubmit = async (data: FormInputs) => {
+    setIsSubmitting(true)
     const formData = new FormData()
 
     const { images, ...productToSave } = data
@@ -110,10 +136,25 @@ export const ProductForm = ({ product, categories }: Props) => {
 
     if (!ok) {
       noticeFailSaved()
+      setIsSubmitting(false)
       return
     }
 
+    setIsSubmitting(false)
+    noticeSuccessSaved()
     router.replace(`/admin/product/${product?.slug}`)
+  }
+
+  const handleDeleteImageClick = async (id: string, url: string) => {
+    setIsSubmitting(true)
+    const rta = await deleteProductImage(id, url)
+    if (!rta?.ok) {
+      noticeFailSaved()
+      setIsSubmitting(false)
+      return
+    }
+    setIsSubmitting(false)
+    noticeSuccessDeleteImage()
   }
 
   return (
@@ -193,20 +234,6 @@ export const ProductForm = ({ product, categories }: Props) => {
             }
           </select>
         </div>
-
-        {/* // TODO: disabled button when execute action */}
-        <button
-          className={
-            clsx(
-              'w-full mt-4',
-              {
-                'btn-disabled': !isValid,
-                'btn-primary': isValid
-              }
-            )
-          }>
-          Guardar
-        </button>
       </div>
 
       {/* size and photo selector */}
@@ -262,7 +289,7 @@ export const ProductForm = ({ product, categories }: Props) => {
 
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 overflow-auto h-96">
             {
               product.ProductImage &&
               product.ProductImage.map(image => (
@@ -276,11 +303,19 @@ export const ProductForm = ({ product, categories }: Props) => {
                     height={200}
                     className="rounded-t shadow-md" />
 
-                  {/* // TODO: disabled button when execute action */}
                   <button
-                    onClick={async () => await deleteProductImage(image.id, image.url)}
+                    disabled={isSubmitting}
+                    onClick={() => { handleDeleteImageClick(image.id, image.url) }}
                     type='button'
-                    className="w-full btn-danger rounded-b-xl">
+                    className={
+                      clsx(
+                        'w-full p-2 mt-2 rounded-b border border-t-0',
+                        {
+                          'btn-disabled': isSubmitting,
+                          'btn-danger': !isSubmitting
+                        }
+                      )
+                    }>
                     Eliminar
                   </button>
                 </div>
@@ -289,6 +324,35 @@ export const ProductForm = ({ product, categories }: Props) => {
           </div>
 
         </div>
+      </div>
+
+      <div className='flex gap-2 w-full text-center'>
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className={
+            clsx(
+              'w-full mt-4',
+              {
+                'btn-disabled': !isValid || isSubmitting,
+                'btn-primary': isValid && !isSubmitting
+              }
+            )
+          }>
+          Guardar
+        </button>
+        <Link href="/admin/products"
+          className={
+            clsx(
+              'w-full mt-4',
+              {
+                'btn-disabled': params.slug !== 'create' && (!isValid || isSubmitting),
+                'btn-danger': params.slug === 'create' || (isValid && !isSubmitting)
+              }
+            )
+          }>
+          Cancelar
+        </Link>
       </div>
     </form >
   )

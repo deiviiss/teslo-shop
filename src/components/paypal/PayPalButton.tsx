@@ -2,6 +2,7 @@
 
 import { type CreateOrderData, type CreateOrderActions, type OnApproveActions, type OnApproveData } from '@paypal/paypal-js'
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js'
+import { useRouter } from 'next/navigation'
 import Swal from 'sweetalert2'
 import { paypalCheckPayment, setTransactionId } from '@/actions'
 
@@ -10,18 +11,9 @@ interface Props {
   amount: number
 }
 
-const noticeConfirmPaid = async () => {
-  await Swal.fire({
-    text: 'Pago completado, estamos preparando tu pedido',
-    background: '#ffffff',
-    confirmButtonColor: '#3085d6',
-    confirmButtonText: 'Ver pedido',
-    color: '#000000'
-  })
-}
-
 export const PayPalButton = ({ orderId, amount }: Props) => {
   const [{ isPending }] = usePayPalScriptReducer()
+  const router = useRouter()
 
   const rountedAmount = Math.round(amount * 100) / 100
 
@@ -64,6 +56,19 @@ export const PayPalButton = ({ orderId, amount }: Props) => {
     await paypalCheckPayment(details.id)
 
     noticeConfirmPaid()
+  }
+
+  const noticeConfirmPaid = async () => {
+    await Swal.fire({
+      text: 'Pago completado, estamos preparando tu pedido',
+      background: '#ffffff',
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'Ver pedidos',
+      color: '#000000',
+      preConfirm: () => {
+        router.replace('/orders')
+      }
+    })
   }
 
   return (
