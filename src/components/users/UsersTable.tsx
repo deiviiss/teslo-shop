@@ -19,6 +19,9 @@ export const UsersTable = ({ users }: Props) => {
             Nombre completo
           </th>
           <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+            Teléfono
+          </th>
+          <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
             Role
           </th>
         </tr>
@@ -35,6 +38,9 @@ export const UsersTable = ({ users }: Props) => {
               </td>
               <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 {user.name}
+              </td>
+              <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {user.phoneNumber}
               </td>
               <td className="flex items-center text-sm  text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 <select

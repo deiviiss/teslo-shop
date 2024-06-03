@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { getUserSessionServer } from '@/actions'
-import { Title } from '@/components'
+import { Title, ButtonBackPage } from '@/components'
 
 export default async function TermsPage() {
   const user = await getUserSessionServer()
@@ -60,11 +60,13 @@ export default async function TermsPage() {
             </p>
           </div>
 
-          <button className='flex m-8 text-center mx-auto'>
+          <div className='flex justify-center w-full gap-4  m-8 text-center mx-auto'>
             <Link className='btn-primary' target='_blank' href={'https://wa.me/529811250049'}>
               Contáctanos
             </Link>
-          </button>
+
+            <ButtonBackPage />
+          </div>
         </div>
       </div>
     </>

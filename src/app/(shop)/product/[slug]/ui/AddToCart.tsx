@@ -28,7 +28,7 @@ export const AddToCart = ({ product }: Props) => {
   const [quantity, setQuantity] = useState<number>(1)
   const [attempted, setAttempted] = useState<boolean>(false)
 
-  const AddToCart = () => {
+  const AddToCart = async () => {
     setAttempted(true)
 
     if (!size) return
@@ -47,7 +47,7 @@ export const AddToCart = ({ product }: Props) => {
     setAttempted(false)
     setQuantity(1)
     setSize(undefined)
-    // Todo: show success message use sweet
+
     noticeAddToCart()
   }
 

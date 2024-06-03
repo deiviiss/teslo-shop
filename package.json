@@ -25,12 +25,14 @@
     "sweetalert2": "^11.10.8",
     "sweetalert2-react-content": "^5.0.7",
     "swiper": "^11.0.7",
+    "twilio": "^5.0.4",
     "zod": "^3.22.4",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20",
+    "@types/qrcode-terminal": "^0.12.2",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
@@ -45,6 +47,6 @@
     "prisma": "^5.11.0",
     "tailwindcss": "^3.3.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "typescript": "5.3.3"
   }
 }

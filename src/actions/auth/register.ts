@@ -6,6 +6,7 @@ import prisma from '@/lib/prisma'
 interface RegisterUser {
   name: string
   email: string
+  phoneNumber: string
   password: string
 }
 
@@ -15,11 +16,13 @@ export const registerUser = async (data: RegisterUser) => {
       data: {
         name: data.name,
         email: data.email,
+        phoneNumber: `+521${data.phoneNumber}`,
         password: bcrypt.hashSync(data.password)
       },
       select: {
         id: true,
         name: true,
+        phoneNumber: true,
         email: true
       }
     })

@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { getUserSessionServer } from '@/actions'
-import { Title } from '@/components'
+import { ButtonBackPage, Title } from '@/components'
 
-export default async function TermsPrivacyPage() {
+export default async function PrivacyPage() {
   const user = await getUserSessionServer()
 
   if (!user) {
@@ -68,11 +68,13 @@ export default async function TermsPrivacyPage() {
             </p>
           </div>
 
-          <button className='flex m-8 text-center mx-auto'>
+          <div className='flex justify-center w-full gap-4  m-8 text-center mx-auto'>
             <Link className='btn-primary' target='_blank' href={'https://wa.me/529811250049'}>
               Contáctanos
             </Link>
-          </button>
+
+            <ButtonBackPage />
+          </div>
         </div>
       </div>
     </>

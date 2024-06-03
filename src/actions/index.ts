@@ -33,3 +33,6 @@ export * from './products/delete-product-image'
 
 // users
 export { getPaginatedUsers } from './users/get-paginated-users'
+
+// whatsapp
+export { sendWhatsappMessage } from './whatsapp/send-whatsapp-message'

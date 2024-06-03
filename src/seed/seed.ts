@@ -21,6 +21,7 @@ interface SeedUser {
 }
 
 type ValidSizes = 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL' | 'XXXL'
+// TODO: change the types to match the actual data in spanish
 type ValidTypes = 'camisas' | 'pants' | 'sudaderas' | 'gorros'
 
 interface SeedData {

@@ -11,6 +11,7 @@ import { login } from '@/actions/auth/login'
 interface FormInputs {
   name: string
   email: string
+  phoneNumber: string
   password: string
 }
 
@@ -56,6 +57,20 @@ export const RegisterForm = () => {
         type="text"
         autoFocus
         {...register('name', { required: true })}
+      />
+
+      <label htmlFor="name">Teléfono</label>
+      <input
+        className={
+          clsx(
+            'px-5 py-2 border bg-gray-200 rounded mb-5',
+            {
+              'border-red-500': errors.phoneNumber
+            }
+          )
+        }
+        type="text"
+        {...register('phoneNumber', { required: true })}
       />
 
       <label htmlFor="email">Correo electrónico</label>

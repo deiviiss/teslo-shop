@@ -26,6 +26,19 @@ export const PayPalButton = ({ orderId, amount }: Props) => {
     )
   }
 
+  const noticeConfirmPaid = async () => {
+    await Swal.fire({
+      text: 'Pago completado, estamos preparando tu pedido',
+      background: '#ffffff',
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'Ver pedidos',
+      color: '#000000',
+      preConfirm: () => {
+        router.replace('/orders')
+      }
+    })
+  }
+
   const createOrder = async (data: CreateOrderData, actions: CreateOrderActions): Promise<string> => {
     const transactionId: string = await actions.order.create({
       purchase_units: [
@@ -56,19 +69,6 @@ export const PayPalButton = ({ orderId, amount }: Props) => {
     await paypalCheckPayment(details.id)
 
     noticeConfirmPaid()
-  }
-
-  const noticeConfirmPaid = async () => {
-    await Swal.fire({
-      text: 'Pago completado, estamos preparando tu pedido',
-      background: '#ffffff',
-      confirmButtonColor: '#3085d6',
-      confirmButtonText: 'Ver pedidos',
-      color: '#000000',
-      preConfirm: () => {
-        router.replace('/orders')
-      }
-    })
   }
 
   return (
