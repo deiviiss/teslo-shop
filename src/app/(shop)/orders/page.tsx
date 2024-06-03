@@ -36,7 +36,7 @@ export default async function OrdersPage({ searchParams }: Props) {
     <>
       <Title title="Ordenes" subtitle='Lista de ordenes' />
 
-      <div className="mb-10">
+      <div className="mb-10 overflow-auto">
         <table className="min-w-full">
           <thead className="bg-gray-200 border-b">
             <tr>
