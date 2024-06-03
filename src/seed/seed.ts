@@ -16,6 +16,7 @@ interface SeedProduct {
 interface SeedUser {
   email: string
   name: string
+  phoneNumber: string
   password: string
   role: 'admin' | 'user'
 }
@@ -823,11 +824,13 @@ export const initialData: SeedData = {
       email: 'admin@mail.com',
       name: 'Admin propetario',
       password: bcrypt.hashSync('userseed'),
-      role: 'admin'
+      role: 'admin',
+      phoneNumber: '+5219811250049'
     },
     {
       email: 'cliente@mail.com',
       name: 'David Hilera',
+      phoneNumber: '+5219811250049',
       password: bcrypt.hashSync('userseed'),
       role: 'user'
     }

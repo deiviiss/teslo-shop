@@ -20,6 +20,8 @@ const ProfilePage = async () => {
   const userName = user?.name || 'Nombre de usuario'
   const userImage = user?.image || 'https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png'
   const userMail = user?.email || 'Correo electrónico'
+  const userPhoneNumber = user?.phoneNumber || 'Número de teléfono'
+
   return (
     <div className='flex flex-col items-center gap-3 pb-10'>
       <Title title='Perfil' subtitle='' />
@@ -31,6 +33,7 @@ const ProfilePage = async () => {
         <div className='flex flex-col gap-2 my-4'>
           <p><span className='font-semibold'>Nombre:</span> {userName}</p>
           <p><span className='font-semibold'>Correo:</span> {userMail}</p>
+          <p><span className='font-semibold'>Teléfono:</span> {userPhoneNumber}</p>
 
           <Link href='/orders' className='w-full text-center cursor-pointer hover:underline '>
             <span>Mis ordenes</span>
