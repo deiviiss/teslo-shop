@@ -24,7 +24,7 @@ export default async function OrdersPage({ searchParams }: Props) {
 
         <h1>No tienes ordenes registradas</h1>
 
-        <Link href="/" className='hover:underline'>
+        <Link href="/" className='hover:underline font-medium'>
           Comienza a comprar
         </Link>
 

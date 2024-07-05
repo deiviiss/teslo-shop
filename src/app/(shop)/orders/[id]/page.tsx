@@ -20,6 +20,7 @@ export default async function OrdersByIdPage({ params }: Props) {
 
   const orderItem = order.orderItem
   const orderAddress = order.orderAddresses
+
   return (
     <div className="flex justify-center items-center mb-72 px-1 sm:px-0">
 
@@ -38,7 +39,7 @@ export default async function OrdersByIdPage({ params }: Props) {
               orderItem.map((item, index) => (
                 <div key={index} className="flex flex-col mt-5">
                   <ProductImage
-                    src={item.product.ProductImage[0].url}
+                    src={item.product.productImage[0].url}
                     alt={item.product.title}
                     width={100}
                     height={100}

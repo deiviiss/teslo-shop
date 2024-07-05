@@ -48,7 +48,6 @@ model Product {
   id          String   @id @default(uuid())
   title       String
   description String?
-  inStock     Int
   price       Float    @default(0)
   sizes       Size[]   @default([])
   slug        String   @unique
@@ -58,11 +57,24 @@ model Product {
   categoryId String
   category   Category @relation(fields: [categoryId], references: [id])
 
-  ProductImage ProductImage[]
-  OrderItem    OrderItem[]
+  productImage ProductImage[]
+  orderItem    OrderItem[]
+  productStock ProductStock[]
 
   @@index([gender])
   @@map("products")
+}
+
+model ProductStock {
+  id          String @id @default(uuid())
+  size        Size
+  orderBySize Int
+  inStock     Int
+
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+
+  @@map("product_stocks")
 }
 
 model ProductImage {
@@ -90,7 +102,7 @@ model User {
 
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt
-  Order     Order[]
+  order     Order[]
 
   @@map("users")
 }
@@ -98,7 +110,7 @@ model User {
 model Country {
   id           String         @id
   name         String
-  UserAddress  UserAddress[]
+  userAddress  UserAddress[]
   OrderAddress OrderAddress[]
 
   @@map("countries")

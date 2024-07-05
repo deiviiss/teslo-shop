@@ -35,7 +35,7 @@ const ProfilePage = async () => {
           <p><span className='font-semibold'>Correo:</span> {userMail}</p>
           <p><span className='font-semibold'>Teléfono:</span> {userPhoneNumber}</p>
 
-          <Link href='/orders' className='w-full text-center cursor-pointer hover:underline '>
+          <Link href='/orders' className='w-full text-center cursor-pointer hover:underline font-medium '>
             <span>Mis ordenes</span>
           </Link>
         </div>

@@ -10,6 +10,7 @@ const main = async () => {
 
   await prisma.userAddress.deleteMany()
   await prisma.country.deleteMany()
+  await prisma.productStock.deleteMany()
   await prisma.productImage.deleteMany()
   await prisma.product.deleteMany()
   await prisma.category.deleteMany()
@@ -57,6 +58,61 @@ const main = async () => {
 
     await prisma.productImage.createMany({
       data: imagesData
+    })
+
+    const productStockDataSizeXs = {
+      productId: dbProduct.id,
+      inStock: 90,
+      size: 'XS' as 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL',
+      orderBySize: 1
+    }
+
+    const productStockDataSizeS = {
+      productId: dbProduct.id,
+      inStock: 50,
+      size: 'S' as 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL',
+      orderBySize: 2
+    }
+
+    const productStockDataSizeM = {
+      productId: dbProduct.id,
+      inStock: 10,
+      size: 'M' as 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL',
+      orderBySize: 3
+    }
+
+    const productStockDataSizeL = {
+      productId: dbProduct.id,
+      inStock: 100,
+      size: 'L' as 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL',
+      orderBySize: 4
+    }
+
+    const productStockDataSizeXL = {
+      productId: dbProduct.id,
+      inStock: 60,
+      size: 'XL' as 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL',
+      orderBySize: 5
+    }
+
+    await prisma.productStock.create({
+      data: productStockDataSizeXL
+    })
+
+    await prisma.productStock.create({
+      data: productStockDataSizeL
+    })
+
+    await prisma.productStock.create({
+      data: productStockDataSizeM
+    })
+
+    await prisma.productStock.create({
+      data: productStockDataSizeS
+    })
+
+    await prisma.productStock.create({
+      data: productStockDataSizeXs
     })
   }
   )

@@ -1,14 +1,7 @@
 import Link from 'next/link'
-import { redirect } from 'next/navigation'
-import { getUserSessionServer } from '@/actions'
 import { ButtonBackPage, Title } from '@/components'
 
 export default async function PrivacyPage() {
-  const user = await getUserSessionServer()
-
-  if (!user) {
-    redirect('/')
-  }
   return (
     <>
       <div className='flex items-center justify-center'>

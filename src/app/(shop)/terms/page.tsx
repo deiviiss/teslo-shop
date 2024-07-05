@@ -1,14 +1,7 @@
 import Link from 'next/link'
-import { redirect } from 'next/navigation'
-import { getUserSessionServer } from '@/actions'
 import { Title, ButtonBackPage } from '@/components'
 
 export default async function TermsPage() {
-  const user = await getUserSessionServer()
-
-  if (!user) {
-    redirect('/')
-  }
   return (
     <>
       <div className='flex items-center justify-center'>

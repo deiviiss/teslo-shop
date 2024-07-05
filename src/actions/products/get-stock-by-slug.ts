@@ -8,8 +8,8 @@ export const getStockBySlug = async (slug: string): Promise<number> => {
       where: {
         slug
       },
-      select: {
-        inStock: true
+      include: {
+        productStock: true
       }
     })
 
@@ -17,7 +17,7 @@ export const getStockBySlug = async (slug: string): Promise<number> => {
       return 0
     }
 
-    const stock = product.inStock
+    const stock = product.productStock?.map((stock) => stock.inStock).reduce((acc, stock) => acc + stock, 0)
 
     return stock || 0
   } catch (error) {

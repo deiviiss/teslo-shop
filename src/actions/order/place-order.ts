@@ -58,35 +58,51 @@ export const placeOrder = async (productsId: ProductToOrder[], address: UserAddr
   // transaction db
   try {
     const prismaTX = await prisma.$transaction(async (tx) => {
-      //! actually products are not used diference between the sizes
       // Update stock
       const updatedProductsPromises = products.map(async (product) => {
-        const productQuantity = productsId.filter(
-          p => p.productId === product.id
-        ).reduce((acc, item) => item.quantity + acc, 0)
+        const size = productsId.find(item => item.productId === product.id)?.size
+        const quantity = productsId.find(item => item.productId === product.id)?.quantity
 
-        if (productQuantity === 0) {
-          throw new Error('La cantidad de productos no puede ser 0')
+        if (!quantity || quantity <= 0) {
+          throw new Error('La canidad de productos no puede ser 0')
         }
 
-        return await tx.product.update({
-          where: { id: product.id },
+        if (!product.id) {
+          throw new Error('Producto no encontrado')
+        }
+
+        if (!size) {
+          throw new Error('Talla no encontrada')
+        }
+
+        const productStock = await tx.productStock.findFirst({
+          where: {
+            productId: product.id,
+            size
+          },
+          select: {
+            id: true,
+            inStock: true
+          }
+        })
+
+        // check if all products are in stock
+        if (productStock === null || productStock.inStock === 0) {
+          throw new Error(`Producto ${product.title} con talla ${size} agotado`)
+        }
+
+        return await tx.productStock.update({
+          where: { id: productStock.id },
           data: {
             inStock: {
-              decrement: productQuantity
+              decrement: quantity
             }
           }
         })
       })
 
       const updatedProducts = await Promise.all(updatedProductsPromises)
-
-      // check if all products are in stock
-      updatedProducts.forEach((product) => {
-        if (product.inStock < 0) {
-          throw new Error(`Producto ${product.title} agotado`)
-        }
-      })
+      console.log('updatedProducts', updatedProducts)
 
       // create order
       const order = await tx.order.create({

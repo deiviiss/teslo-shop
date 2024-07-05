@@ -15,7 +15,7 @@ export default function CartPage() {
           {/* cart */}
           <div className="flex flex-col gap-1 mt-3">
             <span className=" text-xl">Agregar más items</span>
-            <Link href="/" className="underline mb-5">
+            <Link href="/" className="underline mb-5 hover:text-blue-600">
               Continua comprando
             </Link>
 

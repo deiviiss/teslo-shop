@@ -19,7 +19,7 @@ export const getPaginationProductsWithImages = async ({ page = 1, take = 12, gen
       take,
       skip: (page - 1) * take,
       include: {
-        ProductImage: {
+        productImage: {
           take: 2,
           select: {
             url: true
@@ -44,7 +44,7 @@ export const getPaginationProductsWithImages = async ({ page = 1, take = 12, gen
       totalPages,
       products: productsDB.map(product => ({
         ...product,
-        images: product.ProductImage.map((image) => image.url)
+        images: product.productImage.map((image) => image.url)
       }))
     }
   } catch (error) {

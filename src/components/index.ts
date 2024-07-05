@@ -22,6 +22,8 @@ export * from './product/slideshow/ProductMobileSlideshow'
 export * from './product/stock-label/StockLabel'
 export * from './product/product-form/ProductForm'
 export * from './product/product-image/ProductImage'
+export { ProductTable } from './products/product-table/ProductTable'
+export { ProductSearch } from './product/product-search/ProductSearch'
 
 // UI
 export * from './ui/sidebar/Sidebar'

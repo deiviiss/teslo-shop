@@ -2,7 +2,6 @@ export interface Product {
   id: string
   description?: string | null
   images: string[]
-  inStock: number
   price: number
   sizes: Size[]
   slug: string
@@ -10,6 +9,24 @@ export interface Product {
   title: string
   // type: ValidType
   gender: ValidGender
+}
+
+export interface ProductStock {
+  size: Size
+  inStock: number
+  product: {
+    id: string
+    description?: string | null
+    productImage: Array<{
+      url: string
+    }>
+    price: number
+    sizes: Size[]
+    slug: string
+    tags: string[]
+    title: string
+    gender: ValidGender
+  }
 }
 
 export interface CartProduct {

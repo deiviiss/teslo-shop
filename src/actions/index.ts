@@ -30,6 +30,7 @@ export * from './products/product-pagination'
 export * from './products/get-categories'
 export * from './products/create-update-product'
 export * from './products/delete-product-image'
+export { getPaginationProductsStockWithImages } from './products/product-stock-pagination'
 
 // users
 export { getPaginatedUsers } from './users/get-paginated-users'
