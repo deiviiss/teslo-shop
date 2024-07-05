@@ -8,8 +8,15 @@ interface Props {
 }
 
 export const ProductTable = ({ products }: Props) => {
-  return (
+  if (products.length === 0 || !products) {
+    return (
+      <div className='flex w-full items-center justify-center'>
+        <p>No hay productos con esos datos</p>
+      </div>
+    )
+  }
 
+  return (
     <table className="min-w-full">
       <thead className="bg-gray-200 border-b">
         <tr>

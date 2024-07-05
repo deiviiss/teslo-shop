@@ -20,7 +20,7 @@ export default async function OrdersPage({ searchParams }: Props) {
 
   if (orders?.length === 0) {
     return (
-      <div className='flex flex-col gap-3 items-center justify-center h-[300px] max-w-[920px] my-5 text-center'>
+      <div className='flex flex-col gap-3 items-center justify-center h-[300px] max-w-[920px] my-5 text-center mx-auto'>
 
         <h1>No tienes ordenes registradas</h1>
 

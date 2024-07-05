@@ -17,7 +17,7 @@ export default async function ProductsPage({ searchParams }: Props) {
 
   return (
     <>
-      <Title title="Matenimiento de productos" subtitle='Lista de productos' />
+      <Title title="Matenimiento de productos" subtitle='Lista de todos los productos' />
 
       <div className='flex justify-end mb-5 gap-2'>
         <ProductSearch placeholder='Buscar producto...' />
@@ -30,7 +30,11 @@ export default async function ProductsPage({ searchParams }: Props) {
 
       <div className="mb-10 overflow-auto">
         <ProductTable products={products} />
-        <Pagination totalPages={totalPages} />
+        {
+          products.length > 0 && (
+            <Pagination totalPages={totalPages} />
+          )
+        }
       </div >
     </>
   )

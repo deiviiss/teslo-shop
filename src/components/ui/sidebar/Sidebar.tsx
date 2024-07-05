@@ -3,7 +3,7 @@
 import clsx from 'clsx'
 import Link from 'next/link'
 import { useSession } from 'next-auth/react'
-import { IoCloseOutline, IoLogInOutline, IoLogOutOutline, IoPeopleOutline, IoPersonOutline, IoSearchOutline, IoShirtOutline, IoTicketOutline } from 'react-icons/io5'
+import { IoCloseOutline, IoLogInOutline, IoLogOutOutline, IoPeopleOutline, IoPersonOutline, IoShirtOutline, IoTicketOutline } from 'react-icons/io5'
 import { logout } from '@/actions'
 import { useUiStore } from '@/store'
 
@@ -21,10 +21,10 @@ export const Sidebar = () => {
         isSideMenuOpen && (
           <>
             {/* background */}
-            <div className='fixed top-0 left-0 w-screen h-screen z-10 bg-black opacity-30'>
+            <div className='fixed top-0 left-0 w-screen h-screen z-30 bg-black opacity-30'>
             </div>
             {/* blur */}
-            <div onClick={closeMenu} className='fade-in fixed top-0 left-0 w-screen h-screen z-10 backdrop-filter backdrop-blur-sm'>
+            <div onClick={closeMenu} className='fade-in fixed top-0 left-0 w-screen h-screen z-30 backdrop-filter backdrop-blur-sm'>
             </div>
           </>
         )
@@ -32,7 +32,7 @@ export const Sidebar = () => {
 
       <nav className={
         clsx(
-          'fixed p-5 right-0 top-0 w-full md:w-[350px] h-screen bg-white z-20 shadow-2xl transform transition-all duration-300',
+          'fixed p-5 right-0 top-0 w-full md:w-[350px] h-screen bg-white z-40 shadow-2xl transform transition-all duration-300',
           {
             'translate-x-full': !isSideMenuOpen
           }
@@ -45,19 +45,8 @@ export const Sidebar = () => {
           onClick={closeMenu}
         />
 
-        {/* input */}
-        <div className='relative mt-14'>
-          <IoSearchOutline size={20} className='absolute top-2 left-2' />
-          <input
-            type='text'
-            placeholder='Buscar'
-            className='w-full bg-gray-50 rounded pl-10 pr-10 border-b-2 text-xl border-gray-300 focus:outline-none focus:border-blue-500'
-          />
-        </div>
-
         {/* menú */}
-        <div>
-
+        <div className='mt-28'>
           {
             !isAuthenticated
               ? (
