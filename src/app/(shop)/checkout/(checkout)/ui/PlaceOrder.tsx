@@ -59,7 +59,6 @@ export const PlaceOrder = () => {
       size: product.size
     }))
 
-    //! server action
     const rta = await placeOrder(productToOrder, address)
 
     // product sold out

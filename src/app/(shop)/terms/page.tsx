@@ -15,7 +15,7 @@ export default async function TermsPage() {
         <div className='px-3'>
           <Title title='1. Servicios Simulados' subtitle='' />
           <p className='pb-4'>
-            Este sitio web es una simulación de un ecommerce y los productos agregados al carrito no serán entregados. Las transacciones realizadas son solo de prueba y no tienen validez comercial.
+            Este sitio web es una simulación de un ecommerce y los productos agregados al carrito no serán entregados. Las transacciones realizadas son solo de prueba y no tienen validez comercial. Sin embargo, los pagos realizados a través de la pasarela de pagos (Paypal) son reales y no reembolsables, por lo que todos los productos tienen un precio simbólico de $1 dólar.
           </p>
 
           <Title title='2. Registro de Usuarios' subtitle='' />

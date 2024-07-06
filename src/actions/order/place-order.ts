@@ -64,7 +64,7 @@ export const placeOrder = async (productsId: ProductToOrder[], address: UserAddr
         const quantity = productsId.find(item => item.productId === product.id)?.quantity
 
         if (!quantity || quantity <= 0) {
-          throw new Error('La canidad de productos no puede ser 0')
+          throw new Error('La cantidad de productos no puede ser 0')
         }
 
         if (!product.id) {
@@ -102,7 +102,6 @@ export const placeOrder = async (productsId: ProductToOrder[], address: UserAddr
       })
 
       const updatedProducts = await Promise.all(updatedProductsPromises)
-      console.log('updatedProducts', updatedProducts)
 
       // create order
       const order = await tx.order.create({
