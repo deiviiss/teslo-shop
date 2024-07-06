@@ -1,7 +1,7 @@
 import { type Metadata, type ResolvingMetadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getPaginationProductsWithImages } from '@/actions'
-import { Pagination, ProductGrid, Title } from '@/components'
+import { Pagination, ProductGrid, ProductSearch, Title } from '@/components'
 import { type ValidGender } from '@/interfaces'
 
 interface Props {
@@ -9,6 +9,7 @@ interface Props {
     gender: ValidGender
   }
   searchParams: {
+    query?: string
     page?: string
     take?: string
   }
@@ -43,6 +44,7 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
 
 export default async function GenderByPage({ params, searchParams }: Props) {
   const { gender } = params
+  const query = searchParams.query || ''
   const page = searchParams.page ? Number(searchParams.page) : 1
 
   // const allowedCategories = ['men', 'women', 'kid']
@@ -50,23 +52,13 @@ export default async function GenderByPage({ params, searchParams }: Props) {
   //   notFound()
   // }
 
-  const result = await getPaginationProductsWithImages({ page, gender })
+  const result = await getPaginationProductsWithImages({ page, query, gender })
 
   if (!result) {
     notFound()
   }
 
   const { products, totalPages } = result
-
-  if (products.length === 0) {
-    return (
-      <div className='flex flex-col gap-3 items-center justify-center h-[300px] max-w-[920px] my-5 text-center mx-auto'>
-
-        <Title title='No hay productos' subtitle='' />
-
-      </div>
-    )
-  }
 
   const processedProducts = products.map(product => ({
     ...product,
@@ -80,9 +72,23 @@ export default async function GenderByPage({ params, searchParams }: Props) {
         subtitle={`Toda la ropa ${labels[gender]} que necesitas para estar a la moda.`}
         className="mb-2" />
 
-      <ProductGrid products={processedProducts} />
+      <div className='flex justify-end mb-6 gap-2'>
+        <ProductSearch placeholder='Buscar producto...' />
+      </div>
 
-      <Pagination totalPages={totalPages} />
+      {
+        products.length > 0
+          ? (
+            <>
+              <ProductGrid products={processedProducts} />
+
+              <Pagination totalPages={totalPages} />
+            </>)
+          : (
+            <div className='flex w-full items-center justify-center h-36'>
+              <p>No hay productos con ese nombre</p>
+            </div>)
+      }
     </>
   )
 }

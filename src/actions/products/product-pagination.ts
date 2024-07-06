@@ -5,12 +5,13 @@ import prisma from '@/lib/prisma'
 import { validatePageNumber } from '@/utils'
 
 interface PaginationOptions {
+  query?: string
   page?: number
   take?: number
   gender?: Gender
 }
 
-export const getPaginationProductsWithImages = async ({ page = 1, take = 12, gender }: PaginationOptions) => {
+export const getPaginationProductsWithImages = async ({ page = 1, take = 12, gender, query = '' }: PaginationOptions) => {
   page = validatePageNumber(page)
 
   try {
@@ -27,13 +28,29 @@ export const getPaginationProductsWithImages = async ({ page = 1, take = 12, gen
         }
       },
       where: {
-        gender
+        gender,
+        OR: [
+          {
+            title: {
+              contains: query,
+              mode: 'insensitive'
+            }
+          }
+        ]
       }
     })
 
     const totalCount = await prisma.product.count({
       where: {
-        gender
+        gender,
+        OR: [
+          {
+            title: {
+              contains: query,
+              mode: 'insensitive'
+            }
+          }
+        ]
       }
     })
 

@@ -1,34 +1,26 @@
 import { notFound } from 'next/navigation'
 import { getPaginationProductsWithImages } from '@/actions'
-import { Pagination, ProductGrid, Title } from '@/components'
+import { Pagination, ProductGrid, ProductSearch, Title } from '@/components'
 
 interface Props {
   searchParams: {
+    query?: string
     page?: string
     take?: string
   }
 }
 
 export default async function ShopPage({ searchParams }: Props) {
+  const query = searchParams.query || ''
   const page = searchParams.page ? Number(searchParams.page) : 1
 
-  const result = await getPaginationProductsWithImages({ page })
+  const result = await getPaginationProductsWithImages({ page, query })
 
   if (!result) {
     return notFound()
   }
 
   const { products, totalPages } = result
-
-  if (products.length === 0) {
-    return (
-      <div className='flex flex-col gap-3 items-center justify-center h-[300px] max-w-[920px] my-5 text-center mx-auto'>
-
-        <Title title='No hay productos' subtitle='' />
-
-      </div>
-    )
-  }
 
   const processedProducts = products.map(product => ({
     ...product,
@@ -42,9 +34,23 @@ export default async function ShopPage({ searchParams }: Props) {
         subtitle="Toda la ropa que necesitas para estar a la moda."
         className="mb-2" />
 
-      <ProductGrid products={processedProducts} />
+      <div className='flex justify-end mb-6 gap-2'>
+        <ProductSearch placeholder='Buscar producto...' />
+      </div>
 
-      <Pagination totalPages={totalPages} />
+      {
+        products.length > 0
+          ? (
+            <>
+              <ProductGrid products={processedProducts} />
+
+              <Pagination totalPages={totalPages} />
+            </>)
+          : (
+            <div className='flex w-full items-center justify-center h-36'>
+              <p>No hay productos con ese nombre</p>
+            </div>)
+      }
     </>
   )
 }
