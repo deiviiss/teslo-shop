@@ -3,9 +3,21 @@
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import Swal from 'sweetalert2'
 import { ProductImage, QuantitySelector } from '@/components'
 import { useCartStore } from '@/store'
 import { currencyFormat } from '@/utils'
+
+const noticeRemoveFromCart = async () => {
+  await Swal.fire({
+    background: '#ffffff',
+    showConfirmButton: false,
+    color: '#000000',
+    position: 'top-end',
+    text: 'Producto eliminado del carrito',
+    timer: 1000
+  })
+}
 
 export const ProductsInCart = () => {
   const [loaded, setLoaded] = useState(false)
@@ -52,7 +64,10 @@ export const ProductsInCart = () => {
               <p>{currencyFormat(product.price)}</p>
               <QuantitySelector quantity={product.quantity} onQuantityChange={(value) => { updateProductQuantity(product, value) }} />
 
-              <button onClick={() => { removeProductFromCart(product) }} className='underline mt-3'>Remover</button>
+              <button onClick={() => {
+                removeProductFromCart(product)
+                noticeRemoveFromCart()
+              }} className='underline mt-3'>Remover</button>
             </div>
           </div>
         ))

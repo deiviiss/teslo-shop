@@ -34,7 +34,7 @@ export const initialData: SeedData = {
 
   products: [
     {
-      description: 'Presentamos la colección ModaShop Chill. La sudadera Chill con cuello redondo para hombre tiene un exterior pesado de primera calidad y un interior de tejido polar suave para brindar comodidad en cualquier época del año. La sudadera presenta un sutil logotipo T de poliuretano termoplástico en el pecho y una marca denominativa ModaShop debajo del cuello trasero. Confeccionada con 60% algodón y 40% poliéster reciclado.',
+      description: 'Presentamos la colección ModaShop Chill. La sudadera Chill con cuello redondo para hombre tiene un exterior pesado de primera calidad y un interior de tejido polar suave para brindar comodidad en cualquier época del año. La sudadera presenta un sutil logotipo M de poliuretano termoplástico en el pecho y una marca denominativa ModaShop debajo del cuello trasero. Confeccionada con 60% algodón y 40% poliéster reciclado.',
       images: [
         '1740176-00-A_0_2000.jpg',
         '1740176-00-A_1.jpg'
@@ -566,7 +566,7 @@ export const initialData: SeedData = {
       gender: 'women'
     },
     {
-      description: "Totalmente personalizada y con un estilo único, la Chaqueta Corp para Mujer presenta un logo 'T' impreso en silicona en el pecho izquierdo y el destacado wordmark de ModaShop en la parte trasera.",
+      description: "Totalmente personalizada y con un estilo único, la Chaqueta Corp para Mujer presenta un logo 'M' impreso en silicona en el pecho izquierdo y el destacado wordmark de ModaShop en la parte trasera.",
       images: [
         '5645680-00-A_0_2000.jpg',
         '5645680-00-A_3.jpg'
@@ -594,59 +594,59 @@ export const initialData: SeedData = {
       gender: 'women'
     },
     {
-      description: 'Diseñada para ajuste, comodidad y estilo, la Camiseta de Manga Larga Kids Cybertruck Graffiti presenta un wordmark graffiti Cybertruck a base de agua en el pecho, un wordmark de ModaShop en el brazo izquierdo y nuestro logo M distintivo en el cuello trasero. Hecha de 50% algodón y 50% poliéster.',
+      description: 'Diseñada para ajuste, comodidad y estilo, la Camiseta de Manga Larga Niño Cybertruck Graffiti presenta un wordmark graffiti Cybertruck a base de agua en el pecho, un wordmark de ModaShop en el brazo izquierdo y nuestro logo M distintivo en el cuello trasero. Hecha de 50% algodón y 50% poliéster.',
       images: [
         '1742694-00-A_1_2000.jpg',
         '1742694-00-A_3.jpg'
       ],
       price: 1,
       sizes: ['XS', 'S', 'M'],
-      slug: 'camiseta_manga_larga_kids_cybertruck',
+      slug: 'camiseta_manga_larga_nino_cybertruck',
       type: 'camisas',
       tags: ['shirt'],
-      title: 'Camiseta de Manga Larga Kids Cybertruck',
+      title: 'Camiseta de Manga Larga Niño Cybertruck',
       gender: 'kid'
     },
     {
-      description: 'La Camiseta Kids Scribble M Logo está hecha de 100% algodón peruano y presenta un logo M de ModaShop dibujado para que cada joven artista la use.',
+      description: 'La Camiseta Niño Scribble M Logo está hecha de 100% algodón peruano y presenta un logo M de ModaShop dibujado para que cada joven artista la use.',
       images: [
         '8529312-00-A_0_2000.jpg',
         '8529312-00-A_1.jpg'
       ],
       price: 1,
       sizes: ['XS', 'S', 'M'],
-      slug: 'camiseta_kids_scribble_t_logo',
+      slug: 'camiseta_nino_scribble_t_logo',
       type: 'camisas',
       tags: ['shirt'],
-      title: 'Camiseta Kids Scribble M Logo',
+      title: 'Camiseta Niño Scribble M Logo',
       gender: 'kid'
     },
     {
-      description: 'La Camiseta Kids Cybertruck presenta el icónico logotipo de graffiti Cybertruck y está hecha de 100% algodón peruano para máxima comodidad.',
+      description: 'La Camiseta Niño Cybertruck presenta el icónico logotipo de graffiti Cybertruck y está hecha de 100% algodón peruano para máxima comodidad.',
       images: [
         '8529342-00-A_0_2000.jpg',
         '8529342-00-A_1.jpg'
       ],
       price: 1,
       sizes: ['XS', 'S', 'M'],
-      slug: 'camiseta_kids_cybertruck',
+      slug: 'camiseta_ninos_cybertruck',
       type: 'camisas',
       tags: ['shirt'],
-      title: 'Camiseta Kids Cybertruck',
+      title: 'Camiseta Niño Cybertruck',
       gender: 'kid'
     },
     {
-      description: 'La Camiseta Kids Racing Stripe renovada está hecha de 100% algodón peruano, con una franja de carreras mejorada recientemente y un logotipo de ModaShop cepillado perfecto para cualquier corredor de velocidad.',
+      description: 'La Camiseta Niño Racing Stripe renovada está hecha de 100% algodón peruano, con una franja de carreras mejorada recientemente y un logotipo de ModaShop cepillado perfecto para cualquier corredor de velocidad.',
       images: [
         '8529354-00-A_0_2000.jpg',
         '8529354-00-A_1.jpg'
       ],
       price: 1,
       sizes: ['XS', 'S', 'M'],
-      slug: 'camiseta_kids_racing_stripe',
+      slug: 'camiseta_nino_racing_stripe',
       type: 'camisas',
       tags: ['shirt'],
-      title: 'Camiseta Kids Racing Stripe',
+      title: 'Camiseta Niño Racing Stripe',
       gender: 'kid'
     },
     {
@@ -657,10 +657,10 @@ export const initialData: SeedData = {
       ],
       price: 1,
       sizes: ['XS', 'S', 'M'],
-      slug: 'camiseta_kids_t_logo_3d',
+      slug: 'camiseta_nino_t_logo_3d',
       type: 'camisas',
       tags: ['shirt'],
-      title: 'Camiseta Kids 3D M Logo',
+      title: 'Camiseta Niño 3D M Logo',
       gender: 'kid'
     },
     {
@@ -671,10 +671,10 @@ export const initialData: SeedData = {
       ],
       price: 1,
       sizes: ['XS', 'S', 'M'],
-      slug: 'camiseta_kids_a_cuadros',
+      slug: 'camiseta_nino_a_cuadros',
       type: 'camisas',
       tags: ['shirt'],
-      title: 'Camiseta Kids a Cuadros',
+      title: 'Camiseta Niño a Cuadros',
       gender: 'kid'
     },
     {
@@ -720,31 +720,31 @@ export const initialData: SeedData = {
       gender: 'kid'
     },
     {
-      description: 'Usa tu chaqueta bomber Kids Cyberquad durante tus aventuras en el Cyberquad para niños. La chaqueta bomber presenta una ilustración de estilo graffiti de nuestro perfil Cyberquad y wordmark. Con tres bolsillos con cremallera y nuestro logo M y wordmark de ModaShop impresos a lo largo de las mangas, la chaqueta bomber Kids Cyberquad es perfecta para cualquier lugar donde te lleve el camino. Hecha de 60% algodón y 40% poliéster.',
+      description: 'Usa tu chaqueta bomber Niño Cyberquad durante tus aventuras en el Cyberquad para niños. La chaqueta bomber presenta una ilustración de estilo graffiti de nuestro perfil Cyberquad y wordmark. Con tres bolsillos con cremallera y nuestro logo M y wordmark de ModaShop impresos a lo largo de las mangas, la chaqueta bomber Niño Cyberquad es perfecta para cualquier lugar donde te lleve el camino. Hecha de 60% algodón y 40% poliéster.',
       images: [
         '1742702-00-A_0_2000.jpg',
         '1742702-00-A_1.jpg'
       ],
       price: 1,
       sizes: ['XS', 'S', 'M'],
-      slug: 'kids_cyberquad_bomber_jacket',
+      slug: 'nino_cyberquad_bomber_jacket',
       type: 'camisas',
       tags: ['shirt'],
-      title: 'Kids Cyberquad Bomber Jacket',
+      title: 'Niño Cyberquad Bomber Jacket',
       gender: 'kid'
     },
     {
-      description: 'Cruza el patio de recreo con estilo con la chaqueta Kids Corp. Modelada según la chaqueta original de ModaShop Corp, la chaqueta Kids Corp presenta el mismo estilo discreto y materiales de alta calidad pero a escala miniatura.',
+      description: 'Cruza el patio de recreo con estilo con la chaqueta Niño Corp. Modelada según la chaqueta original de ModaShop Corp, la chaqueta Niño Corp presenta el mismo estilo discreto y materiales de alta calidad pero a escala miniatura.',
       images: [
         '1506211-00-A_0_2000.jpg',
         '1506211-00-A_1_2000.jpg'
       ],
       price: 1,
       sizes: ['XS', 'S', 'M'],
-      slug: 'kids_corp_jacket',
+      slug: 'nino_corp_jacket',
       type: 'camisas',
       tags: ['shirt'],
-      title: 'Kids Corp Jacket',
+      title: 'Niño Corp Jacket',
       gender: 'kid'
     }
   ],

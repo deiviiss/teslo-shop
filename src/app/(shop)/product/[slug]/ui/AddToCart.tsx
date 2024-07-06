@@ -21,6 +21,17 @@ const noticeAddToCart = async () => {
   })
 }
 
+const noticeCopyLinkProduct = async () => {
+  await Swal.fire({
+    background: '#ffffff',
+    showConfirmButton: false,
+    color: '#000000',
+    position: 'top-end',
+    text: 'Link copiado al portapapeles',
+    timer: 1000
+  })
+}
+
 export const AddToCart = ({ product }: Props) => {
   const addProductToCart = useCartStore(state => state.addProductToCart)
 
@@ -73,10 +84,19 @@ export const AddToCart = ({ product }: Props) => {
       {/* count selector */}
       <QuantitySelector quantity={quantity} onQuantityChange={setQuantity} />
 
-      {/* button */}
-      <button
-        onClick={AddToCart}
-        className='btn-primary my-5'>Agregar al carrito</button>
+      {/* buttons */}
+      <div className='grid w-full justify-start items-start gap-3 my-5 xl:grid-cols-[170px,1fr] 2xl:grid-cols-[1fr,1fr]'>
+        <button
+          onClick={AddToCart}
+          className='btn-primary w-full md:w-full'>Agregar al carrito</button>
+
+        <button
+          onClick={() => {
+            navigator.clipboard.writeText(window.location.href)
+            noticeCopyLinkProduct()
+          }}
+          className='btn-primary w-full md:w-full'>Compartir</button>
+      </div>
 
     </>
   )
