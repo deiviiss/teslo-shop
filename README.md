@@ -1,5 +1,5 @@
 # Description
-Teslo-Shop is a modern, full-stack eCommerce application template designed to jumpstart the development of online stores with efficiency and ease. Built on the robust foundations of Next.js, React, and Prisma, it offers a seamless development experience with out-of-the-box support for responsive layouts, dynamic routing, and server-side rendering, ensuring fast, scalable, and SEO-friendly web applications.
+Moda-Shop is a modern, full-stack eCommerce application template designed to jumpstart the development of online stores with efficiency and ease. Built on the robust foundations of Next.js, React, and Prisma, it offers a seamless development experience with out-of-the-box support for responsive layouts, dynamic routing, and server-side rendering, ensuring fast, scalable, and SEO-friendly web applications.
 
 # Development
 Steps to start the app in development

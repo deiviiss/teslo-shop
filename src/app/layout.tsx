@@ -5,8 +5,8 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - Teslo | Shop',
-    default: 'Teslo | Shop'
+    template: '%s - Moda | Shop',
+    default: 'Moda | Shop'
   },
   description: 'Tienda de ropa online. Encuentra la ropa que necesitas para estar a la moda.'
 }

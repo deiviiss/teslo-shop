@@ -22,7 +22,7 @@ export const Footer = () => {
         href="/"
         className='mx-2 col-span-2 sm:col-auto text-center'
       >
-        <span className={`${titleFont.className} antialiased font-bold`}>Teslo </span>
+        <span className={`${titleFont.className} antialiased font-bold`}>Moda </span>
         <span>| shop</span>
         <span>© {new Date().getFullYear()}</span>
       </Link>

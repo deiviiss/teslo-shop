@@ -1,4 +1,4 @@
-import { notFound, redirect } from 'next/navigation'
+import { notFound } from 'next/navigation'
 import { getPaginationProductsWithImages } from '@/actions'
 import { Pagination, ProductGrid, Title } from '@/components'
 
@@ -21,12 +21,18 @@ export default async function ShopPage({ searchParams }: Props) {
   const { products, totalPages } = result
 
   if (products.length === 0) {
-    redirect('/')
+    return (
+      <div className='flex flex-col gap-3 items-center justify-center h-[300px] max-w-[920px] my-5 text-center mx-auto'>
+
+        <Title title='No hay productos' subtitle='' />
+
+      </div>
+    )
   }
 
   const processedProducts = products.map(product => ({
     ...product,
-    description: product.description || 'No description provided'
+    description: product.description || 'Sin descripción'
   }))
 
   return (

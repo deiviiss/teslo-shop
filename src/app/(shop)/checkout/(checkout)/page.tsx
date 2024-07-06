@@ -5,29 +5,31 @@ import { Title } from '@/components'
 
 export default function CheckoutPage() {
   return (
-    <div className="flex justify-center items-center mb-72 px-1 sm:px-0">
+    <>
+      <Title title='Verificar Compra' subtitle="Estamos confirmado tu pedido." />
+      <div className="flex justify-center items-center mb-72 px-1 sm:px-0">
 
-      <div className="flex flex-col w-[1000px]">
-        <Title title='Verificar Compra' subtitle="Estamos confirmado tu pedido." />
+        <div className="flex flex-col w-[1000px]">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
 
-          {/* cart */}
-          <div className="flex flex-col mt-5">
-            <span className=" text-xl">Ajustar compra</span>
-            <Link href="/cart" className="underline mb-5">
-              Editar carrito
-            </Link>
+            {/* cart */}
+            <div className="flex flex-col mt-5">
+              <span className=" text-xl">Ajustar compra</span>
+              <Link href="/cart" className="underline mb-5">
+                Editar carrito
+              </Link>
 
-            {/* items */}
-            <ProductsInCart />
+              {/* items */}
+              <ProductsInCart />
+            </div>
+
+            {/* summary */}
+            <PlaceOrder />
+
           </div>
-
-          {/* summary */}
-          <PlaceOrder />
-
         </div>
       </div>
-    </div>
+    </>
   )
 }

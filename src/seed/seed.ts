@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs'
 interface SeedProduct {
   description: string
   images: string[]
-  price: number
+  price: 1
   sizes: ValidSizes[]
   slug: string
   tags: string[]
@@ -34,41 +34,40 @@ export const initialData: SeedData = {
 
   products: [
     {
-      description: 'Introducing the Tesla Chill Collection. The Men’s Chill Crew Neck Sweatshirt has a premium, heavyweight exterior and soft fleece interior for comfort in any season. The sweatshirt features a subtle thermoplastic polyurethane T logo on the chest and a Tesla wordmark below the back collar. Made from 60% cotton and 40% recycled polyester.',
+      description: 'Presentamos la colección ModaShop Chill. La sudadera Chill con cuello redondo para hombre tiene un exterior pesado de primera calidad y un interior de tejido polar suave para brindar comodidad en cualquier época del año. La sudadera presenta un sutil logotipo T de poliuretano termoplástico en el pecho y una marca denominativa ModaShop debajo del cuello trasero. Confeccionada con 60% algodón y 40% poliéster reciclado.',
       images: [
         '1740176-00-A_0_2000.jpg',
         '1740176-00-A_1.jpg'
       ],
-      price: 75,
-      sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-      slug: 'mens_chill_crew_neck_sweatshirt',
+      price: 1,
+      sizes: ['XS', 'S', 'M', 'L', 'XL'],
+      slug: 'sudadera_cuello_mens_chill',
       type: 'camisas',
       tags: ['sweatshirt'],
-      title: 'Men’s Chill Crew Neck Sweatshirt',
+      title: 'Sudadera Chill de cuello redondo para hombre',
       gender: 'men'
     },
     {
-      description: "The Men's Quilted Shirt Jacket features a uniquely fit, quilted design for warmth and mobility in cold weather seasons. With an overall street-smart aesthetic, the jacket features subtle silicone injected Tesla logos below the back collar and on the right sleeve, as well as custom matte metal zipper pulls. Made from 87% nylon and 13% polyurethane.",
+      description: 'La chaqueta camisera acolchada para hombre presenta un diseño acolchado de ajuste único para brindar calidez y movilidad en las estaciones de clima frío. Con una estética urbana general, la chaqueta presenta sutiles logotipos de ModaShop inyectados con silicona debajo del cuello trasero y en la manga derecha, así como tiradores de cremallera de metal mate personalizados. Fabricado con 87% nailon y 13% poliuretano.',
       images: [
         '1740507-00-A_0_2000.jpg',
         '1740507-00-A_1.jpg'
       ],
-      price: 200,
-      sizes: ['XS', 'S', 'M', 'XL', 'XXL'],
-      slug: 'men_quilted_shirt_jacket',
+      price: 1,
+      sizes: ['XS', 'S', 'M', 'XL'],
+      slug: 'chaqueta_camisa_acolchada_hombre',
       type: 'camisas',
       tags: ['jacket'],
-      title: "Men's Quilted Shirt Jacket",
+      title: 'Chaqueta camisera acolchada para hombre',
       gender: 'men'
     },
-
     {
-      description: "Introducing the Tesla Raven Collection. The Men's Raven Lightweight Zip Up Bomber has a premium, modern silhouette made from a sustainable bamboo cotton blend for versatility in any season. The hoodie features subtle thermoplastic polyurethane Tesla logos on the left chest and below the back collar, a concealed chest pocket with custom matte zipper pulls and a french terry interior. Made from 70% bamboo and 30% cotton.",
+      description: 'Presentamos la colección ModaShop Raven. La cazadora bomber ligera con cremallera Raven para hombre tiene una silueta moderna y de primera calidad confeccionada con una mezcla de algodón de bambú sostenible para brindar versatilidad en cualquier temporada. La sudadera con capucha presenta sutiles logotipos de ModaShop de poliuretano termoplástico en el lado izquierdo del pecho y debajo del cuello trasero, un bolsillo oculto en el pecho con tiradores de cremallera mate personalizados y un interior de felpa francesa. Fabricada en 70% bambú y 30% algodón.',
       images: [
         '1740250-00-A_0_2000.jpg',
         '1740250-00-A_1.jpg'
       ],
-      price: 130,
+      price: 1,
       sizes: ['S', 'M', 'L', 'XL', 'XXL'],
       slug: 'men_raven_lightweight_zip_up_bomber_jacket',
       type: 'camisas',
@@ -76,56 +75,55 @@ export const initialData: SeedData = {
       title: "Men's Raven Lightweight Zip Up Bomber Jacket",
       gender: 'men'
     },
-
     {
-      description: "Introducing the Tesla Turbine Collection. Designed for style, comfort and everyday lifestyle, the Men's Turbine Long Sleeve Tee features a subtle, water-based T logo on the left chest and our Tesla wordmark below the back collar. The lightweight material is double-dyed, creating a soft, casual style for ideal wear in any season. Made from 50% cotton and 50% polyester.",
+      description: 'Presentamos la colección Turbine de ModaShop. Diseñada para brindar estilo, comodidad y estilo de vida cotidiano, la camiseta de manga larga Turbine para hombre presenta un sutil logotipo de T a base de agua en el lado izquierdo del pecho y nuestra marca ModaShop debajo del cuello trasero. El material liviano está teñido doblemente, lo que crea un estilo suave e informal ideal para usar en cualquier época del año. Confeccionada en 50% algodón y 50% poliéster.',
       images: [
         '1740280-00-A_0_2000.jpg',
         '1740280-00-A_1.jpg'
       ],
-      price: 45,
+      price: 1,
       sizes: ['XS', 'S', 'M', 'L'],
-      slug: 'men_turbine_long_sleeve_tee',
+      slug: 'men_turbine_camiseta_de_manga_larga',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Men's Turbine Long Sleeve Tee",
+      title: 'Camiseta de manga larga Turbine para hombre',
       gender: 'men'
     },
     {
-      description: "Introducing the Tesla Turbine Collection. Designed for style, comfort and everyday lifestyle, the Men's Turbine Short Sleeve Tee features a subtle, water-based Tesla wordmark across the chest and our T logo below the back collar. The lightweight material is double-dyed, creating a soft, casual style for ideal wear in any season. Made from 50% cotton and 50% polyester.",
+      description: 'Presentamos la colección Turbine de ModaShop. Diseñada para brindar estilo, comodidad y estilo de vida cotidiano, la camiseta de manga corta Turbine para hombre presenta una sutil marca denominativa ModaShop a base de agua en el pecho y nuestro logotipo M debajo del cuello trasero. El material liviano está teñido doblemente, lo que crea un estilo suave e informal ideal para usar en cualquier época del año. Confeccionada en 50% algodón y 50% poliéster.',
       images: [
         '1741416-00-A_0_2000.jpg',
         '1741416-00-A_1.jpg'
       ],
-      price: 40,
+      price: 1,
       sizes: ['M', 'L', 'XL', 'XXL'],
-      slug: 'men_turbine_short_sleeve_tee',
+      slug: 'men_turbine_camiseta_de_manga_corta',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Men's Turbine Short Sleeve Tee",
+      title: 'Camiseta de manga corta Turbine para hombre',
       gender: 'men'
     },
     {
-      description: 'Designed for comfort, the Cybertruck Owl Tee is made from 100% cotton and features our signature Cybertruck icon on the back.',
+      description: 'Diseñada para brindar comodidad, la camiseta Cybertruck Owl está hecha de 100% algodón y presenta nuestro ícono Cybertruck característico en la parte posterior.',
       images: [
         '7654393-00-A_2_2000.jpg',
         '7654393-00-A_3.jpg'
       ],
-      price: 35,
+      price: 1,
       sizes: ['M', 'L', 'XL', 'XXL'],
-      slug: 'men_cybertruck_owl_tee',
+      slug: 'camiseta_de_buho_cybertruck_para_hombre',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Men's Cybertruck Owl Tee",
+      title: 'Camiseta Cybertruck Owl para hombre',
       gender: 'men'
     },
     {
-      description: "Inspired by our fully integrated home solar and storage system, the Tesla Solar Roof Tee advocates for clean, sustainable energy wherever you go. Designed for fit, comfort and style, the tee features an aerial view of our seamless Solar Roof design on the front with our signature T logo above 'Solar Roof' on the back. Made from 100% Peruvian cotton.",
+      description: "Inspired by our fully integrated home solar and storage system, the ModaShop Solar Roof Tee advocates for clean, sustainable energy wherever you go. Designed for fit, comfort and style, the tee features an aerial view of our seamless Solar Roof design on the front with our signature M Logo above 'Solar Roof' on the back. Made from 100% Peruvian cotton.",
       images: [
         '1703767-00-A_0_2000.jpg',
         '1703767-00-A_1.jpg'
       ],
-      price: 35,
+      price: 1,
       sizes: ['S', 'M', 'L', 'XL'],
       slug: 'men_solar_roof_tee',
       type: 'camisas',
@@ -134,600 +132,586 @@ export const initialData: SeedData = {
       gender: 'men'
     },
     {
-      description: "Inspired by the world’s most unlimited resource, the Let the Sun Shine Tee highlights our fully integrated home solar and storage system. Designed for fit, comfort and style, the tee features a sunset graphic along with our Tesla wordmark on the front and our signature T logo printed above 'Solar Roof' on the back. Made from 100% Peruvian cotton.",
+      description: "Inspirado en nuestro sistema de almacenamiento y energía solar totalmente integrado para el hogar, la camiseta ModaShop Solar Roof aboga por una energía limpia y sostenible dondequiera que vayas. Diseñada para ajuste, comodidad y estilo, la camiseta presenta una vista aérea de nuestro diseño Solar Roof sin costuras en el frente con nuestro logotipo T en la parte superior de 'Solar Roof' en la parte trasera. Hecha de 100% algodón peruano.",
       images: [
-        '1700280-00-A_0_2000.jpg',
-        '1700280-00-A_1.jpg'
+        '1703767-00-A_0_2000.jpg',
+        '1703767-00-A_1.jpg'
       ],
-      price: 35,
-      sizes: ['XS', 'S', 'XL', 'XXL'],
-      slug: 'men_let_the_sun_shine_tee',
+      price: 1,
+      sizes: ['S', 'M', 'L', 'XL'],
+      slug: 'camiseta_solar_roof_hombre',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Men's Let the Sun Shine Tee",
+      title: 'Camiseta Solar Roof para Hombre',
       gender: 'men'
     },
     {
-      description: "Designed for fit, comfort and style, the Men's 3D Large Wordmark Tee is made from 100% Peruvian cotton with a 3D silicone-printed Tesla wordmark printed across the chest.",
+      description: "Diseñada para ajuste, comodidad y estilo, la Camiseta 3D Large Wordmark para Hombre está hecha de 100% algodón peruano con una palabra 'ModaShop' impresa en silicona 3D en el pecho.",
       images: [
         '8764734-00-A_0_2000.jpg',
         '8764734-00-A_1.jpg'
       ],
-      price: 35,
+      price: 1,
       sizes: ['XS', 'S', 'M'],
-      slug: 'men_3d_large_wordmark_tee',
+      slug: 'camiseta_3d_large_wordmark_hombre',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Men's 3D Large Wordmark Tee",
+      title: 'Camiseta 3D Large Wordmark para Hombre',
       gender: 'men'
     },
     {
-      description: 'Designed for fit, comfort and style, the Tesla T Logo Tee is made from 100% Peruvian cotton and features a silicone-printed T Logo on the left chest.',
+      description: 'Diseñada para ajuste, comodidad y estilo, la Camiseta M Logo de ModaShop está hecha de 100% algodón peruano y presenta un logotipo M impreso en silicona en el pecho izquierdo.',
       images: [
         '7652426-00-A_0_2000.jpg',
         '7652426-00-A_1.jpg'
       ],
-      price: 35,
+      price: 1,
       sizes: ['XS', 'S'],
-      slug: 'men_3d_t_logo_tee',
+      slug: 'camiseta_3d_t_logo_hombre',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Men's 3D T Logo Tee",
+      title: 'Camiseta 3D M Logo para Hombre',
       gender: 'men'
     },
     {
-      description: 'Designed for comfort and style in any size, the Tesla Small Wordmark Tee is made from 100% Peruvian cotton and features a 3D silicone-printed wordmark on the left chest.',
+      description: 'Diseñada para comodidad y estilo en cualquier tamaño, la Camiseta Small Wordmark de ModaShop está hecha de 100% algodón peruano y presenta una palabra impresa en silicona 3D en el pecho izquierdo.',
       images: [
         '8528839-00-A_0_2000.jpg',
         '8528839-00-A_2.jpg'
       ],
-      price: 35,
+      price: 1,
       sizes: ['XS', 'S', 'M'],
-      slug: 'men_3d_small_wordmark_tee',
+      slug: 'camiseta_3d_small_wordmark_hombre',
       type: 'camisas',
       tags: ['shirt'],
-      title: 'Men’s 3D Small Wordmark Tee',
+      title: 'Camiseta 3D Small Wordmark para Hombre',
       gender: 'men'
     },
     {
-      description: "Designed to celebrate Tesla's incredible performance mode, the Plaid Mode Tee features great fit, comfort and style. Made from 100% cotton, it's the next best thing to riding shotgun at the Nürburgring.",
+      description: 'Diseñada para celebrar el increíble modo de rendimiento de ModaShop, la Camiseta Plaid Mode ofrece un gran ajuste, comodidad y estilo. Hecha de 100% algodón, es lo mejor después de ir de copiloto en el Nürburgring.',
       images: [
         '1549268-00-A_0_2000.jpg',
         '1549268-00-A_2.jpg'
       ],
-      price: 35,
+      price: 1,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-      slug: 'men_plaid_mode_tee',
+      slug: 'camiseta_plaid_mode_hombre',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Men's Plaid Mode Tee",
+      title: 'Camiseta Plaid Mode para Hombre',
       gender: 'men'
     },
     {
-      description: "Inspired by our popular home battery, the Tesla Powerwall Tee is made from 100% cotton and features the phrase 'Pure Energy' under our signature logo in the back. Designed for fit, comfort and style, the exclusive tee promotes sustainable energy in any environment.",
+      description: "Inspirada en nuestra popular batería doméstica, la Camiseta Powerwall de ModaShop está hecha de 100% algodón y presenta la frase 'Pure Energy' debajo de nuestro logotipo en la parte trasera. Diseñada para ajuste, comodidad y estilo, la exclusiva camiseta promueve la energía sostenible en cualquier entorno.",
       images: [
         '9877034-00-A_0_2000.jpg',
         '9877034-00-A_2.jpg'
       ],
-      price: 35,
+      price: 1,
       sizes: ['XL', 'XXL'],
-      slug: 'men_powerwall_tee',
+      slug: 'camiseta_powerwall_hombre',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Men's Powerwall Tee",
+      title: 'Camiseta Powerwall para Hombre',
       gender: 'men'
     },
     {
-      description: 'Inspired by Tesla Battery Day and featuring the unveiled tabless battery cell, Battery Day Tee celebrates the future of energy storage and cell manufacturing. Designed for fit, comfort and style, Battery Day Tee is made from 100% cotton with a stylized cell printed across the chest. Made in Peru.',
+      description: 'Inspirada en el Día de la Batería de ModaShop y presentando la celda de batería sin lengüeta revelada, la Camiseta del Día de la Batería celebra el futuro del almacenamiento de energía y la fabricación de celdas. Diseñada para ajuste, comodidad y estilo, la Camiseta del Día de la Batería está hecha de 100% algodón con una celda estilizada impresa en el pecho. Hecha en Perú.',
       images: [
         '1633802-00-A_0_2000.jpg',
         '1633802-00-A_2.jpg'
       ],
-      price: 30,
+      price: 1,
       sizes: ['XS', 'S', 'XXL'],
-      slug: 'men_battery_day_tee',
+      slug: 'camiseta_dia_bateria_hombre',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Men's Battery Day Tee",
+      title: 'Camiseta del Día de la Batería para Hombre',
       gender: 'men'
     },
     {
-      description: 'Designed for exceptional comfort and inspired by the Cybertruck unveil event, the Cybertruck Bulletproof Tee is made from 100% cotton and features our signature Cybertruck icon on the back.',
+      description: 'Diseñada para una comodidad excepcional e inspirada en el evento de presentación de la Cybertruck, la Camiseta a Prueba de Balas Cybertruck está hecha de 100% algodón y presenta nuestro ícono característico de Cybertruck en la parte trasera.',
       images: [
         '7654399-00-A_0_2000.jpg',
         '7654399-00-A_1.jpg'
       ],
-      price: 30,
+      price: 1,
       sizes: ['M', 'L'],
-      slug: 'men_cybertruck_bulletproof_tee',
+      slug: 'camiseta_prueba_balas_cybertruck_hombre',
       type: 'camisas',
       tags: ['shirt'],
-      title: 'Men’s Cybertruck Bulletproof Tee',
+      title: 'Camiseta a Prueba de Balas Cybertruck para Hombre',
       gender: 'men'
     },
     {
-      description: 'Inspired by the Model Y order confirmation graphic, the limited edition Haha Yes Tee is designed for comfort and style. Made from 100% Peruvian cotton and featuring the Tesla wordmark across the chest, the exclusive tee will commemorate your order for years to come.',
+      description: 'Inspirada en el gráfico de confirmación de pedido del Model Y, la Camiseta Haha Yes de edición limitada está diseñada para comodidad y estilo. Hecha de 100% algodón peruano y con el logotipo de ModaShop en el pecho, esta camiseta exclusiva conmemorará tu pedido durante años.',
       images: [
         '7652410-00-A_0.jpg',
         '7652410-00-A_1_2000.jpg'
       ],
-      price: 35,
+      price: 1,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-      slug: 'men_haha_yes_tee',
+      slug: 'camiseta_haha_yes_hombre',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Men's Haha Yes Tee",
+      title: 'Camiseta Haha Yes para Hombre',
       gender: 'men'
     },
     {
-      description: 'Designed for fit, comfort and style, the limited edition S3XY Tee is made from 100% cotton with a 3D silicone-printed “S3XY” logo across the chest. Made in Peru. Available in black.',
+      description: "Diseñada para ajuste, comodidad y estilo, la Camiseta S3XY de edición limitada está hecha de 100% algodón con el logotipo 'S3XY' impreso en 3D en silicona en el pecho. Hecha en Perú. Disponible en negro.",
       images: [
         '8764600-00-A_0_2000.jpg',
         '8764600-00-A_2.jpg'
       ],
-      price: 35,
+      price: 1,
       sizes: ['XS', 'S', 'M', 'L'],
-      slug: 'men_s3xy_tee',
+      slug: 'camiseta_s3xy_hombre',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Men's S3XY Tee",
+      title: 'Camiseta S3XY para Hombre',
       gender: 'men'
     },
     {
-      description: "Designed for fit, comfort and style, the Men's 3D Wordmark Long Sleeve Tee is made from 100% cotton and features an understated wordmark logo on the left chest.",
-      images: [
-        '8764813-00-A_0_2000.jpg',
-        '8764813-00-A_1.jpg'
-      ],
-      price: 40,
-      sizes: ['XL', 'XXL'],
-      slug: 'men_3d_wordmark_long_sleeve_tee',
-      type: 'camisas',
-      tags: ['shirt'],
-      title: "Men's 3D Wordmark Long Sleeve Tee",
-      gender: 'men'
-    },
-    {
-      description: "Designed for fit, comfort and style, the Men's 3D T Logo Long Sleeve Tee is made from 100% cotton and features an understated T logo on the left chest.",
+      description: 'Diseñada para ajuste, comodidad y estilo, la Camiseta de Manga Larga 3D M Logo para Hombre está hecha de 100% algodón y presenta un discreto logotipo T en el pecho izquierdo.',
       images: [
         '8529198-00-A_0_2000.jpg',
         '8529198-00-A_1.jpg'
       ],
-      price: 40,
+      price: 1,
       sizes: ['XS', 'XXL'],
-      slug: 'men_3d_t_logo_long_sleeve_tee',
+      slug: 'camiseta_manga_larga_3d_t_logo_hombre',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Men's 3D T Logo Long Sleeve Tee",
+      title: 'Camiseta de Manga Larga 3D M Logo para Hombre',
       gender: 'men'
     },
     {
-      description: "Introducing the Tesla Raven Collection. The Men's Raven Lightweight Hoodie has a premium, relaxed silhouette made from a sustainable bamboo cotton blend. The hoodie features subtle thermoplastic polyurethane Tesla logos across the chest and on the sleeve with a french terry interior for versatility in any season. Made from 70% bamboo and 30% cotton.",
+      description: 'Presentamos la Colección Raven de ModaShop. La Sudadera Ligera con Capucha Raven para Hombre tiene una silueta premium y relajada hecha de una mezcla sostenible de bambú y algodón. La sudadera cuenta con sutiles logotipos de ModaShop de poliuretano termoplástico en el pecho y en la manga, con un interior de french terry para versatilidad en cualquier temporada. Hecha de 70% bambú y 30% algodón.',
       images: [
         '1740245-00-A_0_2000.jpg',
         '1740245-00-A_1.jpg'
       ],
-      price: 115,
+      price: 1,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-      slug: 'men_raven_lightweight_hoodie',
+      slug: 'sudadera_ligera_con_capucha_raven_hombre',
       type: 'sudaderas',
       tags: ['hoodie'],
-      title: "Men's Raven Lightweight Hoodie",
+      title: 'Sudadera Ligera con Capucha Raven para Hombre',
       gender: 'men'
     },
     {
-      description: 'Introducing the Tesla Chill Collection. The Chill Pullover Hoodie has a premium, heavyweight exterior and soft fleece interior for comfort in any season. The unisex hoodie features subtle thermoplastic polyurethane Tesla logos across the chest and on the sleeve, a double layer single seam hood and pockets with custom matte zipper pulls. Made from 60% cotton and 40% recycled polyester.',
+      description: 'Presentamos la Colección Chill de ModaShop. La Sudadera con Capucha Chill Pullover tiene un exterior premium y pesado, con un interior suave de fleece para confort en cualquier temporada. La sudadera unisex cuenta con sutiles logotipos de ModaShop de poliuretano termoplástico en el pecho y en la manga, una capucha de doble capa con costura simple y bolsillos con tiradores de cremallera mate personalizados. Hecha de 60% algodón y 40% poliéster reciclado.',
       images: [
         '1740051-00-A_0_2000.jpg',
         '1740051-00-A_1.jpg'
       ],
-      price: 130,
+      price: 1,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-      slug: 'chill_pullover_hoodie',
+      slug: 'sudadera_con_capucha_chill_pullover',
       type: 'sudaderas',
       tags: ['hoodie'],
-      title: 'Chill Pullover Hoodie',
+      title: 'Sudadera con Capucha Chill Pullover',
       gender: 'unisex'
     },
     {
-      description: "Introducing the Tesla Chill Collection. The Men's Chill Full Zip Hoodie has a premium, heavyweight exterior and soft fleece interior for comfort in any season. The hoodie features subtle thermoplastic polyurethane Tesla logos on the left chest and sleeve, a double layer single seam hood and pockets with custom matte zipper pulls. Made from 60% cotton and 40% recycled polyester.",
+      description: 'Presentamos la Colección Chill de ModaShop. La Sudadera con Capucha Completa Chill para Hombre tiene un exterior premium y pesado, con un interior suave de fleece para confort en cualquier temporada. La sudadera con capucha presenta sutiles logotipos de ModaShop de poliuretano termoplástico en el pecho izquierdo y en la manga, una capucha de doble capa con costura simple y bolsillos con tiradores de cremallera mate personalizados. Hecha de 60% algodón y 40% poliéster reciclado.',
       images: [
         '1741111-00-A_0_2000.jpg',
         '1741111-00-A_1.jpg'
       ],
-      price: 85,
+      price: 1,
       sizes: ['XS', 'L', 'XL', 'XXL'],
-      slug: 'men_chill_full_zip_hoodie',
+      slug: 'sudadera_con_capucha_completa_chill_para_hombre',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Men's Chill Full Zip Hoodie",
+      title: 'Sudadera con Capucha Completa Chill para Hombre',
       gender: 'men'
     },
     {
-      description: 'Introducing the Tesla Chill Collection. The Men’s Chill Quarter Zip Pullover has a premium, heavyweight exterior and soft fleece interior for comfort in any season. The pullover features subtle thermoplastic polyurethane Tesla logos on the left chest and below the back collar, as well as a custom matte zipper pull. Made from 60% cotton and 40% recycled polyester.',
+      description: 'Presentamos la Colección Chill de ModaShop. El Pullover de Cuarto de Cremallera Chill para Hombre tiene un exterior premium y pesado, con un interior suave de fleece para confort en cualquier temporada. El pullover presenta sutiles logotipos de ModaShop de poliuretano termoplástico en el pecho izquierdo y debajo del cuello trasero, así como un tirador de cremallera mate personalizado. Hecho de 60% algodón y 40% poliéster reciclado.',
       images: [
         '1740140-00-A_0_2000.jpg',
         '1740140-00-A_1.jpg'
       ],
-      price: 85,
+      price: 1,
       sizes: ['XS', 'S', 'M'],
-      slug: 'men_chill_quarter_zip_pullover_-_gray',
+      slug: 'pullover_de_cuarto_de_cremallera_chill_para_hombre_gris',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Men's Chill Quarter Zip Pullover - Gray",
+      title: 'Pullover de Cuarto de Cremallera Chill para Hombre - Gris',
       gender: 'men'
     },
     {
-      description: 'Introducing the Tesla Chill Collection. The Men’s Chill Quarter Zip Pullover has a premium, heavyweight exterior and soft fleece interior for comfort in any season. The pullover features subtle thermoplastic polyurethane Tesla logos on the left chest and below the back collar, as well as a custom matte zipper pull. Made from 60% cotton and 40% recycled polyester.',
+      description: 'Presentamos la Colección Chill de ModaShop. El Pullover de Cuarto de Cremallera Chill para Hombre tiene un exterior premium y pesado, con un interior suave de fleece para confort en cualquier temporada. El pullover presenta sutiles logotipos de ModaShop de poliuretano termoplástico en el pecho izquierdo y debajo del cuello trasero, así como un tirador de cremallera mate personalizado. Hecho de 60% algodón y 40% poliéster reciclado.',
       images: [
         '1740145-00-A_2_2000.jpg',
         '1740145-00-A_1.jpg'
       ],
-      price: 85,
+      price: 1,
       sizes: ['XS', 'S', 'M', 'L'],
-      slug: 'men_chill_quarter_zip_pullover_-_white',
+      slug: 'pullover_de_cuarto_de_cremallera_chill_para_hombre_blanco',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Men's Chill Quarter Zip Pullover - White",
+      title: 'Pullover de Cuarto de Cremallera Chill para Hombre - Blanco',
       gender: 'men'
     },
     {
-      description: 'The Unisex 3D Large Wordmark Pullover Hoodie features soft fleece and an adjustable, jersey-lined hood for comfort and coverage. Designed in a unisex style, the pullover hoodie includes a tone-on-tone 3D silicone-printed wordmark across the chest.',
+      description: 'La Sudadera con Capucha 3D Large Wordmark presenta un suave fleece y una capucha ajustable forrada en jersey para mayor comodidad y cobertura. Diseñada en un estilo unisex, la sudadera incluye un logotipo en 3D impreso en silicona tono sobre tono en el pecho.',
       images: [
         '8529107-00-A_0_2000.jpg',
         '8529107-00-A_1.jpg'
       ],
-      price: 70,
+      price: 1,
       sizes: ['XS', 'S', 'XL', 'XXL'],
-      slug: '3d_large_wordmark_pullover_hoodie',
+      slug: 'sudadera_con_capucha_3d_large_wordmark',
       type: 'sudaderas',
       tags: ['hoodie'],
-      title: '3D Large Wordmark Pullover Hoodie',
+      title: 'Sudadera con Capucha 3D Large Wordmark',
       gender: 'unisex'
     },
     {
-      description: 'As with the iconic Tesla logo, the Cybertruck Graffiti Hoodie is a classic in the making. Unisex style featuring soft fleece and an adjustable, jersey-lined hood for comfortable coverage.',
+      description: 'Al igual que con el icónico logo de ModaShop, la Sudadera Cybertruck Graffiti es un clásico en proceso. Estilo unisex con fleece suave y una capucha ajustable forrada en jersey para una cobertura cómoda.',
       images: [
         '7654420-00-A_0_2000.jpg',
         '7654420-00-A_1_2000.jpg'
       ],
-      price: 60,
+      price: 1,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-      slug: 'cybertruck_graffiti_hoodie',
+      slug: 'sudadera_cybertruck_graffiti',
       type: 'sudaderas',
       tags: ['hoodie'],
-      title: 'Cybertruck Graffiti Hoodie',
+      title: 'Sudadera Cybertruck Graffiti',
       gender: 'unisex'
     },
     {
-      description: 'The Relaxed T Logo Hat is a classic silhouette combined with modern details, featuring a 3D T logo and a custom metal buckle closure. The ultrasoft design is flexible and abrasion resistant, while the inner sweatband includes quilted padding for extra comfort and moisture wicking. The visor is fully made from recycled plastic bottles. 100% Cotton.',
+      description: 'La Gorra Relaxed M Logo es una silueta clásica combinada con detalles modernos, con un logo M en 3D y un cierre personalizado de hebilla metálica. El diseño ultrasuave es flexible y resistente a la abrasión, mientras que la banda interior incluye acolchado acolchado para mayor comodidad y absorción de la humedad. La visera está completamente hecha de botellas de plástico recicladas. 100% Algodón.',
       images: [
         '1657932-00-A_0_2000.jpg',
         '1657932-00-A_1.jpg'
       ],
-      price: 30,
+      price: 1,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-      slug: 'relaxed_t_logo_hat',
+      slug: 'gorra_relaxed_m_logo',
       type: 'gorros',
       tags: ['gorros'],
-      title: 'Relaxed T Logo Hat',
+      title: 'Gorra Relaxed M Logo',
       gender: 'unisex'
     },
     {
-      description: 'The Relaxed T Logo Hat is a classic silhouette combined with modern details, featuring a 3D T logo and a custom metal buckle closure. The ultrasoft design is flexible and abrasion resistant, while the inner sweatband includes quilted padding for extra comfort and moisture wicking. The visor is fully made from recycled plastic bottles. 100% Cotton.',
+      description: 'El Gorro Beanie con Puños Térmicos es una silueta clásica combinada con detalles modernos, que incluye un logo M en 3D y un cierre personalizado de hebilla metálica. El diseño ultrasuave es flexible y resistente a la abrasión, mientras que la banda interior incluye acolchado acolchado para mayor comodidad y absorción de la humedad. La visera está completamente hecha de botellas de plástico recicladas. 100% Algodón.',
       images: [
         '1740417-00-A_0_2000.jpg',
         '1740417-00-A_1.jpg'
       ],
-      price: 35,
+      price: 1,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-      slug: 'thermal_cuffed_beanie',
+      slug: 'gorro_con_punos_termicos',
       type: 'gorros',
       tags: ['gorros'],
-      title: 'Thermal Cuffed Beanie',
+      title: 'Gorro con Puños Térmicos',
       gender: 'unisex'
     },
     {
-      description: "The Women's Cropped Puffer Jacket features a uniquely cropped silhouette for the perfect, modern style while on the go during the cozy season ahead. The puffer features subtle silicone injected Tesla logos below the back collar and on the right sleeve, custom matte metal zipper pulls and a soft, fleece lined collar. Made from 87% nylon and 13% polyurethane.",
+      description: 'La Chaqueta Acolchada Corta para Mujer presenta una silueta única corta para un estilo moderno perfecto para la temporada acogedora que se avecina. El acolchado incluye sutiles logotipos de ModaShop inyectados con silicona debajo del cuello trasero y en la manga derecha, tiradores de cremallera personalizados de metal mate y un cuello forrado de suave fleece. Hecha de 87% nylon y 13% poliuretano.',
       images: [
         '1740535-00-A_0_2000.jpg',
         '1740535-00-A_1.jpg'
       ],
-      price: 225,
+      price: 1,
       sizes: ['XS', 'S', 'M'],
-      slug: 'women_cropped_puffer_jacket',
+      slug: 'chaqueta_acolchada_corta_mujer',
       type: 'sudaderas',
       tags: ['hoodie'],
-      title: "Women's Cropped Puffer Jacket",
+      title: 'Chaqueta Acolchada Corta para Mujer',
       gender: 'women'
     },
     {
-      description: "Introducing the Tesla Chill Collection. The Women's Chill Half Zip Cropped Hoodie has a premium, soft fleece exterior and cropped silhouette for comfort in everyday lifestyle. The hoodie features an elastic hem that gathers at the waist, subtle thermoplastic polyurethane Tesla logos along the hood and on the sleeve, a double layer single seam hood and a custom ring zipper pull. Made from 60% cotton and 40% recycled polyester.",
+      description: 'Presentamos la Colección Chill de ModaShop. La Sudadera con Capucha Corta y Cremallera Media para Mujer tiene un exterior premium de suave fleece y una silueta corta para mayor comodidad en el estilo de vida diario. La sudadera cuenta con un dobladillo elástico que se ajusta en la cintura, sutiles logotipos de ModaShop de poliuretano termoplástico a lo largo de la capucha y en la manga, una capucha de doble capa y costura simple, y un tirador de cremallera personalizado. Hecha de 60% algodón y 40% poliéster reciclado.',
       images: [
         '1740226-00-A_0_2000.jpg',
         '1740226-00-A_1.jpg'
       ],
-      price: 130,
+      price: 1,
       sizes: ['XS', 'S', 'M', 'XXL'],
-      slug: 'women_chill_half_zip_cropped_hoodie',
+      slug: 'sudadera_capucha_corta_cremallera_media_mujer',
       type: 'sudaderas',
       tags: ['hoodie'],
-      title: "Women's Chill Half Zip Cropped Hoodie",
+      title: 'Sudadera con Capucha Corta y Cremallera Media para Mujer',
       gender: 'women'
     },
     {
-      description: "Introducing the Tesla Raven Collection. The Women's Raven Slouchy Crew Sweatshirt has a premium, relaxed silhouette made from a sustainable bamboo cotton blend. The slouchy crew features a subtle thermoplastic polyurethane Tesla wordmark on the left sleeve and a french terry interior for a cozy look and feel in every season. Pair it with your Raven Joggers or favorite on the go fit. Made from 70% bamboo and 30% cotton.",
+      description: 'Presentamos la Colección Raven de ModaShop. La Sudadera Slouchy de Cuello Redondo para Mujer tiene una silueta relajada y premium hecha de una mezcla sostenible de bambú y algodón. El diseño incluye un sutil logotipo de ModaShop de poliuretano termoplástico en la manga izquierda y un interior de french terry para una apariencia y sensación acogedora en todas las estaciones. Combínala con tus Joggers Raven o tu conjunto favorito para estar cómoda en movimiento. Hecha de 70% bambú y 30% algodón.',
       images: [
         '1740260-00-A_0_2000.jpg',
         '1740260-00-A_1.jpg'
       ],
-      price: 110,
+      price: 1,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-      slug: 'women_raven_slouchy_crew_sweatshirt',
+      slug: 'sudadera_slouchy_cuello_redondo_mujer_raven',
       type: 'sudaderas',
       tags: ['hoodie'],
-      title: "Women's Raven Slouchy Crew Sweatshirt",
+      title: 'Sudadera Slouchy de Cuello Redondo para Mujer',
       gender: 'women'
     },
     {
-      description: "Introducing the Tesla Turbine Collection. Designed for style, comfort and everyday lifestyle, the Women's Turbine Cropped Long Sleeve Tee features a subtle, water-based Tesla wordmark across the chest and our T logo below the back collar. The lightweight material is double-dyed, creating a soft, casual style with a cropped silhouette. Made from 50% cotton and 50%",
+      description: 'Presentamos la Colección Turbine de ModaShop. Diseñada para estilo, comodidad y el estilo de vida diario, la Camiseta de Manga Larga Corta para Mujer Turbine presenta un sutil logotipo de ModaShop a base de agua en el pecho y nuestro logo M debajo del cuello trasero. El material ligero está teñido doblemente, creando un estilo suave y casual con una silueta corta. Hecha de 50% algodón y 50% poliéster.',
       images: [
         '1740290-00-A_0_2000.jpg',
         '1740290-00-A_1.jpg'
       ],
-      price: 45,
+      price: 1,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-      slug: 'women_turbine_cropped_long_sleeve_tee',
+      slug: 'camiseta_manga_larga_corta_mujer_turbine',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Women's Turbine Cropped Long Sleeve Tee",
+      title: 'Camiseta de Manga Larga Corta para Mujer Turbine',
       gender: 'women'
     },
     {
-      description: "ntroducing the Tesla Turbine Collection. Designed for style, comfort and everyday lifestyle, the Women's Turbine Cropped Short Sleeve Tee features a subtle, water-based Tesla wordmark across the chest and our T logo below the back collar. The lightweight material is double-dyed, creating a soft, casual style with a cropped silhouette. Made from 50% cotton and 50% polyester.",
+      description: 'Presentamos la Colección Turbine de ModaShop. Diseñada para estilo, comodidad y el estilo de vida diario, la Camiseta de Manga Corta Corta para Mujer Turbine presenta un sutil logotipo de ModaShop a base de agua en el pecho y nuestro logo M debajo del cuello trasero. El material ligero está teñido doblemente, creando un estilo suave y casual con una silueta corta. Hecha de 50% algodón y 50% poliéster.',
       images: [
         '1741441-00-A_0_2000.jpg',
         '1741441-00-A_1.jpg'
       ],
-      price: 40,
+      price: 1,
       sizes: ['XS', 'S'],
-      slug: 'women_turbine_cropped_short_sleeve_tee',
+      slug: 'camiseta_manga_corta_cortada_mujer_turbine',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Women's Turbine Cropped Short Sleeve Tee",
+      title: 'Camiseta de Manga Corta Cortada para Mujer Turbine',
       gender: 'women'
     },
     {
-      description: "Designed for style and comfort, the ultrasoft Women's T Logo Short Sleeve Scoop Neck Tee features a tonal 3D silicone-printed T logo on the left chest. Made of 50% Peruvian cotton and 50% Peruvian viscose.",
+      description: 'Diseñada para estilo y comodidad, la suave Camiseta de Cuello Redondo de Manga Corta con logo M para Mujer presenta un sutil logo M impreso en 3D en tono sobre el pecho izquierdo. Hecha de 50% algodón peruano y 50% viscosa peruana.',
       images: [
         '8765090-00-A_0_2000.jpg',
         '8765090-00-A_1.jpg'
       ],
-      price: 35,
+      price: 1,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-      slug: 'women_t_logo_short_sleeve_scoop_neck_tee',
+      slug: 'camiseta_cuello_redondo_manga_corta_logo_t_mujer',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Women's T Logo Short Sleeve Scoop Neck Tee",
+      title: 'Camiseta de Cuello Redondo de Manga Corta con logo M para Mujer',
       gender: 'women'
     },
     {
-      description: "Designed for style and comfort, the ultrasoft Women's T Logo Long Sleeve Scoop Neck Tee features a tonal 3D silicone-printed T logo on the left chest. Made of 50% Peruvian cotton and 50% Peruvian viscose.",
+      description: 'Diseñada para estilo y comodidad, la suave Camiseta de Cuello Redondo de Manga Larga con logo M para Mujer presenta un sutil logo M impreso en 3D en tono sobre el pecho izquierdo. Hecha de 50% algodón peruano y 50% viscosa peruana.',
       images: [
         '8765100-00-A_0_2000.jpg',
         '8765100-00-A_1.jpg'
       ],
-      price: 40,
+      price: 1,
       sizes: ['XS', 'S', 'L', 'XL', 'XXL'],
-      slug: 'women_t_logo_long_sleeve_scoop_neck_tee',
+      slug: 'camiseta_cuello_redondo_manga_larga_logo_t_mujer',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Women's T Logo Long Sleeve Scoop Neck Tee",
+      title: 'Camiseta de Cuello Redondo de Manga Larga con logo M para Mujer',
       gender: 'women'
     },
     {
-      description: "Designed for style and comfort, the Women's Small Wordmark Short Sleeve V-Neck Tee features a tonal 3D silicone-printed wordmark on the left chest. Made of 100% Peruvian cotton.",
+      description: 'Diseñada para estilo y comodidad, la Camiseta de Cuello en V de Manga Corta con Pequeño Logo en el Pecho Izquierdo para Mujer presenta un sutil logo impreso en 3D en tono sobre el pecho izquierdo. Hecha de 100% algodón peruano.',
       images: [
         '8765120-00-A_0_2000.jpg',
         '8765120-00-A_1.jpg'
       ],
-      price: 35,
+      price: 1,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-      slug: 'women_small_wordmark_short_sleeve_v-neck_tee',
+      slug: 'camiseta_cuello_v_manga_corta_logo_pequeno_mujer',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Women's Small Wordmark Short Sleeve V-Neck Tee",
+      title: 'Camiseta de Cuello en V de Manga Corta con Pequeño Logo en el Pecho Izquierdo para Mujer',
       gender: 'women'
     },
     {
-      description: "Designed for style and comfort, the Women's Large Wordmark Short Sleeve Crew Neck Tee features a tonal 3D silicone-printed wordmark across the chest. Made of 100% Peruvian pima cotton.",
+      description: 'Diseñada para estilo y comodidad, la Camiseta de Cuello Redondo de Manga Corta con Gran Logo en el Pecho para Mujer presenta un sutil logo impreso en 3D en tono sobre el pecho. Hecha de 100% algodón pima peruano.',
       images: [
         '8765115-00-A_0_2000.jpg',
         '8765115-00-A_1.jpg'
       ],
-      price: 35,
+      price: 1,
       sizes: ['XL', 'XXL'],
-      slug: 'women_large_wordmark_short_sleeve_crew_neck_tee',
+      slug: 'camiseta_cuello_redondo_manga_corta_gran_logo_mujer',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Women's Large Wordmark Short Sleeve Crew Neck Tee",
+      title: 'Camiseta de Cuello Redondo de Manga Corta con Gran Logo en el Pecho para Mujer',
       gender: 'women'
     },
     {
-      description: "Designed to celebrate Tesla's incredible performance mode, the Plaid Mode Tee features great fit, comfort and style. Made from 100% cotton, it's the next best thing to riding shotgun at the Nürburgring.",
+      description: 'Diseñada para celebrar el increíble modo de rendimiento de ModaShop, la Camiseta Modo Tartán ofrece un ajuste excelente, comodidad y estilo. Hecha de 100% algodón, es lo más parecido a estar al lado del conductor en el Nürburgring.',
       images: [
         '1549275-00-A_0_2000.jpg',
         '1549275-00-A_1.jpg'
       ],
-      price: 35,
+      price: 1,
       sizes: ['S', 'M'],
-      slug: 'women_plaid_mode_tee',
+      slug: 'camiseta_modo_tartan_mujer',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Women's Plaid Mode Tee",
+      title: 'Camiseta Modo Tartán para Mujer',
       gender: 'women'
     },
     {
-      description: "Inspired by our popular home battery, the Tesla Powerwall Tee is made from 100% cotton and features the phrase 'Pure Energy' under our signature logo in the back. Designed for fit, comfort and style, the exclusive tee promotes sustainable energy in any",
+      description: "Inspirada en nuestra popular batería doméstica, la Camiseta Powerwall de ModaShop está hecha de 100% algodón y presenta la frase 'Energía Pura' debajo de nuestro logo característico en la parte posterior. Diseñada para ajuste, comodidad y estilo, esta camiseta exclusiva promueve la energía sostenible en cualquier lugar.",
       images: [
         '9877040-00-A_0_2000.jpg',
         '9877040-00-A_1.jpg'
       ],
-      price: 130,
+      price: 1,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-      slug: 'women_powerwall_tee',
+      slug: 'camiseta_powerwall_mujer',
       type: 'camisas',
       tags: ['shirt'],
-      title: 'Women’s Powerwall Tee',
+      title: 'Camiseta Powerwall para Mujer',
       gender: 'women'
     },
     {
-      description: "Fully customized and uniquely styled, the Women's Corp Jacket features a silicone-printed 'T' logo on the left chest and prominent Tesla wordmark across the back.",
+      description: "Totalmente personalizada y con un estilo único, la Chaqueta Corp para Mujer presenta un logo 'T' impreso en silicona en el pecho izquierdo y el destacado wordmark de ModaShop en la parte trasera.",
       images: [
         '5645680-00-A_0_2000.jpg',
         '5645680-00-A_3.jpg'
       ],
-      price: 90,
+      price: 1,
       sizes: ['M', 'L', 'XL', 'XXL'],
-      slug: 'women_corp_jacket',
+      slug: 'chaqueta_corp_mujer',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Women's Corp Jacket",
+      title: 'Chaqueta Corp para Mujer',
       gender: 'women'
     },
     {
-      description: "Introducing the Tesla Raven Collection. The Women's Raven Joggers have a premium, relaxed silhouette made from a sustainable bamboo cotton blend. The joggers feature a subtle thermoplastic polyurethane Tesla wordmark and T logo and a french terry interior for a cozy look and feel in every season. Pair them with your Raven Slouchy Crew Sweatshirt, Raven Lightweight Zip Up Jacket or other favorite on the go fit. Made from 70% bamboo and 30% cotton.",
+      description: 'Presentando la Colección Raven de ModaShop. Los Joggers Raven para Mujer tienen una silueta relajada y premium hecha de una mezcla sostenible de bambú y algodón. Estos joggers cuentan con un sutil wordmark y logo M de ModaShop en termoplástico poliuretano, y un interior de felpa francesa para una apariencia y sensación acogedora en todas las estaciones. Combínalos con tu sudadera Raven Slouchy Crew, chaqueta Raven Lightweight Zip Up u otra prenda favorita para estar cómoda en cualquier ocasión. Hechos de 70% bambú y 30% algodón.',
       images: [
         '1740270-00-A_0_2000.jpg',
         '1740270-00-A_1.jpg'
       ],
-      price: 100,
+      price: 1,
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-      slug: 'women_raven_joggers',
+      slug: 'joggers_raven_mujer',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Women's Raven Joggers",
+      title: 'Joggers Raven para Mujer',
       gender: 'women'
     },
     {
-      description: 'Designed for fit, comfort and style, the Kids Cybertruck Graffiti Long Sleeve Tee features a water-based Cybertruck graffiti wordmark across the chest, a Tesla wordmark down the left arm and our signature T logo on the back collar. Made from 50% cotton and 50% polyester.',
+      description: 'Diseñada para ajuste, comodidad y estilo, la Camiseta de Manga Larga Kids Cybertruck Graffiti presenta un wordmark graffiti Cybertruck a base de agua en el pecho, un wordmark de ModaShop en el brazo izquierdo y nuestro logo M distintivo en el cuello trasero. Hecha de 50% algodón y 50% poliéster.',
       images: [
         '1742694-00-A_1_2000.jpg',
         '1742694-00-A_3.jpg'
       ],
-      price: 30,
+      price: 1,
       sizes: ['XS', 'S', 'M'],
-      slug: 'kids_cybertruck_long_sleeve_tee',
+      slug: 'camiseta_manga_larga_kids_cybertruck',
       type: 'camisas',
       tags: ['shirt'],
-      title: 'Kids Cybertruck Long Sleeve Tee',
+      title: 'Camiseta de Manga Larga Kids Cybertruck',
       gender: 'kid'
     },
     {
-      description: 'The Kids Scribble T Logo Tee is made from 100% Peruvian cotton and features a Tesla T sketched logo for every young artist to wear.',
+      description: 'La Camiseta Kids Scribble M Logo está hecha de 100% algodón peruano y presenta un logo M de ModaShop dibujado para que cada joven artista la use.',
       images: [
         '8529312-00-A_0_2000.jpg',
         '8529312-00-A_1.jpg'
       ],
-      price: 25,
+      price: 1,
       sizes: ['XS', 'S', 'M'],
-      slug: 'kids_scribble_t_logo_tee',
+      slug: 'camiseta_kids_scribble_t_logo',
       type: 'camisas',
       tags: ['shirt'],
-      title: 'Kids Scribble T Logo Tee',
+      title: 'Camiseta Kids Scribble M Logo',
       gender: 'kid'
     },
     {
-      description: 'The Kids Cybertruck Tee features the iconic Cybertruck graffiti wordmark and is made from 100% Peruvian cotton for maximum comfort.',
+      description: 'La Camiseta Kids Cybertruck presenta el icónico logotipo de graffiti Cybertruck y está hecha de 100% algodón peruano para máxima comodidad.',
       images: [
         '8529342-00-A_0_2000.jpg',
         '8529342-00-A_1.jpg'
       ],
-      price: 25,
+      price: 1,
       sizes: ['XS', 'S', 'M'],
-      slug: 'kids_cybertruck_tee',
+      slug: 'camiseta_kids_cybertruck',
       type: 'camisas',
       tags: ['shirt'],
-      title: 'Kids Cybertruck Tee',
+      title: 'Camiseta Kids Cybertruck',
       gender: 'kid'
     },
     {
-      description: "The refreshed Kids Racing Stripe Tee is made from 100% Peruvian cotton, featuring a newly enhanced racing stripe with a brushed Tesla wordmark that's perfect for any speed racer.",
+      description: 'La Camiseta Kids Racing Stripe renovada está hecha de 100% algodón peruano, con una franja de carreras mejorada recientemente y un logotipo de ModaShop cepillado perfecto para cualquier corredor de velocidad.',
       images: [
         '8529354-00-A_0_2000.jpg',
         '8529354-00-A_1.jpg'
       ],
-      price: 30,
+      price: 1,
       sizes: ['XS', 'S', 'M'],
-      slug: 'kids_racing_stripe_tee',
+      slug: 'camiseta_kids_racing_stripe',
       type: 'camisas',
       tags: ['shirt'],
-      title: 'Kids Racing Stripe Tee',
+      title: 'Camiseta Kids Racing Stripe',
       gender: 'kid'
     },
     {
-      description: 'Designed for fit, comfort and style, the Tesla T Logo Tee is made from 100% Peruvian cotton and features a silicone-printed T Logo on the left chest.',
+      description: 'Diseñada para ajuste, comodidad y estilo, la Camiseta ModaShop M Logo está hecha de 100% algodón peruano y presenta un logotipo T impreso en silicona en el pecho izquierdo.',
       images: [
         '7652465-00-A_0_2000.jpg',
         '7652465-00-A_1.jpg'
       ],
-      price: 30,
+      price: 1,
       sizes: ['XS', 'S', 'M'],
-      slug: 'kids_3d_t_logo_tee',
+      slug: 'camiseta_kids_t_logo_3d',
       type: 'camisas',
       tags: ['shirt'],
-      title: 'Kids 3D T Logo Tee',
+      title: 'Camiseta Kids 3D M Logo',
       gender: 'kid'
     },
     {
-      description: 'The checkered tee is made from long grain, GMO free Peruvian cotton. Peru is the only country in the world where cotton is picked by hand on a large scale. The 4,500-year-old tradition prevents damage to the fiber during the picking process and removes the need to use chemicals to open the cotton plants before harvest. This environmentally friendly process results in cotton that is soft, strong, and lustrous – and the tee will get even softer with every wash.',
+      description: 'La camiseta a cuadros está hecha de algodón peruano de grano largo, libre de OMG. Perú es el único país en el mundo donde el algodón se recoge a mano a gran escala. Esta tradición de 4,500 años evita daños a la fibra durante el proceso de recolección y elimina la necesidad de usar productos químicos para abrir las plantas de algodón antes de la cosecha. Este proceso respetuoso con el medio ambiente resulta en algodón suave, resistente y brillante, y la camiseta se volverá aún más suave con cada lavado.',
       images: [
         '100042307_0_2000.jpg',
         '100042307_alt_2000.jpg'
       ],
-      price: 30,
+      price: 1,
       sizes: ['XS', 'S', 'M'],
-      slug: 'kids_checkered_tee',
+      slug: 'camiseta_kids_a_cuadros',
       type: 'camisas',
       tags: ['shirt'],
-      title: 'Kids Checkered Tee',
+      title: 'Camiseta Kids a Cuadros',
       gender: 'kid'
     },
     {
-      description: 'For the future space traveler with discerning taste, a soft, cotton onesie with snap closure bottom. Clear labeling provided in case of contact with a new spacefaring civilization. 100% Cotton. Made in Peru',
+      description: 'Para el futuro viajero espacial con un gusto exigente, un mono de algodón suave con cierre de broche en la parte inferior. Etiquetado claro proporcionado en caso de contacto con una nueva civilización espacial. 100% algodón. Hecho en Perú.',
       images: [
         '1473809-00-A_1_2000.jpg',
         '1473809-00-A_alt.jpg'
       ],
-      price: 25,
+      price: 1,
       sizes: ['XS', 'S'],
-      slug: 'made_on_earth_by_humans_onesie',
+      slug: 'mono_made_on_earth_by_humans',
       type: 'camisas',
       tags: ['shirt'],
-      title: 'Made on Earth by Humans Onesie',
+      title: 'Mono Made on Earth by Humans',
       gender: 'kid'
     },
     {
-      description: 'The Kids Scribble T Logo Onesie is made from 100% Peruvian cotton and features a Tesla T sketched logo for every little artist to wear.',
+      description: 'El Mono Scribble M Logo está hecho de 100% algodón peruano y presenta un logo ModaShop T dibujado a mano para que cada pequeño artista lo use.',
       images: [
         '8529387-00-A_0_2000.jpg',
         '8529387-00-A_1.jpg'
       ],
-      price: 30,
+      price: 1,
       sizes: ['XS', 'S'],
       slug: 'scribble_t_logo_onesie',
       type: 'camisas',
       tags: ['shirt'],
-      title: 'Scribble T Logo Onesie',
+      title: 'Scribble M Logo Onesie',
       gender: 'kid'
     },
     {
-      description: 'Show your commitment to sustainable energy with this cheeky onesie for your young one. Note: Does not prevent emissions. 100% Cotton. Made in Peru.',
+      description: 'Demuestra tu compromiso con la energía sostenible con este gracioso onesie para tu pequeño. Nota: No previene emisiones. 100% algodón. Hecho en Perú.',
       images: [
         '1473834-00-A_2_2000.jpg',
         '1473829-00-A_2_2000.jpg'
       ],
-      price: 30,
+      price: 1,
       sizes: ['XS', 'S'],
       slug: 'zero_emissions_(almost)_onesie',
       type: 'camisas',
@@ -736,12 +720,12 @@ export const initialData: SeedData = {
       gender: 'kid'
     },
     {
-      description: 'Wear your Kids Cyberquad Bomber Jacket during your adventures on Cyberquad for Kids. The bomber jacket features a graffiti-style illustration of our Cyberquad silhouette and wordmark. With three zippered pockets and our signature T logo and Tesla wordmark printed along the sleeves, Kids Cyberquad Bomber Jacket is perfect for wherever the trail takes you. Made from 60% cotton and 40% polyester.',
+      description: 'Usa tu chaqueta bomber Kids Cyberquad durante tus aventuras en el Cyberquad para niños. La chaqueta bomber presenta una ilustración de estilo graffiti de nuestro perfil Cyberquad y wordmark. Con tres bolsillos con cremallera y nuestro logo M y wordmark de ModaShop impresos a lo largo de las mangas, la chaqueta bomber Kids Cyberquad es perfecta para cualquier lugar donde te lleve el camino. Hecha de 60% algodón y 40% poliéster.',
       images: [
         '1742702-00-A_0_2000.jpg',
         '1742702-00-A_1.jpg'
       ],
-      price: 65,
+      price: 1,
       sizes: ['XS', 'S', 'M'],
       slug: 'kids_cyberquad_bomber_jacket',
       type: 'camisas',
@@ -750,12 +734,12 @@ export const initialData: SeedData = {
       gender: 'kid'
     },
     {
-      description: 'Cruise the playground in style with the Kids Corp Jacket. Modeled after the original Tesla Corp Jacket, the Kids Corp Jacket features the same understated style and high-quality materials but at a pint-sized scale.',
+      description: 'Cruza el patio de recreo con estilo con la chaqueta Kids Corp. Modelada según la chaqueta original de ModaShop Corp, la chaqueta Kids Corp presenta el mismo estilo discreto y materiales de alta calidad pero a escala miniatura.',
       images: [
         '1506211-00-A_0_2000.jpg',
         '1506211-00-A_1_2000.jpg'
       ],
-      price: 30,
+      price: 1,
       sizes: ['XS', 'S', 'M'],
       slug: 'kids_corp_jacket',
       type: 'camisas',
