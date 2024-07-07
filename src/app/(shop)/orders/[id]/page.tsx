@@ -23,7 +23,7 @@ export default async function OrdersByIdPage({ params }: Props) {
 
   return (
     <>
-      <Title className='' title={`Orden #${id.split('-').at(-1)}`} subtitle="Estos son los datos de tu pedido" />
+      <Title className='' title={`Pedido #${id.split('-').at(-1)}`} subtitle="Estos son los datos de tu pedido" />
       <div className="flex justify-center items-center mb-72 px-1 sm:px-0">
 
         <div className="flex flex-col w-[1000px]">
@@ -72,7 +72,7 @@ export default async function OrdersByIdPage({ params }: Props) {
               {/* divider */}
               <div className='w-full h-0.5 rounded bg-gray-200 mb-10'></div>
 
-              <h2 className='text-2xl mb-2'>Resumen de orden</h2>
+              <h2 className='text-2xl mb-2'>Resumen del pedido</h2>
 
               <div className='grid grid-cols-2'>
                 <span className='text-right'>No. Productos</span>

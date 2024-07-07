@@ -22,7 +22,7 @@ export default async function OrdersPage({ searchParams }: Props) {
     return (
       <div className='flex flex-col gap-3 items-center justify-center h-[300px] max-w-[920px] my-5 text-center mx-auto'>
 
-        <h1>No tienes ordenes registradas</h1>
+        <h1>No tienes pedidos registradas</h1>
 
         <Link href="/" className='hover:underline font-medium'>
           Comienza a comprar
@@ -34,7 +34,7 @@ export default async function OrdersPage({ searchParams }: Props) {
 
   return (
     <>
-      <Title title="Ordenes" subtitle='Lista de ordenes' />
+      <Title title="Pedidos" subtitle='Lista de pedidos' />
 
       <div className="mb-10 overflow-auto">
         <table className="min-w-full">

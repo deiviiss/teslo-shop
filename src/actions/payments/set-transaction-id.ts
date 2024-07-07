@@ -12,7 +12,7 @@ export const setTransactionId = async (orderId: string, transactionId: string) =
     if (!order) {
       return {
         ok: false,
-        message: `No se encontró una orden con el ${orderId}`
+        message: `No se encontró un pedido con el ${orderId}`
       }
     }
 

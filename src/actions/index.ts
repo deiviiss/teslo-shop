@@ -13,7 +13,7 @@ export { registerUser } from './auth/register'
 // countries
 export * from './countries/get-countries'
 
-// order
+// orders
 export { getOrderById } from './order/get-order-by-id'
 export { getOrdersByUser } from './order/get-orders-by-user'
 export { getPaginatedOrders } from './order/get-paginated-orders'
