@@ -72,7 +72,7 @@ export const initialData: SeedData = {
       slug: 'men_raven_lightweight_zip_up_bomber_jacket',
       type: 'camisas',
       tags: ['shirt'],
-      title: "Men's Raven Lightweight Zip Up Bomber Jacket",
+      title: 'Chaqueta bomber ligera con cremallera Raven para hombre',
       gender: 'men'
     },
     {
@@ -751,18 +751,11 @@ export const initialData: SeedData = {
 
   users: [
     {
-      email: 'admin@mail.com',
-      name: 'Admin propetario',
+      email: 'moda.shop.ecommerce@hotmail.com',
+      name: 'Moda Shop Ecommerce',
       password: bcrypt.hashSync('userseed'),
       role: 'admin',
       phoneNumber: '+5219811250049'
-    },
-    {
-      email: 'cliente@mail.com',
-      name: 'David Hilera',
-      phoneNumber: '+5219811250049',
-      password: bcrypt.hashSync('userseed'),
-      role: 'user'
     }
   ]
 

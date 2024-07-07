@@ -1,20 +1,11 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
-import { getUserSessionServer, sendWhatsappMessage } from '@/actions'
+import { sendNotificationsPayment } from '@/actions'
 import { type PayPalOrdersStatusResponse } from '@/interfaces'
 import prisma from '@/lib/prisma'
 
 export const paypalCheckPayment = async (transactionId: string) => {
-  const user = await getUserSessionServer()
-
-  if (!user) {
-    return {
-      ok: false,
-      message: 'No se pudo obtener el usuario'
-    }
-  }
-
   const token = await getPayPalBearerToken()
 
   if (!token) {
@@ -52,10 +43,10 @@ export const paypalCheckPayment = async (transactionId: string) => {
       }
     })
 
-    revalidatePath(`/orders/${orderId}`)
+    // send notifications to user and admin
+    await sendNotificationsPayment()
 
-    // send whatsapp to user to notify payment
-    await sendWhatsappMessage(user.phoneNumber, `¡${user.name} gracias por realizar el pago! Ya hemos verificado la información del mismo. Su orden será enviada en el transcurso de 24 horas.`)
+    revalidatePath(`/orders/${orderId}`)
 
     return {
       ok: true,

@@ -22,6 +22,7 @@ export { placeOrder } from './order/place-order'
 // payments
 export { setTransactionId } from './payments/set-transaction-id'
 export { paypalCheckPayment } from './payments/paypal-check-payment'
+export { sendNotificationsPayment } from './payments/send-notifications-payment'
 
 // products
 export * from './products/get-product-by-slug'
@@ -34,6 +35,10 @@ export { getPaginationProductsStockWithImages } from './products/product-stock-p
 
 // users
 export { getPaginatedUsers } from './users/get-paginated-users'
+export { getPhoneNumberAdmin } from './users/get-phone-number-admin'
+export { getEmailAdmin } from './users/get-email-admin'
 
-// whatsapp
-export { sendWhatsappMessage } from './whatsapp/send-whatsapp-message'
+// notify
+export { sendWhatsappMessage } from './notifications/whatsapp/send-whatsapp-message'
+export { sendSmsMessage } from './notifications/sms/send-sms-message'
+export { sendEmail } from './notifications/email/send-email-message'
