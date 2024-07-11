@@ -65,11 +65,6 @@ export const createUpdateProduct = async (formData: FormData) => {
   product.slug = product.slug.toLowerCase().replace(/ /g, '-').trim()
 
   const { id, sizes, size, inStock, ...restProduct } = product
-  console.log('id', id)
-  console.log('sizes', sizes)
-  console.log('size', size)
-  console.log('inStock', inStock)
-  console.log('restProduct', restProduct)
   // transaction for upload images, product
   try {
     const prismaTx = await prisma.$transaction(async (tx) => {
@@ -174,7 +169,6 @@ export const createUpdateProduct = async (formData: FormData) => {
       product: prismaTx?.product
     }
   } catch (error) {
-    console.log(error)
     return {
       ok: false,
       message: 'Error al crear/actualizar el producto'
