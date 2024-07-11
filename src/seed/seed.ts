@@ -103,7 +103,7 @@ export const initialData: SeedData = {
       gender: 'men'
     },
     {
-      description: "Inspired by our fully integrated home solar and storage system, the ModaShop Solar Roof Tee advocates for clean, sustainable energy wherever you go. Designed for fit, comfort and style, the tee features an aerial view of our seamless Solar Roof design on the front with our signature M Logo above 'Solar Roof' on the back. Made from 100% Peruvian cotton.",
+      description: 'Inspirada en nuestro sistema de almacenamiento y energía solar doméstico totalmente integrado, la camiseta para techo solar ModaShop aboga por la energía limpia y sostenible dondequiera que vaya. Diseñada para brindar ajuste, comodidad y estilo, la camiseta presenta una vista aérea de nuestro diseño Solar Roof sin costuras en el frente con nuestro logotipo M característico sobre "Solar Roof" en la parte posterior. Confeccionada en 100% algodón peruano.',
       images: [
         '1703767-00-A_0_2000.jpg',
         '1703767-00-A_1.jpg'
@@ -111,7 +111,7 @@ export const initialData: SeedData = {
       price: 1,
       slug: 'men_solar_roof_tee',
       type: 'camisas',
-      title: "Men's Solar Roof Tee",
+      title: 'Camiseta con techo solar para hombre',
       gender: 'men'
     },
     {

@@ -68,7 +68,7 @@ const main = async () => {
 
     const productStockDataSizeS = {
       productId: dbProduct.id,
-      inStock: 2,
+      inStock: 1,
       size: 'S' as 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL'
     }
 
