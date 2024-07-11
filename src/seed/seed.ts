@@ -4,9 +4,7 @@ interface SeedProduct {
   description: string
   images: string[]
   price: 1
-  sizes: ValidSizes[]
   slug: string
-  tags: string[]
   title: string
   type: ValidTypes
   gender: 'men' | 'women' | 'kid' | 'unisex'
@@ -20,7 +18,6 @@ interface SeedUser {
   role: 'admin' | 'user'
 }
 
-type ValidSizes = 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL'
 type ValidTypes = 'camisas' | 'pants' | 'sudaderas' | 'gorros'
 
 interface SeedData {
@@ -40,10 +37,8 @@ export const initialData: SeedData = {
         '1740176-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M', 'L', 'XL'],
       slug: 'sudadera_cuello_mens_chill',
       type: 'camisas',
-      tags: ['sweatshirt'],
       title: 'Sudadera Chill de cuello redondo para hombre',
       gender: 'men'
     },
@@ -54,10 +49,8 @@ export const initialData: SeedData = {
         '1740507-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M', 'XL'],
       slug: 'chaqueta_camisa_acolchada_hombre',
       type: 'camisas',
-      tags: ['jacket'],
       title: 'Chaqueta camisera acolchada para hombre',
       gender: 'men'
     },
@@ -68,10 +61,8 @@ export const initialData: SeedData = {
         '1740250-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['S', 'M', 'L', 'XL', 'XXL'],
       slug: 'men_raven_lightweight_zip_up_bomber_jacket',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Chaqueta bomber ligera con cremallera Raven para hombre',
       gender: 'men'
     },
@@ -82,10 +73,8 @@ export const initialData: SeedData = {
         '1740280-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M', 'L'],
       slug: 'men_turbine_camiseta_de_manga_larga',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta de manga larga Turbine para hombre',
       gender: 'men'
     },
@@ -96,10 +85,8 @@ export const initialData: SeedData = {
         '1741416-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['M', 'L', 'XL', 'XXL'],
       slug: 'men_turbine_camiseta_de_manga_corta',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta de manga corta Turbine para hombre',
       gender: 'men'
     },
@@ -110,10 +97,8 @@ export const initialData: SeedData = {
         '7654393-00-A_3.jpg'
       ],
       price: 1,
-      sizes: ['M', 'L', 'XL', 'XXL'],
       slug: 'camiseta_de_buho_cybertruck_para_hombre',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta Cybertruck Owl para hombre',
       gender: 'men'
     },
@@ -124,10 +109,8 @@ export const initialData: SeedData = {
         '1703767-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['S', 'M', 'L', 'XL'],
       slug: 'men_solar_roof_tee',
       type: 'camisas',
-      tags: ['shirt'],
       title: "Men's Solar Roof Tee",
       gender: 'men'
     },
@@ -138,10 +121,8 @@ export const initialData: SeedData = {
         '1703767-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['S', 'M', 'L', 'XL'],
       slug: 'camiseta_solar_roof_hombre',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta Solar Roof para Hombre',
       gender: 'men'
     },
@@ -152,10 +133,8 @@ export const initialData: SeedData = {
         '8764734-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M'],
       slug: 'camiseta_3d_large_wordmark_hombre',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta 3D Large Wordmark para Hombre',
       gender: 'men'
     },
@@ -166,10 +145,8 @@ export const initialData: SeedData = {
         '7652426-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S'],
       slug: 'camiseta_3d_t_logo_hombre',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta 3D M Logo para Hombre',
       gender: 'men'
     },
@@ -180,10 +157,8 @@ export const initialData: SeedData = {
         '8528839-00-A_2.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M'],
       slug: 'camiseta_3d_small_wordmark_hombre',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta 3D Small Wordmark para Hombre',
       gender: 'men'
     },
@@ -194,10 +169,8 @@ export const initialData: SeedData = {
         '1549268-00-A_2.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'camiseta_plaid_mode_hombre',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta Plaid Mode para Hombre',
       gender: 'men'
     },
@@ -208,10 +181,8 @@ export const initialData: SeedData = {
         '9877034-00-A_2.jpg'
       ],
       price: 1,
-      sizes: ['XL', 'XXL'],
       slug: 'camiseta_powerwall_hombre',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta Powerwall para Hombre',
       gender: 'men'
     },
@@ -222,10 +193,8 @@ export const initialData: SeedData = {
         '1633802-00-A_2.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'XXL'],
       slug: 'camiseta_dia_bateria_hombre',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta del Día de la Batería para Hombre',
       gender: 'men'
     },
@@ -236,10 +205,8 @@ export const initialData: SeedData = {
         '7654399-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['M', 'L'],
       slug: 'camiseta_prueba_balas_cybertruck_hombre',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta a Prueba de Balas Cybertruck para Hombre',
       gender: 'men'
     },
@@ -250,10 +217,8 @@ export const initialData: SeedData = {
         '7652410-00-A_1_2000.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'camiseta_haha_yes_hombre',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta Haha Yes para Hombre',
       gender: 'men'
     },
@@ -264,10 +229,8 @@ export const initialData: SeedData = {
         '8764600-00-A_2.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M', 'L'],
       slug: 'camiseta_s3xy_hombre',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta S3XY para Hombre',
       gender: 'men'
     },
@@ -278,10 +241,8 @@ export const initialData: SeedData = {
         '8529198-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'XXL'],
       slug: 'camiseta_manga_larga_3d_t_logo_hombre',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta de Manga Larga 3D M Logo para Hombre',
       gender: 'men'
     },
@@ -292,10 +253,8 @@ export const initialData: SeedData = {
         '1740245-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'sudadera_ligera_con_capucha_raven_hombre',
       type: 'sudaderas',
-      tags: ['hoodie'],
       title: 'Sudadera Ligera con Capucha Raven para Hombre',
       gender: 'men'
     },
@@ -306,10 +265,8 @@ export const initialData: SeedData = {
         '1740051-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'sudadera_con_capucha_chill_pullover',
       type: 'sudaderas',
-      tags: ['hoodie'],
       title: 'Sudadera con Capucha Chill Pullover',
       gender: 'unisex'
     },
@@ -320,10 +277,8 @@ export const initialData: SeedData = {
         '1741111-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'L', 'XL', 'XXL'],
       slug: 'sudadera_con_capucha_completa_chill_para_hombre',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Sudadera con Capucha Completa Chill para Hombre',
       gender: 'men'
     },
@@ -334,10 +289,8 @@ export const initialData: SeedData = {
         '1740140-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M'],
       slug: 'pullover_de_cuarto_de_cremallera_chill_para_hombre_gris',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Pullover de Cuarto de Cremallera Chill para Hombre - Gris',
       gender: 'men'
     },
@@ -348,10 +301,8 @@ export const initialData: SeedData = {
         '1740145-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M', 'L'],
       slug: 'pullover_de_cuarto_de_cremallera_chill_para_hombre_blanco',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Pullover de Cuarto de Cremallera Chill para Hombre - Blanco',
       gender: 'men'
     },
@@ -362,10 +313,8 @@ export const initialData: SeedData = {
         '8529107-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'XL', 'XXL'],
       slug: 'sudadera_con_capucha_3d_large_wordmark',
       type: 'sudaderas',
-      tags: ['hoodie'],
       title: 'Sudadera con Capucha 3D Large Wordmark',
       gender: 'unisex'
     },
@@ -376,10 +325,8 @@ export const initialData: SeedData = {
         '7654420-00-A_1_2000.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'sudadera_cybertruck_graffiti',
       type: 'sudaderas',
-      tags: ['hoodie'],
       title: 'Sudadera Cybertruck Graffiti',
       gender: 'unisex'
     },
@@ -390,10 +337,8 @@ export const initialData: SeedData = {
         '1657932-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'gorra_relaxed_m_logo',
       type: 'gorros',
-      tags: ['gorros'],
       title: 'Gorra Relaxed M Logo',
       gender: 'unisex'
     },
@@ -404,10 +349,8 @@ export const initialData: SeedData = {
         '1740417-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'gorro_con_punos_termicos',
       type: 'gorros',
-      tags: ['gorros'],
       title: 'Gorro con Puños Térmicos',
       gender: 'unisex'
     },
@@ -418,10 +361,8 @@ export const initialData: SeedData = {
         '1740535-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M'],
       slug: 'chaqueta_acolchada_corta_mujer',
       type: 'sudaderas',
-      tags: ['hoodie'],
       title: 'Chaqueta Acolchada Corta para Mujer',
       gender: 'women'
     },
@@ -432,10 +373,8 @@ export const initialData: SeedData = {
         '1740226-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M', 'XXL'],
       slug: 'sudadera_capucha_corta_cremallera_media_mujer',
       type: 'sudaderas',
-      tags: ['hoodie'],
       title: 'Sudadera con Capucha Corta y Cremallera Media para Mujer',
       gender: 'women'
     },
@@ -446,10 +385,8 @@ export const initialData: SeedData = {
         '1740260-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'sudadera_slouchy_cuello_redondo_mujer_raven',
       type: 'sudaderas',
-      tags: ['hoodie'],
       title: 'Sudadera Slouchy de Cuello Redondo para Mujer',
       gender: 'women'
     },
@@ -460,10 +397,8 @@ export const initialData: SeedData = {
         '1740290-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'camiseta_manga_larga_corta_mujer_turbine',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta de Manga Larga Corta para Mujer Turbine',
       gender: 'women'
     },
@@ -474,10 +409,8 @@ export const initialData: SeedData = {
         '1741441-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S'],
       slug: 'camiseta_manga_corta_cortada_mujer_turbine',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta de Manga Corta Cortada para Mujer Turbine',
       gender: 'women'
     },
@@ -488,10 +421,8 @@ export const initialData: SeedData = {
         '8765090-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'camiseta_cuello_redondo_manga_corta_logo_t_mujer',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta de Cuello Redondo de Manga Corta con logo M para Mujer',
       gender: 'women'
     },
@@ -502,10 +433,8 @@ export const initialData: SeedData = {
         '8765100-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'L', 'XL', 'XXL'],
       slug: 'camiseta_cuello_redondo_manga_larga_logo_t_mujer',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta de Cuello Redondo de Manga Larga con logo M para Mujer',
       gender: 'women'
     },
@@ -516,10 +445,8 @@ export const initialData: SeedData = {
         '8765120-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'camiseta_cuello_v_manga_corta_logo_pequeno_mujer',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta de Cuello en V de Manga Corta con Pequeño Logo en el Pecho Izquierdo para Mujer',
       gender: 'women'
     },
@@ -530,10 +457,8 @@ export const initialData: SeedData = {
         '8765115-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XL', 'XXL'],
       slug: 'camiseta_cuello_redondo_manga_corta_gran_logo_mujer',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta de Cuello Redondo de Manga Corta con Gran Logo en el Pecho para Mujer',
       gender: 'women'
     },
@@ -544,10 +469,8 @@ export const initialData: SeedData = {
         '1549275-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['S', 'M'],
       slug: 'camiseta_modo_tartan_mujer',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta Modo Tartán para Mujer',
       gender: 'women'
     },
@@ -558,10 +481,8 @@ export const initialData: SeedData = {
         '9877040-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'camiseta_powerwall_mujer',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta Powerwall para Mujer',
       gender: 'women'
     },
@@ -572,10 +493,8 @@ export const initialData: SeedData = {
         '5645680-00-A_3.jpg'
       ],
       price: 1,
-      sizes: ['M', 'L', 'XL', 'XXL'],
       slug: 'chaqueta_corp_mujer',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Chaqueta Corp para Mujer',
       gender: 'women'
     },
@@ -586,10 +505,8 @@ export const initialData: SeedData = {
         '1740270-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
       slug: 'joggers_raven_mujer',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Joggers Raven para Mujer',
       gender: 'women'
     },
@@ -600,10 +517,8 @@ export const initialData: SeedData = {
         '1742694-00-A_3.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M'],
       slug: 'camiseta_manga_larga_nino_cybertruck',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta de Manga Larga Niño Cybertruck',
       gender: 'kid'
     },
@@ -614,10 +529,8 @@ export const initialData: SeedData = {
         '8529312-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M'],
       slug: 'camiseta_nino_scribble_t_logo',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta Niño Scribble M Logo',
       gender: 'kid'
     },
@@ -628,10 +541,8 @@ export const initialData: SeedData = {
         '8529342-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M'],
       slug: 'camiseta_ninos_cybertruck',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta Niño Cybertruck',
       gender: 'kid'
     },
@@ -642,10 +553,8 @@ export const initialData: SeedData = {
         '8529354-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M'],
       slug: 'camiseta_nino_racing_stripe',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta Niño Racing Stripe',
       gender: 'kid'
     },
@@ -656,10 +565,8 @@ export const initialData: SeedData = {
         '7652465-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M'],
       slug: 'camiseta_nino_t_logo_3d',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta Niño 3D M Logo',
       gender: 'kid'
     },
@@ -670,10 +577,8 @@ export const initialData: SeedData = {
         '100042307_alt_2000.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M'],
       slug: 'camiseta_nino_a_cuadros',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Camiseta Niño a Cuadros',
       gender: 'kid'
     },
@@ -684,10 +589,8 @@ export const initialData: SeedData = {
         '1473809-00-A_alt.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S'],
       slug: 'mono_made_on_earth_by_humans',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Mono Made on Earth by Humans',
       gender: 'kid'
     },
@@ -698,10 +601,8 @@ export const initialData: SeedData = {
         '8529387-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S'],
       slug: 'scribble_t_logo_onesie',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Scribble M Logo Onesie',
       gender: 'kid'
     },
@@ -712,10 +613,8 @@ export const initialData: SeedData = {
         '1473829-00-A_2_2000.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S'],
       slug: 'zero_emissions_(almost)_onesie',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Zero Emissions (Almost) Onesie',
       gender: 'kid'
     },
@@ -726,10 +625,8 @@ export const initialData: SeedData = {
         '1742702-00-A_1.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M'],
       slug: 'nino_cyberquad_bomber_jacket',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Niño Cyberquad Bomber Jacket',
       gender: 'kid'
     },
@@ -740,10 +637,8 @@ export const initialData: SeedData = {
         '1506211-00-A_1_2000.jpg'
       ],
       price: 1,
-      sizes: ['XS', 'S', 'M'],
       slug: 'nino_corp_jacket',
       type: 'camisas',
-      tags: ['shirt'],
       title: 'Niño Corp Jacket',
       gender: 'kid'
     }

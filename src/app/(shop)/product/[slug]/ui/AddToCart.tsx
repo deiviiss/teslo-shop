@@ -66,6 +66,7 @@ export const AddToCart = ({ product }: Props) => {
     <>
       {/* color selector */}
 
+      {/* validation size */}
       {
         attempted && !size && (
           <span className='mb-10 text-red-500 fade-in'>

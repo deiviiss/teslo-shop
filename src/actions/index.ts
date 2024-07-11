@@ -11,7 +11,7 @@ export { logout } from './auth/logout'
 export { registerUser } from './auth/register'
 
 // countries
-export * from './countries/get-countries'
+export { getCountries } from './countries/get-countries'
 
 // orders
 export { getOrderById } from './order/get-order-by-id'
@@ -25,13 +25,15 @@ export { paypalCheckPayment } from './payments/paypal-check-payment'
 export { sendNotificationsPayment } from './payments/send-notifications-payment'
 
 // products
-export * from './products/get-product-by-slug'
-export * from './products/get-stock-by-slug'
-export * from './products/product-pagination'
-export * from './products/get-categories'
-export * from './products/create-update-product'
-export * from './products/delete-product-image'
+export { getProductBySlug } from './products/get-product-by-slug'
+export { getStockBySlug } from './products/get-stock-by-slug'
+export { getPaginationProductsWithImages } from './products/product-pagination'
+export { getCategories } from './products/get-categories'
+export { createUpdateProduct } from './products/create-update-product'
+export { deleteProductImage } from './products/delete-product-image'
 export { getPaginationProductsStockWithImages } from './products/product-stock-pagination'
+export { getProductBySlugSize } from './products/get-product-by-slug-size'
+export { getSizesProductStock } from './products/get-sizes-product-stock'
 
 // users
 export { getPaginatedUsers } from './users/get-paginated-users'

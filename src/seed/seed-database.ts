@@ -62,37 +62,32 @@ const main = async () => {
 
     const productStockDataSizeXs = {
       productId: dbProduct.id,
-      inStock: 90,
-      size: 'XS' as 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL',
-      orderBySize: 1
+      inStock: 1,
+      size: 'XS' as 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL'
     }
 
     const productStockDataSizeS = {
       productId: dbProduct.id,
-      inStock: 50,
-      size: 'S' as 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL',
-      orderBySize: 2
+      inStock: 2,
+      size: 'S' as 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL'
     }
 
     const productStockDataSizeM = {
       productId: dbProduct.id,
-      inStock: 10,
-      size: 'M' as 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL',
-      orderBySize: 3
+      inStock: 1,
+      size: 'M' as 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL'
     }
 
     const productStockDataSizeL = {
       productId: dbProduct.id,
-      inStock: 100,
-      size: 'L' as 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL',
-      orderBySize: 4
+      inStock: 1,
+      size: 'L' as 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL'
     }
 
     const productStockDataSizeXL = {
       productId: dbProduct.id,
-      inStock: 60,
-      size: 'XL' as 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL',
-      orderBySize: 5
+      inStock: 1,
+      size: 'XL' as 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL'
     }
 
     await prisma.productStock.create({

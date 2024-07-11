@@ -20,11 +20,19 @@ export const placeOrder = async (productsId: ProductToOrder[], address: UserAddr
     }
   }
 
-  const products = await prisma.product.findMany({
+  const products = await prisma.productStock.findMany({
     where: {
-      id: {
-        in: productsId.map(product => product.productId)
+      size: {
+        in: productsId.map(product => product.size)
+      },
+      product: {
+        id: {
+          in: productsId.map(product => product.productId)
+        }
       }
+    },
+    include: {
+      product: true
     }
   })
 
@@ -33,11 +41,11 @@ export const placeOrder = async (productsId: ProductToOrder[], address: UserAddr
 
   const { subTotal, tax, total } = productsId.reduce((totals, items) => {
     const productQuantity = items.quantity
-    const product = products.find(product => product.id === items.productId)
+    const product = products.find(product => product.product.id === items.productId && product.size === items.size)
 
     if (!product) throw new Error('Product not found - 500')
 
-    const subTotal = product.price * productQuantity
+    const subTotal = product.product.price * productQuantity
 
     totals.subTotal += subTotal
     totals.tax += subTotal * 0.16
@@ -50,7 +58,7 @@ export const placeOrder = async (productsId: ProductToOrder[], address: UserAddr
     quantity: p.quantity,
     size: p.size,
     productId: p.productId,
-    price: products.find(product => product.id === p.productId)?.price ?? 0
+    price: products.find(product => product.productId === p.productId)?.product.price || 0
   }))
 
   const { country, userId, ...restAddress } = address
@@ -60,15 +68,12 @@ export const placeOrder = async (productsId: ProductToOrder[], address: UserAddr
     const prismaTX = await prisma.$transaction(async (tx) => {
       // Update stock
       const updatedProductsPromises = products.map(async (product) => {
-        const size = productsId.find(item => item.productId === product.id)?.size
-        const quantity = productsId.find(item => item.productId === product.id)?.quantity
+        const size = productsId.find(item => item.productId === product.productId && item.size === product.size)?.size
+
+        const quantity = productsId.find(item => item.productId === product.productId && item.size === product.size)?.quantity
 
         if (!quantity || quantity <= 0) {
-          throw new Error('La cantidad de productos no puede ser 0')
-        }
-
-        if (!product.id) {
-          throw new Error('Producto no encontrado')
+          throw new Error('La cantidad no puede ser 0')
         }
 
         if (!size) {
@@ -77,7 +82,7 @@ export const placeOrder = async (productsId: ProductToOrder[], address: UserAddr
 
         const productStock = await tx.productStock.findFirst({
           where: {
-            productId: product.id,
+            productId: product.productId,
             size
           },
           select: {
@@ -88,7 +93,11 @@ export const placeOrder = async (productsId: ProductToOrder[], address: UserAddr
 
         // check if all products are in stock
         if (productStock === null || productStock.inStock === 0) {
-          throw new Error(`Producto ${product.title} con talla ${size} agotado`)
+          throw new Error(`Producto ${product.product.title} con talla ${size} agotado`)
+        }
+
+        if (productStock.inStock < quantity) {
+          throw new Error(`Producto ${product.product.title} con talla ${size} no tiene suficiente stock`)
         }
 
         return await tx.productStock.update({

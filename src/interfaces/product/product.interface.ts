@@ -5,10 +5,19 @@ export interface Product {
   price: number
   sizes: Size[]
   slug: string
-  tags: string[]
   title: string
-  // type: ValidType
   gender: ValidGender
+}
+
+export interface ProductAdmin {
+  id: string
+  title: string
+  slug: string
+  description?: string | null
+  gender: ValidGender
+  price: number
+  sizes: Size[]
+  images: string[]
 }
 
 export interface ProductStock {
@@ -16,16 +25,15 @@ export interface ProductStock {
   inStock: number
   product: {
     id: string
+    title: string
     description?: string | null
+    slug: string
+    gender: ValidGender
+    categoryId: string
+    price: number
     productImage: Array<{
       url: string
     }>
-    price: number
-    sizes: Size[]
-    slug: string
-    tags: string[]
-    title: string
-    gender: ValidGender
   }
 }
 

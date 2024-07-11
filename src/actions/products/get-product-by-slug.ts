@@ -1,5 +1,6 @@
 'use server'
 
+import { getSizesProductStock } from './get-sizes-product-stock'
 import prisma from '@/lib/prisma'
 
 export const getProductBySlug = async (slug: string) => {
@@ -17,8 +18,11 @@ export const getProductBySlug = async (slug: string) => {
       return null
     }
 
+    const sizes = await getSizesProductStock(product.id)
+
     return {
       ...product,
+      sizes,
       images: product.productImage.map((image) => image.url)
     }
   } catch (error) {

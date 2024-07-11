@@ -1,18 +1,23 @@
 import { redirect } from 'next/navigation'
-import { getCategories, getProductBySlug } from '@/actions'
+import { getCategories, getProductBySlugSize } from '@/actions'
 import { ProductForm, Title } from '@/components'
+import { type Size } from '@/interfaces'
 
 interface Props {
+  searchParams: {
+    size: Size
+  }
   params: {
     slug: string
   }
 }
 
-export default async function ProductPage({ params }: Props) {
+export default async function ProductPage({ params, searchParams }: Props) {
   const { slug } = params
+  const { size } = searchParams
 
   const [product, categories] = await Promise.all([
-    getProductBySlug(slug),
+    getProductBySlugSize({ slug, size }),
     getCategories()
   ])
 

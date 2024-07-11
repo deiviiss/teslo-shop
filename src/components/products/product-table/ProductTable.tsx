@@ -61,7 +61,7 @@ export const ProductTable = ({ products }: Props) => {
               </td>
               <td
                 className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap hover:underline">
-                <Link href={`/admin/product/${product.product.slug}`}>
+                <Link href={`/admin/product/${product.product.slug}?size=${product.size}`}>
                   {product.product.title}
                 </Link>
               </td>

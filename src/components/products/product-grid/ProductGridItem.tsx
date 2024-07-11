@@ -34,7 +34,11 @@ export const ProductGridItem = ({ product }: ProductGridItemProps) => {
           href={`/product/${product.slug}`}>
           {product.title}
         </Link>
-        <span className='text-sm'>Tallas: {product.sizes.join(' - ')}</span>
+        {
+          product.sizes.length > 0
+            ? (<span className='text-sm'>Tallas: {product.sizes.join(' - ')}</span>)
+            : (<span className='text-sm'>Agotado</span>)
+        }
         <span className='font-bold'>$ {product.price}</span>
       </div>
     </div>

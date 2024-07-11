@@ -25,9 +25,8 @@ export const sendEmail = async ({ message, subject, email }: IEmailOptions) => {
 
   // send mail
   try {
-    const info = await transporter.sendMail(createEmailOptions(email, subject, message))
+    await transporter.sendMail(createEmailOptions(email, subject, message))
 
-    console.log('Message sent: %s', info)
     return {
       ok: true,
       message: 'Correo enviado'

@@ -1,6 +1,8 @@
 'use server'
 
 import { type Gender } from '@prisma/client'
+
+import { getSizesProductStock } from './get-sizes-product-stock'
 import prisma from '@/lib/prisma'
 import { validatePageNumber } from '@/utils'
 
@@ -56,13 +58,19 @@ export const getPaginationProductsWithImages = async ({ page = 1, take = 12, gen
 
     const totalPages = Math.ceil(totalCount / take)
 
+    const productsWithSizesAndImages = await Promise.all(productsDB.map(async (product) => {
+      const sizesProduct = await getSizesProductStock(product.id)
+      return {
+        ...product,
+        sizes: sizesProduct,
+        images: product.productImage.map((image) => image.url)
+      }
+    }))
+
     return {
       currentPage: page,
       totalPages,
-      products: productsDB.map(product => ({
-        ...product,
-        images: product.productImage.map((image) => image.url)
-      }))
+      products: productsWithSizesAndImages
     }
   } catch (error) {
     if (error instanceof Error) {
