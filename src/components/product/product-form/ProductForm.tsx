@@ -61,12 +61,25 @@ const noticeSuccessSaved = async () => {
 
 const noticeSuccessDeleteImage = async () => {
   await Swal.fire({
-    text: 'Producto eliminado correctamente',
+    text: 'Imagen eliminada correctamente',
     background: '#ffffff',
     showConfirmButton: false,
     color: '#000000',
     position: 'top-end',
     timer: 1500
+  })
+}
+
+const noticeFailSavedDeleteImage = async (message: string) => {
+  await Swal.fire({
+    text: message,
+    background: '#ffffff',
+    icon: 'error',
+    cancelButtonColor: '#d33',
+    showConfirmButton: false,
+    cancelButtonText: 'Cerrar',
+    showCancelButton: true,
+    color: '#000000'
   })
 }
 
@@ -158,7 +171,7 @@ export const ProductForm = ({ product, categories, params }: Props) => {
     setIsSubmitting(true)
     const rta = await deleteProductImage(id, url)
     if (!rta?.ok) {
-      noticeFailSaved()
+      noticeFailSavedDeleteImage(rta.message)
       setIsSubmitting(false)
       return
     }
@@ -318,11 +331,11 @@ export const ProductForm = ({ product, categories, params }: Props) => {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 overflow-auto h-96">
             {
-              product.ProductImage &&
-              product.ProductImage.map(image => (
+              product.product?.productImage &&
+              product.product?.productImage?.map(image => (
                 <div
                   className='flex flex-col items-center justify-center'
-                  key={image.id}>
+                  key={image.url}>
                   <ProductImage
                     src={image.url}
                     alt={product.product?.title ? product.product?.title : 'Producto'}

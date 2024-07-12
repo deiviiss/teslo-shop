@@ -9,17 +9,6 @@ export interface Product {
   gender: ValidGender
 }
 
-export interface ProductAdmin {
-  id: string
-  title: string
-  slug: string
-  description?: string | null
-  gender: ValidGender
-  price: number
-  sizes: Size[]
-  images: string[]
-}
-
 export interface ProductStock {
   size: Size
   inStock: number
@@ -32,6 +21,7 @@ export interface ProductStock {
     categoryId: string
     price: number
     productImage: Array<{
+      id: string
       url: string
     }>
   }

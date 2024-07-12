@@ -11,7 +11,7 @@ export const deleteProductImage = async (imageid: string, imageUrl: string) => {
   if (!imageUrl.startsWith('http')) {
     return {
       ok: false,
-      message: 'Cannot delete FS image'
+      message: 'Imagen de sistema, no se puede eliminar'
     }
   }
 
