@@ -32,6 +32,7 @@ export const getPaginationProductsStockWithImages = async ({ page = 1, take = 12
             productImage: {
               take: 2,
               select: {
+                id: true,
                 url: true
               }
             }
