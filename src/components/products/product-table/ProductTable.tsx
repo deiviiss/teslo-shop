@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import { ProductImage } from '@/components'
-import { type ProductStock } from '@/interfaces'
+import { type ProductWithStock } from '@/interfaces'
 import { currencyFormat } from '@/utils'
 
 interface Props {
-  products: ProductStock[]
+  products: ProductWithStock[]
 }
 
 export const ProductTable = ({ products }: Props) => {
@@ -44,15 +44,15 @@ export const ProductTable = ({ products }: Props) => {
         {
           products?.map(product => (
             <tr
-              key={`${product.product.id}-${product.size}`}
+              key={`${product.id}-${product.stock.size}`}
               className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
 
               <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                <Link href={`/product/${product.product.slug}`}
+                <Link href={`/product/${product.slug}`}
                 >
                   <ProductImage
-                    src={product.product.productImage[0].url}
-                    alt={product.product.title}
+                    src={product.images[0].url}
+                    alt={product.title}
                     width={80}
                     height={80}
                     className='w-20 h-20 object-cover rounded'
@@ -61,23 +61,23 @@ export const ProductTable = ({ products }: Props) => {
               </td>
               <td
                 className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap hover:underline">
-                <Link href={`/admin/product/${product.product.slug}?size=${product.size}`}>
-                  {product.product.title}
+                <Link href={`/admin/product/${product.slug}?size=${product.stock.size}`}>
+                  {product.title}
                 </Link>
               </td>
               <td
                 className="text-sm text-gray-900 px-6 py-4 whitespace-nowrap font-bold"
               >
-                {currencyFormat(Number(product.product.price))}
+                {currencyFormat(Number(product.price))}
               </td>
               <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                {product.product.gender}
+                {product.gender}
               </td>
               <td className="text-sm text-gray-900 font-bold px-6 py-4 whitespace-nowrap">
-                {product.inStock}
+                {product.stock.inStock}
               </td>
               <td className="text-sm text-gray-900 font-bold px-6 py-4 whitespace-nowrap">
-                {product.size}
+                {product.stock.size}
               </td>
             </tr>
           ))

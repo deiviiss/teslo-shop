@@ -10,10 +10,10 @@ interface ProductGridItemProps {
 }
 
 export const ProductGridItem = ({ product }: ProductGridItemProps) => {
-  const [displayImage, setDisplayImage] = useState(product.images[0])
+  const [displayImage, setDisplayImage] = useState(product.images[0].url)
 
-  const handleMouseEnter = () => { setDisplayImage(product.images[1]) }
-  const handleMouseLeave = () => { setDisplayImage(product.images[0]) }
+  const handleMouseEnter = () => { setDisplayImage(product.images[1].url) }
+  const handleMouseLeave = () => { setDisplayImage(product.images[0].url) }
 
   return (
     <div className='rounded-md overflow-hidden fade-in'>

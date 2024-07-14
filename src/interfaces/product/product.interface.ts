@@ -1,30 +1,22 @@
 export interface Product {
   id: string
-  description?: string | null
-  images: string[]
-  price: number
-  sizes: Size[]
-  slug: string
   title: string
+  description?: string | null
+  price: number
+  slug: string
   gender: ValidGender
+  sizes: Size[]
+  images: ProductImage[]
 }
 
-export interface ProductStock {
+export interface Stock {
+  id: string
   size: Size
   inStock: number
-  product: {
-    id: string
-    title: string
-    description?: string | null
-    slug: string
-    gender: ValidGender
-    categoryId: string
-    price: number
-    productImage: Array<{
-      id: string
-      url: string
-    }>
-  }
+}
+
+export interface ProductWithStock extends Product {
+  stock: Stock
 }
 
 export interface CartProduct {
@@ -46,7 +38,6 @@ export type ValidType = 'shirts' | 'pants' | 'hoodies' | 'hats'
 export interface ProductImage {
   id: string
   url: string
-  productId?: string
 }
 
 export interface Category {

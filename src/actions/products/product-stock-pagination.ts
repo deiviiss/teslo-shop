@@ -1,5 +1,7 @@
 'use server'
 
+import { getSizesProductStock } from './get-sizes-product-stock'
+import { type ProductWithStock } from '@/interfaces'
 // import { revalidatePath } from 'next/cache'
 import prisma from '@/lib/prisma'
 import { validatePageNumber } from '@/utils'
@@ -10,7 +12,7 @@ interface PaginationOptions {
   take?: number
 }
 
-export const getPaginationProductsStockWithImages = async ({ page = 1, take = 12, query = '' }: PaginationOptions) => {
+export const getPaginationProductsStockWithImages = async ({ page = 1, take = 12, query = '' }: PaginationOptions): Promise<{ currentPage: number, totalPages: number, products: ProductWithStock[] }> => {
   page = validatePageNumber(page)
 
   try {
@@ -45,9 +47,6 @@ export const getPaginationProductsStockWithImages = async ({ page = 1, take = 12
             title: 'asc'
           }
         }
-        // {
-        //   orderBySize: 'asc'
-        // }
       ]
     })
 
@@ -72,15 +71,21 @@ export const getPaginationProductsStockWithImages = async ({ page = 1, take = 12
 
     const totalPages = Math.ceil(totalCount / take)
 
-    const productsStock = productsStockDB.map(produtStock => ({
-      size: produtStock.size,
-      inStock: produtStock.inStock,
-      product: {
-        ...produtStock.product
+    const productsStock = await Promise.all(productsStockDB.map(async (produtStock) => {
+      const sizesProduct = await getSizesProductStock(produtStock.product.id)
+      const { productImage, ...restProduct } = produtStock.product
+
+      return {
+        ...restProduct,
+        images: productImage,
+        sizes: sizesProduct,
+        stock: {
+          id: produtStock.id,
+          size: produtStock.size,
+          inStock: produtStock.inStock
+        }
       }
     }))
-
-    // revalidatePath('/admin/products')
 
     return {
       currentPage: page,
