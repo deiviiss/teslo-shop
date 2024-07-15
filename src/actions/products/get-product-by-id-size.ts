@@ -5,11 +5,11 @@ import { type Size } from '@/interfaces'
 import prisma from '@/lib/prisma'
 
 interface IParams {
-  slug: string
+  productId: string
   size: Size
 }
 
-export const getProductBySlugSize = async ({ slug, size }: IParams) => {
+export const getProductByIdSize = async ({ productId, size }: IParams) => {
   try {
     const productStockDB = await prisma.productStock.findFirst({
       include: {
@@ -21,7 +21,7 @@ export const getProductBySlugSize = async ({ slug, size }: IParams) => {
       },
       where: {
         product: {
-          slug
+          id: productId
         },
         size
       }

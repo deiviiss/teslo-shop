@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { IoCardOutline } from 'react-icons/io5'
 import { getPaginatedOrders, validateUserAdmin } from '@/actions'
-import { Pagination, Title } from '@/components'
+import { MenuOptions, Pagination, Title } from '@/components'
 
 interface Props {
   searchParams: {
@@ -52,7 +52,7 @@ export default async function OrdersPage({ searchParams }: Props) {
               <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                 Estado
               </th>
-              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-center">
                 Opciones
               </th>
             </tr>
@@ -86,12 +86,8 @@ export default async function OrdersPage({ searchParams }: Props) {
                     }
 
                   </td>
-                  <td className="text-sm text-gray-900 font-light px-6 ">
-                    <Link
-                      href={`/orders/${order.id}`}
-                      className="hover:underline">
-                      Ver orden
-                    </Link>
+                  <td className="text-sm text-gray-900 font-light px-6 text-center">
+                    <MenuOptions orderId={order.id} />
                   </td>
 
                 </tr>

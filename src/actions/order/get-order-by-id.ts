@@ -1,6 +1,6 @@
 'use server'
 
-import { getUserSessionServer } from '../auth/getUserSessionServer'
+import { getUserSessionServer } from '@/actions'
 import prisma from '@/lib/prisma'
 
 export const getOrderById = async (id: string) => {

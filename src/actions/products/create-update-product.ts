@@ -5,7 +5,7 @@ import { v2 as cloudinary } from 'cloudinary'
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import { getSizesProductStock } from '@/actions'
-import { type ProductStock, type Product } from '@/interfaces'
+import { type ProductWithStock, type Product } from '@/interfaces'
 import prisma from '@/lib/prisma'
 
 // TODO: Move config cloudinary to lib and chance for folder name
@@ -69,7 +69,7 @@ export const createUpdateProduct = async (formData: FormData) => {
   try {
     const prismaTx = await prisma.$transaction(async (tx) => {
       let product: Partial<Product>
-      let productStock: Partial<ProductStock> | null = null
+      let productStock: Partial<ProductWithStock> | null = null
 
       if (id) {
         const sizes = await getSizesProductStock(id)

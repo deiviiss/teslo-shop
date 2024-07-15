@@ -20,7 +20,7 @@ export default async function UsersPage({ searchParams }: Props) {
 
   return (
     <>
-      <Title title="Mantenimiento de usuarios" subtitle='Lista de ordenes de todos los usuarios' />
+      <Title title="Mantenimiento de usuarios" subtitle='Lista de pedidos de todos los usuarios' />
 
       <div className="mb-10 overflow-auto">
         <UsersTable users={users} />

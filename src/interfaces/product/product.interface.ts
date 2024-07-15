@@ -7,6 +7,7 @@ export interface Product {
   gender: ValidGender
   sizes: Size[]
   images: ProductImage[]
+  categoryId: string
 }
 
 export interface Stock {

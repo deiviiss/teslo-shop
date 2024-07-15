@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
     openGraph: {
       title: product?.title || 'Product page title',
       description: product?.description || 'Product page description',
-      images: [`/products/${product?.images[1]}`]
+      images: [`/products/${product?.images[1].url}`]
     }
 
   }
@@ -44,7 +44,7 @@ export default async function ProductPage({ params }: Props) {
       <div className='col-span-1 md:col-span-2'>
         <ProductMobileSlideshow
           title={product.title}
-          images={product.images}
+          images={product.images.map((image) => image.url)}
           className='block md:hidden'
         />
       </div>
@@ -53,7 +53,7 @@ export default async function ProductPage({ params }: Props) {
       <div className='col-span-1 md:col-span-2 bg-slate-200'>
         <ProductSlideshow
           title={product.title}
-          images={product.images}
+          images={product.images.map((image) => image.url)}
           className='hidden md:block'
         />
       </div>

@@ -2,6 +2,7 @@
 export { deleteUserAddress } from './address/delete-user-address'
 export { getUserAddress } from './address/get-user-address'
 export { setUserAddress } from './address/set-user-address'
+export { getOrderAddressIdByOrderId } from './order/get-order-address-id-by-order-id'
 
 // auth
 export { getUserSessionServer } from './auth/getUserSessionServer'
@@ -18,6 +19,7 @@ export { getOrderById } from './order/get-order-by-id'
 export { getOrdersByUser } from './order/get-orders-by-user'
 export { getPaginatedOrders } from './order/get-paginated-orders'
 export { placeOrder } from './order/place-order'
+export { deleteOrderById } from './order/delete-order-by-id'
 
 // payments
 export { setTransactionId } from './payments/set-transaction-id'
@@ -33,6 +35,7 @@ export { createUpdateProduct } from './products/create-update-product'
 export { deleteProductImage } from './products/delete-product-image'
 export { getPaginationProductsStockWithImages } from './products/product-stock-pagination'
 export { getProductBySlugSize } from './products/get-product-by-slug-size'
+export { getProductByIdSize } from './products/get-product-by-id-size'
 export { getSizesProductStock } from './products/get-sizes-product-stock'
 
 // users

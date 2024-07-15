@@ -2,7 +2,8 @@
 export * from './auth/ButtonLogout'
 
 // orders
-export * from './orders/OrderStatus'
+export { OrderStatus } from './orders/OrderStatus'
+export { MenuOptions } from './orders-table/MenuOptions'
 
 // Providers
 export * from './providers/Providers'

@@ -8,10 +8,10 @@ import { useForm } from 'react-hook-form'
 import Swal from 'sweetalert2'
 import { createUpdateProduct, deleteProductImage } from '@/actions'
 import { ProductImage } from '@/components'
-import { type ProductImage as ProductWithImage, type Category, type Size, type ProductStock } from '@/interfaces'
+import { type ProductImage as ProductWithImage, type Category, type Size, type ProductWithStock } from '@/interfaces'
 
 interface Props {
-  product: Partial<ProductStock> & { ProductImage?: ProductWithImage[] }
+  product: Partial<ProductWithStock> & { ProductImage?: ProductWithImage[] }
   categories: Category[]
   params: {
     slug: string
@@ -34,7 +34,7 @@ interface FormInputs {
 
 const sizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
 
-// TODO: modularize this
+// TODO: change to toast shadcn
 const noticeFailSaved = async () => {
   await Swal.fire({
     text: 'No se pudo guardar el producto, intente nuevamente',
@@ -86,19 +86,19 @@ const noticeFailSavedDeleteImage = async (message: string) => {
 export const ProductForm = ({ product, categories, params }: Props) => {
   const router = useRouter()
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [currentSize, setCurrentSize] = useState<Size>(product.size || 'XS')
+  const [currentSize, setCurrentSize] = useState<Size>(product.stock?.size || 'XS')
 
   const defaultValuesForm = {
-    id: product.product?.id,
-    title: product.product?.title,
-    slug: product.product?.slug,
-    description: product?.product?.description || undefined,
-    price: product.product?.price,
-    gender: product.product?.gender,
+    id: product.id,
+    title: product.title,
+    slug: product.slug,
+    description: product.description || undefined,
+    price: product.price,
+    gender: product.gender,
     size: currentSize,
     sizes: ['XS'] as Size[],
-    categoryId: product.product?.categoryId,
-    inStock: product.inStock,
+    categoryId: product.categoryId,
+    inStock: product.stock?.inStock,
     images: undefined
   }
 
@@ -263,7 +263,7 @@ export const ProductForm = ({ product, categories, params }: Props) => {
 
         <div className="flex flex-col">
           {
-            product.size
+            product.stock?.size
               ? (
                 <>
                   <span>Talla:</span>
@@ -331,14 +331,14 @@ export const ProductForm = ({ product, categories, params }: Props) => {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 overflow-auto h-96">
             {
-              product.product?.productImage &&
-              product.product?.productImage?.map(image => (
+              product.images &&
+              product.images?.map(image => (
                 <div
                   className='flex flex-col items-center justify-center'
                   key={image.url}>
                   <ProductImage
                     src={image.url}
-                    alt={product.product?.title ? product.product?.title : 'Producto'}
+                    alt={product.title ? product.title : 'Producto'}
                     width={200}
                     height={200}
                     className="rounded-t shadow-md" />

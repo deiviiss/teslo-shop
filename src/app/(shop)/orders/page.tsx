@@ -87,7 +87,7 @@ export default async function OrdersPage({ searchParams }: Props) {
                     <Link
                       href={`/orders/${order.id}`}
                       className="hover:underline">
-                      Ver orden
+                      Ver pedido
                     </Link>
                   </td>
 
