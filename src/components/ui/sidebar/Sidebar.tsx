@@ -73,7 +73,11 @@ export const Sidebar = () => {
                   </Link>
 
                   <button
-                    onClick={() => { logout() }}
+                    onClick={() => {
+                      logout()
+                      closeMenu()
+                      window.location.replace('/auth/login')
+                    }}
                     className='flex items-center w-full mt-10 p-2 hover:bg-gray-100 rounded transition-all'>
                     <IoLogOutOutline size={30} />
                     <span className='ml-3 text-xl'>Salir</span>

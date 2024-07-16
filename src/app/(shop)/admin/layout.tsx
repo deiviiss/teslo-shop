@@ -9,7 +9,7 @@ export default async function AdminLayout({
   const isAdmin = await validateUserAdmin()
 
   if (!isAdmin) {
-    redirect('/auth/login')
+    redirect('/profile')
   }
 
   return (

@@ -15,7 +15,7 @@ export default async function OrdersPage({ searchParams }: Props) {
   const { ok, orders, totalPages } = await getOrdersByUser({ page })
 
   if (!ok) {
-    redirect('/auth/login')
+    redirect('/')
   }
 
   if (orders?.length === 0) {
