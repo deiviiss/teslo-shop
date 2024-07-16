@@ -95,12 +95,12 @@ export const CardOrderAdmin = ({ order }: Props) => {
               ? (
                 <>
                   <IoCardOutline className="text-green-800" />
-                  <span className='text-green-800'>Pagada</span>
+                  <span className='text-green-800'>Pagado</span>
                 </>)
               : (
                 <>
                   <IoCardOutline className="text-red-800" />
-                  <span className='text-red-800'>No Pagada</span>
+                  <span className='text-red-800'>No Pagado</span>
                 </>)}
           </div>
         </div>
