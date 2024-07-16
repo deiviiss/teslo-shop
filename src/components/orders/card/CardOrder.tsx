@@ -56,16 +56,16 @@ export const CardOrder = ({ order }: Props) => {
                 </>)}
           </div>
         </div>
-        <div className="ml-auto flex items-center gap-2">
-          <Button size="sm" variant="outline" className="h-8 gap-1">
+
+        <Button asChild size="sm" variant="outline" className="h-8 gap-1">
+          <Link
+            href={`/orders/${id}`}
+            className="hover:underline ml-auto flex items-center gap-2">
             <EyeIcon className="h-3.5 w-3.5" />
-            <Link
-              href={`/orders/${id}`}
-              className="hover:underline hidden min-[500px]:block">
-              Ver pedido
-            </Link>
-          </Button>
-        </div>
+            <span className='hidden min-[450px]:block'>Ver pedido</span>
+          </Link>
+        </Button>
+
       </CardHeader>
     </Card>
   )

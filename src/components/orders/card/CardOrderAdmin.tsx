@@ -105,12 +105,12 @@ export const CardOrderAdmin = ({ order }: Props) => {
           </div>
         </div>
         <div className="ml-auto flex items-center gap-2">
-          <Button size="sm" variant="outline" className="h-8 gap-1">
-            <EyeIcon className="h-3.5 w-3.5" />
+          <Button asChild size="sm" variant="outline" className="h-8 gap-1">
             <Link
               href={`/orders/${id}`}
-              className="hover:underline hidden min-[500px]:block">
-              Ver pedido
+              className="hover:underline flex items-center gap-2">
+              <EyeIcon className="h-3.5 w-3.5" />
+              <span className='hidden min-[500px]:block'>Ver pedido</span>
             </Link>
           </Button>
           <Button
