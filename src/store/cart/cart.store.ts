@@ -57,18 +57,17 @@ export const useCartStore = create<State>()(
           (item) => item.id === product.id && item.size === product.size
         )
 
-        // If the product is not in the cart, add it
+        // if the product is not in the cart, add it
         if (!productInCart) {
           set({ cart: [...cart, product] })
           return
         }
 
-        // If the product is already in the cart with the selected size, update the quantity
+        // if the product is already in the cart with the selected size, update the quantity
         const updatedCartProducts = cart.map((item) => {
           if (item.id === product.id && item.size === product.size) {
             return { ...item, quantity: item.quantity + product.quantity }
           }
-          //
           return item
         })
 
@@ -82,7 +81,6 @@ export const useCartStore = create<State>()(
           if (item.id === product.id && item.size === product.size) {
             return { ...item, quantity }
           }
-          //
           return item
         })
 

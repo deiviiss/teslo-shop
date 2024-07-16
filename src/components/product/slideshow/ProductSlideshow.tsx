@@ -5,7 +5,7 @@ import { type Swiper as SwiperObject } from 'swiper'
 import { Autoplay, FreeMode, Navigation, Thumbs } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-// Import Swiper styles
+// import Swiper styles
 import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
@@ -23,16 +23,9 @@ interface ProductSlideshowProps {
 export const ProductSlideshow = ({ images, title, className }: ProductSlideshowProps) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperObject>()
 
-  // const swiperStyle: Record<string, string> = {
-  //   '--swiper-navigation-color': '#fff',
-  //   '--swiper-pagination-color': '#fff'
-  // }
-
   return (
     <div className={className}>
       <Swiper
-        // style={swiperStyle}
-
         spaceBetween={10}
         navigation={true}
         autoplay={{

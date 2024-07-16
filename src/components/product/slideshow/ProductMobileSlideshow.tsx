@@ -19,7 +19,6 @@ interface ProductSlideshowProps {
 }
 
 const swiperStyle: Record<string, string> = {
-  // width: '100vw',
   height: '500px'
 }
 

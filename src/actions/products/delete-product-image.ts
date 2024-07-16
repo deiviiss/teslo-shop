@@ -4,7 +4,7 @@ import { v2 as cloudinary } from 'cloudinary'
 import { revalidatePath } from 'next/cache'
 import prisma from '@/lib/prisma'
 
-// config cloudinary //! Chance for folder name
+// config cloudinary // TODO: Chance for folder name
 cloudinary.config(process.env.CLOUDINARY_URL ?? '')
 
 export const deleteProductImage = async (imageid: string, imageUrl: string) => {

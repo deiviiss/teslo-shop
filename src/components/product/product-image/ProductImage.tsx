@@ -19,7 +19,7 @@ export const ProductImage = ({
   onMouseEnter,
   onMouseLeave
 }: Props) => {
-  // iamge should be in the public folder or in the cloud
+  // image should be in the public folder or in the cloud
   const imageSrc = (src)
     ? src.startsWith('http')
       ? src

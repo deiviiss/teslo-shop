@@ -17,7 +17,7 @@ export const authConfig: NextAuthConfig = {
       return token
     },
     session({ session, token }) {
-      //! fix type any
+      // TODO: fix type any
       session.user = token.data as any
       return session
     }
