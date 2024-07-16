@@ -2,7 +2,6 @@
 
 import { getSizesProductStock } from './get-sizes-product-stock'
 import { type ProductWithStock } from '@/interfaces'
-// import { revalidatePath } from 'next/cache'
 import prisma from '@/lib/prisma'
 import { validatePageNumber } from '@/utils'
 

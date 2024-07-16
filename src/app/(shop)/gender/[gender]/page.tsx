@@ -47,11 +47,6 @@ export default async function GenderByPage({ params, searchParams }: Props) {
   const query = searchParams.query || ''
   const page = searchParams.page ? Number(searchParams.page) : 1
 
-  // const allowedCategories = ['men', 'women', 'kid']
-  // if (!allowedCategories.includes(gender)) {
-  //   notFound()
-  // }
-
   const result = await getPaginationProductsWithImages({ page, query, gender })
 
   if (!result) {

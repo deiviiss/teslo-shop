@@ -34,20 +34,6 @@ const productSchema = z.object({
   gender: z.nativeEnum(Gender)
 })
 
-//! Create product
-// cuando creo un producto recibo un arreglo de tallas, por cada talla creo un stock para el producto, es decir creo el producto y el stock de cada talla
-
-//! Acualizar producto
-// cuando actualizo un producto recibo solo una talla
-
-// en el formulario la talla por defecto es a la que se entro al hacer click en editar producto, si el usuario cambia la talla desde el selector será la talla que se actualizará
-
-// server action
-// recibo el producto y la talla que se va a actualizar
-// consulto si la talla que recibo existe en el stock, si existe actualizo el stock de esa talla, si no existe creo un nuevo stock para esa talla
-
-// que hago si el cliente quiere agregar una talla distinta, cuando se recibe la información a actulizar es decir cuando se esta actualizando el producto se debe de consultar si la talla que esta recibiendo existe en el stock, si no existe se debe de crear un nuevo stock para esa talla, si existe se debe de actualizar el stock de esa talla para ambos casos actualizo el producto.
-
 export const createUpdateProduct = async (formData: FormData) => {
   const data = Object.fromEntries(formData)
 
@@ -174,12 +160,6 @@ export const createUpdateProduct = async (formData: FormData) => {
       message: 'Error al crear/actualizar el producto'
     }
   }
-
-  // return {
-  //   ok: false,
-  //   message: 'Error al crear/actualizar el producto',
-  //   product: []
-  // }
 }
 
 const getproductStockIdByProductIdSize = async (productId: string, size: Size) => {

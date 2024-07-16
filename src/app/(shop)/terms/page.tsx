@@ -1,7 +1,9 @@
 import Link from 'next/link'
+import { getEmailAdmin } from '@/actions'
 import { Title, ButtonBackPage } from '@/components'
 
 export default async function TermsPage() {
+  const { emailAdmin } = await getEmailAdmin()
   return (
     <>
       <Title title="Términos y condiciones" subtitle='' />
@@ -43,7 +45,7 @@ export default async function TermsPage() {
         </div>
 
         <div className='flex justify-center w-full gap-4  m-8 text-center mx-auto'>
-          <Link className='btn-primary' target='_blank' href={'https://wa.me/529811250049'}>
+          <Link className='btn-primary' target='_blank' href={`mailto:${emailAdmin?.email}?subject=Consulta%20sobre%20Términos%20y%20Condiciones`}>
             Contáctanos
           </Link>
 

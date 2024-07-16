@@ -1,7 +1,9 @@
 import Link from 'next/link'
+import { getEmailAdmin } from '@/actions'
 import { ButtonBackPage, Title } from '@/components'
 
 export default async function PrivacyPage() {
+  const { emailAdmin } = await getEmailAdmin()
   return (
     <>
       <Title title="Políticas de privacidad" subtitle='' />
@@ -49,7 +51,7 @@ export default async function PrivacyPage() {
         </div>
 
         <div className='flex justify-center w-full gap-4  m-8 text-center mx-auto'>
-          <Link className='btn-primary' target='_blank' href={'https://wa.me/529811250049'}>
+          <Link className='btn-primary' target='_blank' href={`mailto:${emailAdmin?.email}?subject=Consulta%20sobre%20Política%20de%20Privacidad`}>
             Contáctanos
           </Link>
 
