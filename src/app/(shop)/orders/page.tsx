@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { IoCardOutline } from 'react-icons/io5'
 import { getOrdersByUser } from '@/actions'
-import { Pagination, Title } from '@/components'
+import { CardOrder, Pagination, Title } from '@/components'
 
 interface Props {
   searchParams: {
@@ -32,11 +32,29 @@ export default async function OrdersPage({ searchParams }: Props) {
     )
   }
 
+  const processOrders = orders?.map(order => {
+    const orderItem = {
+      id: order.id,
+      name: `${order.orderAddresses?.firstName} ${order.orderAddresses?.lastName}`,
+      isPaid: order.isPaid
+    }
+
+    return orderItem
+  })
+
   return (
     <>
       <Title title="Pedidos" subtitle='Lista de pedidos' />
 
-      <div className="mb-10 overflow-auto">
+      <div className='sm:hidden w-full mb-10'>
+        {processOrders?.map(order => (
+          <CardOrder
+            key={order.id}
+            order={order} />
+        ))}
+      </div>
+
+      <div className="hidden sm:block mb-10 overflow-auto">
         <table className="min-w-full">
           <thead className="bg-gray-200 border-b">
             <tr>

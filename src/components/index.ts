@@ -4,6 +4,8 @@ export * from './auth/ButtonLogout'
 // orders
 export { OrderStatus } from './orders/OrderStatus'
 export { MenuOptions } from './orders-table/MenuOptions'
+export { CardOrder } from './orders/card/CardOrder'
+export { CardOrderAdmin } from './orders/card/CardOrderAdmin'
 
 // Providers
 export * from './providers/Providers'

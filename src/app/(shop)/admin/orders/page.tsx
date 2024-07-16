@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { IoCardOutline } from 'react-icons/io5'
 import { getPaginatedOrders, validateUserAdmin } from '@/actions'
-import { MenuOptions, Pagination, Title } from '@/components'
+import { CardOrderAdmin, MenuOptions, Pagination, Title } from '@/components'
 
 interface Props {
   searchParams: {
@@ -35,11 +35,29 @@ export default async function OrdersPage({ searchParams }: Props) {
     )
   }
 
+  const processOrders = orders?.map(order => {
+    const orderItem = {
+      id: order.id,
+      name: `${order.orderAddresses?.firstName} ${order.orderAddresses?.lastName}`,
+      isPaid: order.isPaid
+    }
+
+    return orderItem
+  })
+
   return (
     <>
       <Title title="Todos los pedidos" subtitle='Lista de pedidos de todos los usuarios' />
 
-      <div className="mb-10 overflow-auto">
+      <div className='sm:hidden w-full mb-10'>
+        {processOrders?.map(order => (
+          <CardOrderAdmin
+            key={order.id}
+            order={order} />
+        ))}
+      </div>
+
+      <div className="hidden sm:block mb-10 overflow-auto">
         <table className="min-w-full">
           <thead className="bg-gray-200 border-b">
             <tr>
