@@ -46,7 +46,7 @@ export default async function OrdersPage({ searchParams }: Props) {
     <>
       <Title title="Pedidos" subtitle='Lista de pedidos' />
 
-      <div className='sm:hidden w-full mb-10'>
+      <div className='sm:hidden w-full flex flex-col gap-3 mb-10'>
         {processOrders?.map(order => (
           <CardOrder
             key={order.id}

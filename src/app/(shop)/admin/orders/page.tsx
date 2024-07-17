@@ -49,7 +49,7 @@ export default async function OrdersPage({ searchParams }: Props) {
     <>
       <Title title="Todos los pedidos" subtitle='Lista de pedidos de todos los usuarios' />
 
-      <div className='sm:hidden w-full mb-10'>
+      <div className='sm:hidden w-full flex flex-col gap-3 mb-10'>
         {processOrders?.map(order => (
           <CardOrderAdmin
             key={order.id}
