@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { getPaginationProductsStockWithImages } from '@/actions'
-import { Pagination, ProductSearch, ProductTable, Title } from '@/components'
+import { CardProduct, Pagination, ProductSearch, ProductTable, Title } from '@/components'
 
 interface Props {
   searchParams: {
@@ -28,14 +28,25 @@ export default async function ProductsPage({ searchParams }: Props) {
         </Link>
       </div>
 
-      <div className="mb-10 overflow-auto">
-        <ProductTable products={products} />
+      <div className='sm:hidden w-full flex flex-col gap-3 mb-10'>
         {
-          products.length > 0 && (
-            <Pagination totalPages={totalPages} />
-          )
+          products.map(product => (
+            <CardProduct
+              key={`${product.id}-${product.stock.size}`}
+              product={product}
+            />
+          ))
         }
+      </div>
+
+      <div className="hidden sm:block mb-10 overflow-auto">
+        <ProductTable products={products} />
       </div >
+      {
+        products.length > 0 && (
+          <Pagination totalPages={totalPages} />
+        )
+      }
     </>
   )
 }

@@ -23,7 +23,7 @@ export const CardOrderAdmin = ({ order }: Props) => {
       description: `¿Estás seguro? Se eliminara el pedido #${id.split('-').at(-1)} el inventario se actualizara`,
       position: 'top-right',
       duration: Infinity,
-      className: 'grid grid-cols-[1fr,110px] items-start justify-center text-sm p-2 col-span-2',
+      className: 'grid grid-cols-[1fr,110px] items-start justify-center text-sm p-2 col-span-2 pb-4',
       classNames: {
         content: 'flex items-start justify-center text-sm col-span-4 p-2'
       },
@@ -31,7 +31,8 @@ export const CardOrderAdmin = ({ order }: Props) => {
         color: 'white',
         backgroundColor: '#1E40AF',
         font: 'message-box',
-        padding: '0.5rem 1rem'
+        padding: '0.5rem 1rem',
+        height: '2rem'
       },
       action: {
         label: 'Confirmar',
@@ -46,7 +47,8 @@ export const CardOrderAdmin = ({ order }: Props) => {
         color: 'white',
         backgroundColor: 'red',
         font: 'message-box',
-        padding: '0.5rem 1rem'
+        padding: '0.5rem 1rem',
+        height: '2rem'
       }
     })
   }

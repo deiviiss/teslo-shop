@@ -24,7 +24,7 @@ export const MenuOptions = ({ orderId }: Props) => {
       description: `¿Estás seguro? Se eliminara el pedido #${orderId.split('-').at(-1)} el inventario se actualizara`,
       position: 'top-right',
       duration: Infinity,
-      className: 'grid grid-cols-[1fr,110px] items-start justify-center text-sm p-2 col-span-2',
+      className: 'grid grid-cols-[1fr,110px] items-start justify-center text-sm p-2 col-span-2 pb-4',
       classNames: {
         content: 'flex items-start justify-center text-sm col-span-4 p-2'
       },
@@ -32,7 +32,8 @@ export const MenuOptions = ({ orderId }: Props) => {
         color: 'white',
         backgroundColor: '#1E40AF',
         font: 'message-box',
-        padding: '0.5rem 1rem'
+        padding: '0.5rem 1rem',
+        height: '2rem'
       },
       action: {
         label: 'Confirmar',
@@ -47,7 +48,8 @@ export const MenuOptions = ({ orderId }: Props) => {
         color: 'white',
         backgroundColor: 'red',
         font: 'message-box',
-        padding: '0.5rem 1rem'
+        padding: '0.5rem 1rem',
+        height: '2rem'
       }
     })
   }

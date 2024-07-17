@@ -37,6 +37,8 @@ export { getPaginationProductsStockWithImages } from './products/product-stock-p
 export { getProductBySlugSize } from './products/get-product-by-slug-size'
 export { getProductByIdSize } from './products/get-product-by-id-size'
 export { getSizesProductStock } from './products/get-sizes-product-stock'
+export { deleteProductById } from './products/delete-product-by-id'
+export { deleteProductByIdAndSize } from './products/delete-product-by-id-size'
 
 // users
 export { getPaginatedUsers } from './users/get-paginated-users'
