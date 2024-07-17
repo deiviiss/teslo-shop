@@ -59,13 +59,15 @@ export const MenuOptions = ({ orderId }: Props) => {
 
     if (!ok) {
       toast.error(message, {
-        position: 'top-right'
+        position: 'top-right',
+        duration: 2000
       })
       return
     }
 
     toast.success(message, {
-      position: 'top-right'
+      position: 'top-right',
+      duration: 2000
     })
   }
 
