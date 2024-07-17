@@ -42,9 +42,13 @@ export const getPaginationProductsStockWithImages = async ({ page = 1, take = 12
       },
       orderBy: [
         {
-          product: {
+          product:
+          {
             title: 'asc'
           }
+        },
+        {
+          size: 'asc'
         }
       ]
     })
