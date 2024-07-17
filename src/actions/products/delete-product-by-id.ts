@@ -31,7 +31,6 @@ export const deleteProductById = async (id: string) => {
       message: 'Producto eliminado'
     }
   } catch (error) {
-    console.error(error)
     return {
       ok: false,
       message: 'Error al eliminar el pedido, contacta a soporte'
