@@ -39,7 +39,10 @@ export * from './ui/pagination/Pagination'
 export * from './ui/button-back-page/ButtonBackPage'
 
 // users
-export * from './users/UsersTable'
+export { UsersTable } from './users/table/UsersTable'
+export { CardUser } from './users/card/CardUser'
+export { EditForm } from './users/edit-form/EditForm'
+export { MenuOptionsUser } from './users/table/MenuOptions'
 
 // Footer
 export * from './footer/Footer'

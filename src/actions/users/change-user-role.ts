@@ -1,7 +1,7 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
-import { validateUserAdmin } from '../auth/validate-user-admin'
+import { validateUserAdmin } from '@/actions'
 import prisma from '@/lib/prisma'
 
 export const changeUserRole = async (userId: string, role: string) => {
@@ -10,7 +10,7 @@ export const changeUserRole = async (userId: string, role: string) => {
   if (!isAdmin) {
     return {
       ok: false,
-      message: 'Debe estar autenticado para realizar como administrador'
+      message: 'Debe estar autenticado como administrador'
     }
   }
 

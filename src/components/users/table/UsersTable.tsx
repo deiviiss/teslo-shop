@@ -1,6 +1,6 @@
 'use client'
 
-import { changeUserRole } from '@/actions/users/change-user-role'
+import { MenuOptionsUser } from './MenuOptions'
 import { type User } from '@/interfaces'
 
 interface Props {
@@ -24,6 +24,12 @@ export const UsersTable = ({ users }: Props) => {
           <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
             Role
           </th>
+          <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+            Status
+          </th>
+          <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+            Opciones
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -42,15 +48,14 @@ export const UsersTable = ({ users }: Props) => {
               <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                 {user.phoneNumber}
               </td>
-              <td className="flex items-center text-sm  text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                <select
-                  value={user.role}
-                  onChange={(e) => { changeUserRole(user.id, e.target.value) }}
-                  className="text-sm p-2 w-full text-gray-900"
-                >
-                  <option value="admin">Admin</option>
-                  <option value="user">User</option>
-                </select>
+              <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap capitalize">
+                {user.role}
+              </td>
+              <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                {user.isActive ? 'Activo' : 'Inactivo'}
+              </td>
+              <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <MenuOptionsUser user={user} />
               </td>
             </tr>
           ))

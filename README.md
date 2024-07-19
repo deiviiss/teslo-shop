@@ -28,9 +28,9 @@ npm run dev
 ```
 
 # Notes: default user
-__user__ admin@mail.com
+__user__ moda.shop.ecommerce@hotmail.com
 
-__password__ admin
+__password__ useradmin
 
 
 # Prisma commands

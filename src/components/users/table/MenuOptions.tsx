@@ -1,9 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { IoTrashOutline, IoEllipsisHorizontalSharp, IoAlertCircleOutline } from 'react-icons/io5'
+import { BsToggleOff, BsToggleOn } from 'react-icons/bs'
+import { IoEllipsisHorizontalSharp, IoAlertCircleOutline } from 'react-icons/io5'
 import { toast } from 'sonner'
-import { deleteOrderById } from '@/actions'
+import { toggleUserStatus } from '@/actions'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -15,13 +16,22 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 interface Props {
-  orderId: string
+  user: {
+    id: string
+    name: string
+    email: string
+    phoneNumber: string | null
+    role: string
+    isActive: boolean
+  }
 }
+export const MenuOptionsUser = ({ user }: Props) => {
+  const { id, isActive, name } = user
 
-export const MenuOptions = ({ orderId }: Props) => {
   const openConfirmationDelete = () => {
-    toast('Eliminar pedido', {
-      description: `¿Estás seguro? Se eliminara el pedido #${orderId.split('-').at(-1)} el inventario se actualizara`,
+    toast('Desactivar usuario', {
+      description: `¿Estás seguro? Se ${isActive ? 'desactivara' : 'activara'
+        } el usuario ${name} y ${isActive ? 'no podrá' : 'podrá'} acceder a la plataforma`,
       position: 'top-right',
       duration: Infinity,
       className: 'grid grid-cols-[1fr,110px] items-start justify-center text-sm p-2 col-span-2 pb-4',
@@ -37,7 +47,7 @@ export const MenuOptions = ({ orderId }: Props) => {
       },
       action: {
         label: 'Confirmar',
-        onClick: async () => { await handleDeleteOrder(orderId) }
+        onClick: async () => { await handleToggleUserStatus(id, isActive) }
       },
       cancel:
       {
@@ -54,8 +64,8 @@ export const MenuOptions = ({ orderId }: Props) => {
     })
   }
 
-  const handleDeleteOrder = async (orderId: string) => {
-    const { ok, message } = await deleteOrderById(orderId)
+  const handleToggleUserStatus = async (id: string, status: boolean) => {
+    const { ok, message } = await toggleUserStatus({ id, status })
 
     if (!ok) {
       toast.error(message, {
@@ -85,18 +95,28 @@ export const MenuOptions = ({ orderId }: Props) => {
         <DropdownMenuItem>
           <IoAlertCircleOutline className='h-4 w-4 mr-2' />
           <Link
-            href={`/orders/${orderId}`}
+            href={`/admin/users/${id}/edit`}
             className="hover:underline">
-            Ver pedido
+            Editar
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <IoTrashOutline className='h-4 w-4 mr-2' />
           <button
-            className="hover:underline"
+            className="hover:underline flex gap-1 items-center"
             onClick={() => { openConfirmationDelete() }}
           >
-            Eliminar pedido
+            {isActive
+              ? (
+                <>
+                  <BsToggleOn className="h-3.5 w-3.5" />
+                  <span>Desactivar</span>
+                </>)
+              : (
+                <>
+                  <BsToggleOff className="h-3.5 w-3.5" />
+                  <span>Activar</span>
+                </>)
+            }
           </button>
         </DropdownMenuItem>
       </DropdownMenuContent>

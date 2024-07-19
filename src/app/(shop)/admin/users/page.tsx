@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation'
 import { getPaginatedUsers } from '@/actions'
-import { Pagination, Title, UsersTable } from '@/components'
+import { CardUser, Pagination, Title, UsersTable } from '@/components'
 
 export const revalidate = 0
 
@@ -20,13 +20,24 @@ export default async function UsersPage({ searchParams }: Props) {
 
   return (
     <>
-      <Title title="Mantenimiento de usuarios" subtitle='Lista de pedidos de todos los usuarios' />
+      <Title title="Mantenimiento de usuarios" subtitle='Lista de todos los usuarios' />
 
-      <div className="mb-10 overflow-auto">
+      <div className='sm:hidden w-full flex flex-col gap-3 mb-10'>
+        {
+          users.map(user => (
+            <CardUser
+              key={user.id}
+              user={user}
+            />
+          ))
+        }
+      </div>
+
+      <div className="hidden sm:block mb-10 overflow-auto">
         <UsersTable users={users} />
 
-        <Pagination totalPages={totalPages || 1} />
       </div>
+      <Pagination totalPages={totalPages || 1} />
     </>
   )
 }

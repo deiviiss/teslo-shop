@@ -91,7 +91,7 @@ model User {
   password      String?
   emailVerified DateTime?
   image         String?
-  phoneNumber   String?
+  phoneNumber   String
   role          Role      @default(user)
   isActive      Boolean   @default(true)
 

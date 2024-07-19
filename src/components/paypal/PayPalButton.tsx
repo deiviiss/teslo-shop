@@ -41,6 +41,7 @@ export const PayPalButton = ({ orderId, amount }: Props) => {
 
   const createOrder = async (data: CreateOrderData, actions: CreateOrderActions): Promise<string> => {
     const transactionId: string = await actions.order.create({
+      intent: 'CAPTURE',
       purchase_units: [
         {
           invoice_id: orderId,
@@ -66,7 +67,7 @@ export const PayPalButton = ({ orderId, amount }: Props) => {
 
     if (!details) return
 
-    await paypalCheckPayment(details.id)
+    await paypalCheckPayment(details?.id || '')
 
     noticeConfirmPaid()
   }

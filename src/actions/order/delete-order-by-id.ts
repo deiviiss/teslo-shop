@@ -56,6 +56,7 @@ export const deleteOrderById = async (id: string) => {
         message: 'Pedido pagado no se puede eliminar'
       }
     }
+
     await prisma.$transaction(async () => {
       for (const item of order.orderItem) {
         const productStock = await getProductByIdSize({ productId: item.productId, size: item.size })

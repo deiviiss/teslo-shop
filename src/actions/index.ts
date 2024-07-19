@@ -42,8 +42,11 @@ export { deleteProductByIdAndSize } from './products/delete-product-by-id-size'
 
 // users
 export { getPaginatedUsers } from './users/get-paginated-users'
+export { getUserById } from './users/get-user-by-id'
+export { updateUser } from './users/update-user'
 export { getPhoneNumberAdmin } from './users/get-phone-number-admin'
 export { getEmailAdmin } from './users/get-email-admin'
+export { toggleUserStatus } from './users/toggle-user-status'
 
 // notify
 export { sendWhatsappMessage } from './notifications/whatsapp/send-whatsapp-message'
