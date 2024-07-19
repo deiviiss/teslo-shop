@@ -41,6 +41,8 @@ export const authConfig: NextAuthConfig = {
 
         if (!user) return null
 
+        if (!user.isActive) return null
+
         const userPassword: string = user.password || ''
 
         if (!bcrypt.compareSync(password, userPassword)) return null
