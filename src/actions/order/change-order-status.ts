@@ -2,7 +2,7 @@
 
 import { type Status } from '@prisma/client'
 import { revalidatePath } from 'next/cache'
-import { getUserSessionServer } from '@/actions'
+import { getUserSessionServer, sendNotificationsDelivered, sendNotificationsShipment } from '@/actions'
 import prisma from '@/lib/prisma'
 
 export const changeOrderStatus = async (id: string, status: Status) => {
@@ -39,6 +39,14 @@ export const changeOrderStatus = async (id: string, status: Status) => {
         status
       }
     })
+
+    if (status === 'shipped') {
+      await sendNotificationsShipment()
+    }
+
+    if (status === 'delivered') {
+      await sendNotificationsDelivered()
+    }
 
     revalidatePath('/admin/orders')
     revalidatePath('/')

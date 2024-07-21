@@ -25,7 +25,6 @@ export { changeOrderStatus } from './order/change-order-status'
 // payments
 export { setTransactionId } from './payments/set-transaction-id'
 export { paypalCheckPayment } from './payments/paypal-check-payment'
-export { sendNotificationsPayment } from './payments/send-notifications-payment'
 
 // products
 export { getProductBySlug } from './products/get-product-by-slug'
@@ -53,3 +52,6 @@ export { toggleUserStatus } from './users/toggle-user-status'
 export { sendWhatsappMessage } from './notifications/whatsapp/send-whatsapp-message'
 export { sendSmsMessage } from './notifications/sms/send-sms-message'
 export { sendEmail } from './notifications/email/send-email-message'
+export { sendNotificationsPayment } from './payments/send-notifications-payment'
+export { sendNotificationsShipment } from './order/send-notifications-shipment'
+export { sendNotificationsDelivered } from './order/send-notification-delivered'
