@@ -20,6 +20,7 @@ export { getOrdersByUser } from './order/get-orders-by-user'
 export { getPaginatedOrders } from './order/get-paginated-orders'
 export { placeOrder } from './order/place-order'
 export { deleteOrderById } from './order/delete-order-by-id'
+export { changeOrderStatus } from './order/change-order-status'
 
 // payments
 export { setTransactionId } from './payments/set-transaction-id'

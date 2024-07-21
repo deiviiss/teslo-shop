@@ -39,6 +39,7 @@ export const paypalCheckPayment = async (transactionId: string) => {
       where: { id: orderId },
       data: {
         isPaid: true,
+        status: 'paided',
         paidAt: new Date()
       }
     })

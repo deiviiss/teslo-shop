@@ -10,7 +10,7 @@ export const deleteProductById = async (id: string) => {
   if (!user) {
     return {
       ok: false,
-      message: 'Should be authenticated to get order by id'
+      message: 'Se requiere permisos de administrador'
     }
   }
 

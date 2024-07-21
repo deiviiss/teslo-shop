@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
-import { IoCardOutline } from 'react-icons/io5'
+
 import { getPaginatedOrders, validateUserAdmin } from '@/actions'
-import { CardOrderAdmin, MenuOptions, Pagination, Title } from '@/components'
+import { CardOrderAdmin, Pagination, TableOrder, Title } from '@/components'
 
 interface Props {
   searchParams: {
@@ -21,7 +21,7 @@ export default async function OrdersPage({ searchParams }: Props) {
     redirect('/auth/login')
   }
 
-  if (orders?.length === 0) {
+  if (!orders) {
     return (
       <div className='flex flex-col gap-3 items-center justify-center h-[300px] max-w-[920px] mx-auto my-5 text-center'>
 
@@ -39,7 +39,8 @@ export default async function OrdersPage({ searchParams }: Props) {
     const orderItem = {
       id: order.id,
       name: `${order.orderAddresses?.firstName} ${order.orderAddresses?.lastName}`,
-      isPaid: order.isPaid
+      isPaid: order.isPaid,
+      status: order.status
     }
 
     return orderItem
@@ -58,62 +59,7 @@ export default async function OrdersPage({ searchParams }: Props) {
       </div>
 
       <div className="hidden sm:block mb-10 overflow-auto">
-        <table className="min-w-full">
-          <thead className="bg-gray-200 border-b">
-            <tr>
-              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                #ID
-              </th>
-              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                Nombre completo
-              </th>
-              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                Estado
-              </th>
-              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-center">
-                Opciones
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              orders?.map(order => (
-                <tr
-                  key={order.id}
-                  className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    {order.id.split('-').at(-1)}
-                  </td>
-                  <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    {order.orderAddresses?.firstName} {order.orderAddresses?.lastName}
-                  </td>
-                  <td className="flex items-center text-sm  text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    {
-                      order.isPaid
-                        ? (
-                          <>
-                            <IoCardOutline className="text-green-800" />
-                            <span className='mx-2 text-green-800'>Pagado</span>
-                          </>)
-                        : (
-                          <>
-                            <IoCardOutline className="text-red-800" />
-                            <span className='mx-2 text-red-800'>No Pagado</span>
-                          </>)
-                    }
-
-                  </td>
-                  <td className="text-sm text-gray-900 font-light px-6 text-center">
-                    <MenuOptions orderId={order.id} />
-                  </td>
-
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
-
+        <TableOrder orders={orders} />
       </div>
       <Pagination totalPages={totalPages || 1} />
     </>

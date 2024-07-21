@@ -10,48 +10,58 @@ interface PaginationOptions {
 }
 
 export const getPaginatedOrders = async ({ page = 1, take = 12 }: PaginationOptions) => {
-  const isAdmin = await validateUserAdmin()
+  try {
+    const isAdmin = await validateUserAdmin()
 
-  if (!isAdmin) {
-    return {
-      ok: false,
-      message: 'Debe estar autenticado para realizar esta acción'
-    }
-  }
-
-  page = validatePageNumber(page)
-
-  const orders = await prisma.order.findMany({
-    take,
-    skip: (page - 1) * take,
-    orderBy: {
-      createdAt: 'desc'
-    },
-    include: {
-      orderAddresses: {
-        select: {
-          firstName: true,
-          lastName: true
-        }
+    if (!isAdmin) {
+      return {
+        ok: false,
+        message: 'Debe estar autenticado para realizar esta acción',
+        orders: null
       }
     }
-  })
 
-  if (!orders) {
+    page = validatePageNumber(page)
+
+    const orders = await prisma.order.findMany({
+      take,
+      skip: (page - 1) * take,
+      orderBy: {
+        createdAt: 'desc'
+      },
+      include: {
+        orderAddresses: {
+          select: {
+            firstName: true,
+            lastName: true
+          }
+        }
+      }
+    })
+
+    if (orders.length === 0) {
+      return {
+        ok: false,
+        message: 'No se encontraron pedidos',
+        orders: null
+      }
+    }
+
+    const totalCount = await prisma.order.count({})
+
+    const totalPages = Math.ceil(totalCount / take)
+
+    return {
+      ok: true,
+      orders,
+      currentPage: page,
+      totalPages
+    }
+  } catch (error) {
     return {
       ok: false,
-      message: 'No se encontraron pedidos'
+      message: 'Error al obtener los pedidos, contacta a soporte',
+      orders: null
     }
-  }
-
-  const totalCount = await prisma.order.count({})
-
-  const totalPages = Math.ceil(totalCount / take)
-
-  return {
-    ok: true,
-    orders,
-    currentPage: page,
-    totalPages
   }
 }

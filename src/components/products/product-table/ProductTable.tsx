@@ -1,10 +1,17 @@
 import Link from 'next/link'
 import { DeleteButtonProduct, ProductImage } from '@/components'
-import { type Size, type ProductWithStock } from '@/interfaces'
+import { type Size, type ProductWithStock, type ValidGender } from '@/interfaces'
 import { currencyFormat } from '@/utils'
 
 interface Props {
   products: ProductWithStock[]
+}
+
+const genderSpanish: Record<ValidGender, string> = {
+  men: 'Hombre',
+  women: 'Mujer',
+  kid: 'Niño',
+  unisex: 'Unisex'
 }
 
 export const ProductTable = ({ products }: Props) => {
@@ -75,7 +82,7 @@ export const ProductTable = ({ products }: Props) => {
                   {currencyFormat(Number(product.price))}
                 </td>
                 <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  {product.gender}
+                  {genderSpanish[product.gender]}
                 </td>
                 <td className="text-sm text-gray-900 font-bold px-6 py-4 whitespace-nowrap">
                   {product.stock.inStock}

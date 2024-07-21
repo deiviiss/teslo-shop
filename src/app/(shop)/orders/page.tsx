@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { IoCardOutline } from 'react-icons/io5'
 import { getOrdersByUser } from '@/actions'
-import { CardOrder, Pagination, Title } from '@/components'
+import { CardOrder, Pagination, StatusNameWithIcon, Title } from '@/components'
 
 interface Props {
   searchParams: {
@@ -36,7 +36,8 @@ export default async function OrdersPage({ searchParams }: Props) {
     const orderItem = {
       id: order.id,
       name: `${order.orderAddresses?.firstName} ${order.orderAddresses?.lastName}`,
-      isPaid: order.isPaid
+      isPaid: order.isPaid,
+      status: order.status
     }
 
     return orderItem
@@ -65,7 +66,10 @@ export default async function OrdersPage({ searchParams }: Props) {
                 Nombre completo
               </th>
               <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                Estado
+                Estado del pago
+              </th>
+              <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Estado del pedido
               </th>
               <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                 Opciones
@@ -91,7 +95,9 @@ export default async function OrdersPage({ searchParams }: Props) {
                         ? (
                           <>
                             <IoCardOutline className="text-green-800" />
-                            <span className='mx-2 text-green-800'>Pagado</span>
+                            <span className='mx-2 text-green-800'>
+                              Pagado
+                            </span>
                           </>)
                         : (
                           <>
@@ -99,7 +105,9 @@ export default async function OrdersPage({ searchParams }: Props) {
                             <span className='mx-2 text-red-800'>No Pagado</span>
                           </>)
                     }
-
+                  </td>
+                  <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <StatusNameWithIcon status={order.status} />
                   </td>
                   <td className="text-sm text-gray-900 font-light px-6 ">
                     <Link

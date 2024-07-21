@@ -35,6 +35,13 @@ enum Role {
   user
 }
 
+enum Status {
+  unpaid
+  paided
+  shipped
+  delivered
+}
+
 model Category {
   id          String    @id @default(uuid())
   name        String
@@ -139,6 +146,7 @@ model Order {
   total        Float
   itemsInOrder Int
   isPaid       Boolean   @default(false)
+  status       Status    @default(unpaid)
   paidAt       DateTime?
 
   createdAt DateTime  @default(now())

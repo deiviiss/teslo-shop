@@ -7,3 +7,5 @@ export * from './address/address.interface'
 export * from './paypal/paypal.interface'
 
 export * from './users/user.interface'
+
+export * from './orders/order.interface'

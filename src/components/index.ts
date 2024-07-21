@@ -4,8 +4,10 @@ export * from './auth/ButtonLogout'
 // orders
 export { OrderStatus } from './orders/OrderStatus'
 export { MenuOptions } from './orders-table/MenuOptions'
+export { StatusNameWithIcon } from './orders/StatusNameWithIcon'
 export { CardOrder } from './orders/card/CardOrder'
 export { CardOrderAdmin } from './orders/card/CardOrderAdmin'
+export { TableOrder } from './orders-table/TableOrder'
 
 // Providers
 export * from './providers/Providers'
