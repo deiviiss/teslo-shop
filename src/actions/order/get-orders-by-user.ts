@@ -27,6 +27,9 @@ export const getOrdersByUser = async ({ page = 1, take = 12 }: PaginationOptions
     where: {
       userId: user.id
     },
+    orderBy: {
+      createdAt: 'desc'
+    },
     include: {
       orderAddresses: {
         select: {

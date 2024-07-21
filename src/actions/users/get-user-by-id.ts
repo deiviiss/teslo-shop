@@ -1,6 +1,5 @@
 'use server'
 
-import { validateUserAdmin } from '@/actions'
 import { type User } from '@/interfaces'
 import prisma from '@/lib/prisma'
 
@@ -12,15 +11,6 @@ interface IResponse {
 
 export const getUserById = async (id: string): Promise<IResponse> => {
   try {
-    const isAdmin = await validateUserAdmin()
-
-    if (!isAdmin) {
-      return {
-        ok: false,
-        message: 'Debe estar autenticado como administrador'
-      }
-    }
-
     const user = await prisma.user.findFirst({
       where: { id },
       select: {
@@ -51,7 +41,7 @@ export const getUserById = async (id: string): Promise<IResponse> => {
   } catch (error) {
     return {
       ok: false,
-      message: 'Error al desactivar usuario, contacta a soporte'
+      message: 'Error al buscar usuario, contacta a soporte'
     }
   }
 }

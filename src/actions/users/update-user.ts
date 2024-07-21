@@ -78,10 +78,12 @@ export const updateUser = async (data: IData) => {
 
     revalidatePath('/admin/users')
     revalidatePath(`/admin/users/${id}/edit`)
+    revalidatePath('/profile')
+    revalidatePath(`/profile/${id}/edit`)
 
     return {
       ok: true,
-      message: 'Usuario actualizado correctamente'
+      message: 'Actualizado correctamente'
     }
   } catch (error) {
     return {

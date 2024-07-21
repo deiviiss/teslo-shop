@@ -72,7 +72,7 @@ export const EditForm = (user: User) => {
       duration: 2000
     })
 
-    router.replace('/admin/users')
+    router.replace('/profile')
   }
 
   return (
@@ -174,7 +174,7 @@ export const EditForm = (user: User) => {
               variant='destructive'
             >
               <Link
-                href="/admin/users"
+                href="/profile"
               >
                 Cancelar
               </Link>
