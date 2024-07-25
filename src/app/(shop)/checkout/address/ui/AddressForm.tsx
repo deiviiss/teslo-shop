@@ -68,7 +68,7 @@ export const AddressForm = ({ countries, userStoredAddress = {} }: Props) => {
       deleteUserAddress(userId)
     }
 
-    router.push('/checkout')
+    router.push('/checkout/way-to-pay?shipping-method=delivery')
   }
 
   if (!loaded) {

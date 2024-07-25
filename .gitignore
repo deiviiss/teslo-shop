@@ -37,5 +37,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# ignore diff_out.txt
-diff_out.txt
+# ignore diff.txt
+diff.txt
+flow.excalidraw

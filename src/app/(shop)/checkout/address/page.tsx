@@ -15,7 +15,7 @@ export default async function AddressPage() {
     )
   }
 
-  const address = await getUserAddress(user?.id)
+  const address = await getUserAddress(user.id)
 
   return (
     <>

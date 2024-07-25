@@ -1,4 +1,4 @@
-import { type Status } from '@prisma/client'
+import { type ShippingMethod, type PaymentMethod, type Status } from '@prisma/client'
 
 export interface IOrder {
   id: string
@@ -7,6 +7,8 @@ export interface IOrder {
   total: number
   itemsInOrder: number
   status: Status
+  paymentMethod: PaymentMethod
+  shippingMethod: ShippingMethod
   isPaid: boolean
   paidAt: Date | null
   createdAt: Date
@@ -23,5 +25,6 @@ export interface IOrderCard {
   id: string
   name: string
   isPaid: boolean
+  paymentMethod: PaymentMethod
   status: Status
 }

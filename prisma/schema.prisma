@@ -42,6 +42,18 @@ enum Status {
   delivered
 }
 
+enum ShippingMethod {
+  pickup
+  delivery
+}
+
+enum PaymentMethod {
+  paypal
+  mercadopago
+  cash
+  transfer
+}
+
 model Category {
   id          String    @id @default(uuid())
   name        String
@@ -140,14 +152,16 @@ model UserAddress {
 }
 
 model Order {
-  id           String    @id @default(uuid())
-  subtotal     Float
-  tax          Float
-  total        Float
-  itemsInOrder Int
-  isPaid       Boolean   @default(false)
-  status       Status    @default(unpaid)
-  paidAt       DateTime?
+  id             String         @id @default(uuid())
+  subtotal       Float
+  tax            Float
+  total          Float
+  itemsInOrder   Int
+  status         Status         @default(unpaid)
+  shippingMethod ShippingMethod
+  paymentMethod  PaymentMethod
+  isPaid         Boolean        @default(false)
+  paidAt         DateTime?
 
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt

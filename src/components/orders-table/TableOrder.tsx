@@ -1,5 +1,5 @@
 import { IoCardOutline } from 'react-icons/io5'
-import { MenuOptions, StatusNameWithIcon } from '@/components'
+import { MenuOptions, PaymentMethodNameWithIcon, StatusNameWithIcon } from '@/components'
 import { type IOrder } from '@/interfaces'
 
 interface Orders {
@@ -22,6 +22,9 @@ export const TableOrder = ({ orders }: Orders) => {
           </th>
           <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
             Estado del pedido
+          </th>
+          <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+            Método de pago
           </th>
           <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-center">
             Opciones
@@ -63,7 +66,10 @@ export const TableOrder = ({ orders }: Orders) => {
                 <StatusNameWithIcon status={order.status} />
               </td>
               <td className="text-sm text-gray-900 font-light px-6 text-center">
-                <MenuOptions orderId={order.id} />
+                {PaymentMethodNameWithIcon(order.paymentMethod)}
+              </td>
+              <td className="text-sm text-gray-900 font-light px-6 text-center">
+                <MenuOptions order={order} />
               </td>
 
             </tr>

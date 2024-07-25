@@ -1,19 +1,30 @@
 'use client'
 
+import { type ShippingMethod, type PaymentMethod } from '@prisma/client'
 import clsx from 'clsx'
 import Link from 'next/link'
 import { redirect, useRouter } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
+import { useSession } from 'next-auth/react'
+import { useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
 import { placeOrder } from '@/actions'
-
+import { PaymentMethodNameWithIcon } from '@/components'
 import { useAddressStore, useCartStore } from '@/store'
 import { currencyFormat } from '@/utils'
 
-export const PlaceOrder = () => {
+interface Props {
+  shippingMethod: ShippingMethod
+  paymentMethod: PaymentMethod
+}
+
+export const PlaceOrder = ({ paymentMethod, shippingMethod }: Props) => {
+  const { data: session } = useSession()
+  const userId = session?.user?.id || ''
+  const userName = session?.user?.name || ''
   const router = useRouter()
   const [loaded, setLoaded] = useState(false)
   const [isPlacingOrder, setIsPlacingOrder] = useState(false)
+
   const [errorMessage, setErrorMessage] = useState('')
 
   const noticeConfirmOrder = async (id?: string) => {
@@ -33,7 +44,22 @@ export const PlaceOrder = () => {
 
   const cart = useCartStore(state => state.cart)
   const clearCart = useCartStore(state => state.clearCart)
-  const address = useAddressStore(state => state.address)
+  let address = useAddressStore(state => state.address)
+  const isMethodPickup = shippingMethod === 'pickup'
+
+  if (isMethodPickup) {
+    address = {
+      userId,
+      firstName: 'Retiro en punto de venta',
+      lastName: userName,
+      address: 'Calle Lic José María Iglesias',
+      address2: '',
+      postalCode: '24088',
+      phone: '9811250049',
+      city: 'Campeche',
+      country: 'MX'
+    }
+  }
 
   const { subtotal, tax, total, itemsInCart } = useCartStore(state => state.getSummaryInformation())
 
@@ -59,11 +85,19 @@ export const PlaceOrder = () => {
       size: product.size
     }))
 
-    const rta = await placeOrder(productToOrder, address)
+    const orderDetails = {
+      productsId: productToOrder,
+      address,
+      shippingMethod,
+      paymentMethod
+    }
+
+    const rta = await placeOrder(orderDetails)
 
     // product sold out
     if (!rta.ok) {
       setIsPlacingOrder(false)
+
       setErrorMessage(String(rta.message))
       return
     }
@@ -77,7 +111,8 @@ export const PlaceOrder = () => {
     <div className='bg-white rounded-xl shadow-xl p-7'>
 
       <h2 className='text-2xl mb-2'>Dirección de entrega</h2>
-      <p className='text-xl'>{address.firstName} {address.lastName}</p>
+      <p className='text-xl'>{isMethodPickup ? address.firstName : `${address.firstName} ${address.lastName}`}</p>
+      <p className='text-xl'>{isMethodPickup && address.lastName}</p>
       <div className="mb-10">
         <p>{address.address}</p>
         <p>{address.address2}</p>
@@ -85,6 +120,12 @@ export const PlaceOrder = () => {
         <p>{address.phone}</p>
         <p>{address.city}, {address.country}</p>
       </div>
+
+      {/* divider */}
+      <div className='w-full h-0.5 rounded bg-gray-200 mb-10'></div>
+
+      <h2 className='text-2xl mb-2'>Método de pago</h2>
+      <div className='mb-10' >{PaymentMethodNameWithIcon(paymentMethod)}</div>
 
       {/* divider */}
       <div className='w-full h-0.5 rounded bg-gray-200 mb-10'></div>

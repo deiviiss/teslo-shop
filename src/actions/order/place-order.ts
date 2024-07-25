@@ -1,6 +1,7 @@
 'use server'
 
-import { getUserSessionServer } from '@/actions'
+import { type PaymentMethod, type ShippingMethod } from '@prisma/client'
+import { getUserSessionServer, sendNotificationsPaymentMethod } from '@/actions'
 import { type UserAddress, type Size } from '@/interfaces'
 import prisma from '@/lib/prisma'
 
@@ -10,7 +11,43 @@ interface ProductToOrder {
   size: Size
 }
 
-export const placeOrder = async (productsId: ProductToOrder[], address: UserAddress) => {
+interface OrderDetails {
+  productsId: ProductToOrder[]
+  address: UserAddress
+  shippingMethod: ShippingMethod
+  paymentMethod: PaymentMethod
+}
+
+export const placeOrder = async ({ productsId, address, paymentMethod, shippingMethod }: OrderDetails) => {
+  // validate shipping and payment method
+  if (!shippingMethod) {
+    return {
+      ok: false,
+      message: 'No se ha seleccionado un método de envío'
+    }
+  }
+
+  if (!['pickup', 'delivery'].includes(shippingMethod as string)) {
+    return {
+      ok: false,
+      message: 'Método de envío no válido'
+    }
+  }
+
+  if (!paymentMethod) {
+    return {
+      ok: false,
+      message: 'No se ha seleccionado un método de pago'
+    }
+  }
+
+  if (!['paypal', 'mercadopago', 'cash', 'transfer'].includes(paymentMethod as string)) {
+    return {
+      ok: false,
+      message: 'Método de pago no válido'
+    }
+  }
+
   const user = await getUserSessionServer()
 
   if (!user) {
@@ -120,6 +157,8 @@ export const placeOrder = async (productsId: ProductToOrder[], address: UserAddr
           subtotal: subTotal,
           tax,
           total,
+          paymentMethod,
+          shippingMethod,
 
           orderItem: {
             createMany: {
@@ -137,6 +176,14 @@ export const placeOrder = async (productsId: ProductToOrder[], address: UserAddr
         }
       })
 
+      if (paymentMethod === 'cash') {
+        await sendNotificationsPaymentMethod(paymentMethod)
+      }
+
+      if (paymentMethod === 'transfer') {
+        await sendNotificationsPaymentMethod(paymentMethod)
+      }
+
       return {
         order,
         updatedProducts,
@@ -149,6 +196,6 @@ export const placeOrder = async (productsId: ProductToOrder[], address: UserAddr
     if (error instanceof Error) {
       return { ok: false, message: error.message }
     }
-    return { ok: false, message: '' }
+    return { ok: false, message: 'Error al colocar pedido, contacta a soporte' }
   }
 }

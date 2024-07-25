@@ -1,154 +1,22 @@
 'use client'
 
-import { type Status } from '@prisma/client'
 import { CopyIcon, EyeIcon } from 'lucide-react'
 import Link from 'next/link'
-import { IoEllipsisHorizontalSharp, IoCardOutline, IoSwapHorizontalOutline, IoTrashOutline } from 'react-icons/io5'
+import { IoEllipsisHorizontalSharp, IoCardOutline, IoSwapHorizontalOutline, IoTrashOutline, IoCheckmarkCircleOutline } from 'react-icons/io5'
 import { toast } from 'sonner'
-import { changeOrderStatus, deleteOrderById } from '@/actions'
-import { StatusNameWithIcon } from '@/components'
+import { openConfirmationChangeStatus, openConfirmationDelete, openConfirmationPaid } from '../orderHandlers'
+import { StatusNameWithIcon, PaymentMethodNameWithIcon } from '@/components'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { type IOrderCard } from '@/interfaces'
-import { statusNameSpanish } from '@/utils'
 
 interface Props {
   order: IOrderCard
 }
 
 export const CardOrderAdmin = ({ order }: Props) => {
-  const { name, id, isPaid, status } = order
-
-  const openConfirmationDelete = () => {
-    toast('Eliminar pedido', {
-      description: `¿Estás seguro? Se eliminara el pedido #${id.split('-').at(-1)} el inventario se actualizara`,
-      position: 'top-right',
-      duration: Infinity,
-      className: 'grid grid-cols-[1fr,110px] items-start justify-center text-sm p-2 col-span-2 pb-4',
-      classNames: {
-        content: 'flex items-start justify-center text-sm col-span-4 p-2'
-      },
-      actionButtonStyle: {
-        color: 'white',
-        backgroundColor: '#1E40AF',
-        font: 'message-box',
-        padding: '0.5rem 1rem',
-        height: '2rem'
-      },
-      action: {
-        label: 'Confirmar',
-        onClick: async () => { await handleDeleteOrder(id) }
-      },
-      cancel:
-      {
-        label: 'Cancelar',
-        onClick: () => { toast.dismiss() }
-      },
-      cancelButtonStyle: {
-        color: 'white',
-        backgroundColor: 'red',
-        font: 'message-box',
-        padding: '0.5rem 1rem',
-        height: '2rem'
-      }
-    })
-  }
-
-  const handleDeleteOrder = async (orderId: string) => {
-    const { ok, message } = await deleteOrderById(orderId)
-
-    if (!ok) {
-      toast.error(message, {
-        position: 'top-right',
-        duration: 2000
-      })
-      return
-    }
-
-    toast.success(message, {
-      position: 'top-right',
-      duration: 2000
-    })
-  }
-
-  const openConfirmationChangeStatus = async () => {
-    let statusUpdated: Status = status
-
-    if (status === 'unpaid') {
-      toast.error('El pedido no se ha pagado no se puede cambiar', {
-        position: 'top-right',
-        duration: 2000
-      })
-      return
-    }
-
-    if (status === 'paided') {
-      statusUpdated = 'shipped'
-    }
-
-    if (status === 'shipped') {
-      statusUpdated = 'delivered'
-    }
-
-    if (status === 'delivered') {
-      toast.error('Pedido entregado no se puede cambiar', {
-        position: 'top-right',
-        duration: 2000
-      })
-      return
-    }
-
-    toast('Cambiar status', {
-      description: `¿Estás seguro? Se cambiara el estado del pedido #${id.split('-').at(-1)} a ${statusNameSpanish[statusUpdated]}`,
-      position: 'top-right',
-      duration: Infinity,
-      className: 'grid grid-cols-[1fr,110px] items-start justify-center text-sm p-2 col-span-2 pb-4',
-      classNames: {
-        content: 'flex items-start justify-center text-sm col-span-4 p-2'
-      },
-      actionButtonStyle: {
-        color: 'white',
-        backgroundColor: '#1E40AF',
-        font: 'message-box',
-        padding: '0.5rem 1rem',
-        height: '2rem'
-      },
-      action: {
-        label: 'Confirmar',
-        onClick: async () => { await handleChangeStatus(id, statusUpdated) }
-      },
-      cancel:
-      {
-        label: 'Cancelar',
-        onClick: () => { toast.dismiss() }
-      },
-      cancelButtonStyle: {
-        color: 'white',
-        backgroundColor: 'red',
-        font: 'message-box',
-        padding: '0.5rem 1rem',
-        height: '2rem'
-      }
-    })
-  }
-
-  const handleChangeStatus = async (orderId: string, status: Status) => {
-    const { ok, message } = await changeOrderStatus(orderId, status)
-
-    if (!ok) {
-      toast.error(message, {
-        position: 'top-right',
-        duration: 2000
-      })
-      return
-    }
-
-    toast.success(message, {
-      position: 'top-right',
-      duration: 2000
-    })
-  }
+  const { name, id, isPaid, status, paymentMethod } = order
 
   return (
     <Card className="overflow-hidden">
@@ -192,7 +60,7 @@ export const CardOrderAdmin = ({ order }: Props) => {
             <DropdownMenuContent align="end">
               <DropdownMenuItem>
                 <Button
-                  onClick={() => { openConfirmationChangeStatus() }}
+                  onClick={() => { openConfirmationChangeStatus(id, status) }}
                   size="sm"
                   variant="ghost"
                   className="h-6 gap-1">
@@ -202,8 +70,19 @@ export const CardOrderAdmin = ({ order }: Props) => {
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <Button
+                  size='sm'
+                  variant='ghost'
+                  className='h-6 gap-1'
+                  onClick={() => { openConfirmationPaid(id, isPaid, paymentMethod) }}
+                >
+                  <IoCheckmarkCircleOutline className="h-3.5 w-3.5 mr-1" />
+                  <span>Pagar pedido</span>
+                </Button>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Button
                   onClick={() => {
-                    openConfirmationDelete()
+                    openConfirmationDelete(id, isPaid)
                   }}
                   size="sm"
                   variant="ghost"
@@ -245,6 +124,10 @@ export const CardOrderAdmin = ({ order }: Props) => {
           <CardDescription className="flex items-center justify-start gap-2">
             <span className="font-semibold">Estado del pedido</span>
             <StatusNameWithIcon status={status} />
+          </CardDescription>
+          <CardDescription className="flex items-center justify-start gap-2">
+            <span className='font-semibold'>Método de pago</span>
+            {PaymentMethodNameWithIcon(order.paymentMethod)}
           </CardDescription>
         </div>
       </CardContent>

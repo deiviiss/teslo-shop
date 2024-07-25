@@ -1,11 +1,9 @@
 'use client'
 
-import { type Status } from '@prisma/client'
 import { EyeIcon } from 'lucide-react'
 import Link from 'next/link'
-import { IoTrashOutline, IoEllipsisHorizontalSharp, IoSwapHorizontalOutline } from 'react-icons/io5'
-import { toast } from 'sonner'
-import { changeOrderStatus, deleteOrderById, getOrderById } from '@/actions'
+import { IoTrashOutline, IoEllipsisHorizontalSharp, IoSwapHorizontalOutline, IoCheckmarkCircleOutline } from 'react-icons/io5'
+import { openConfirmationChangeStatus, openConfirmationDelete, openConfirmationPaid } from '../orders/orderHandlers'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -14,152 +12,15 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
-import { statusNameSpanish } from '@/utils'
+import { type IOrder } from '@/interfaces'
 
 interface Props {
-  orderId: string
+  order: IOrder
 }
 
-export const MenuOptions = ({ orderId }: Props) => {
-  const openConfirmationDelete = () => {
-    toast('Eliminar pedido', {
-      description: `¿Estás seguro? Se eliminara el pedido #${orderId.split('-').at(-1)} el inventario se actualizara`,
-      position: 'top-right',
-      duration: Infinity,
-      className: 'grid grid-cols-[1fr,110px] items-start justify-center text-sm p-2 col-span-2 pb-4',
-      classNames: {
-        content: 'flex items-start justify-center text-sm col-span-4 p-2'
-      },
-      actionButtonStyle: {
-        color: 'white',
-        backgroundColor: '#1E40AF',
-        font: 'message-box',
-        padding: '0.5rem 1rem',
-        height: '2rem'
-      },
-      action: {
-        label: 'Confirmar',
-        onClick: async () => { await handleDeleteOrder(orderId) }
-      },
-      cancel:
-      {
-        label: 'Cancelar',
-        onClick: () => { toast.dismiss() }
-      },
-      cancelButtonStyle: {
-        color: 'white',
-        backgroundColor: 'red',
-        font: 'message-box',
-        padding: '0.5rem 1rem',
-        height: '2rem'
-      }
-    })
-  }
-
-  const handleDeleteOrder = async (orderId: string) => {
-    const { ok, message } = await deleteOrderById(orderId)
-
-    if (!ok) {
-      toast.error(message, {
-        position: 'top-right',
-        duration: 2000
-      })
-      return
-    }
-
-    toast.success(message, {
-      position: 'top-right',
-      duration: 2000
-    })
-  }
-
-  const openConfirmationChangeStatus = async () => {
-    const { order } = await getOrderById(orderId)
-
-    if (!order) {
-      toast.error('Pedido no encontrado', {
-        position: 'top-right',
-        duration: 2000
-      })
-      return
-    }
-
-    let status: Status = order.status
-
-    if (order.status === 'unpaid') {
-      toast.error('El pedido no se ha pagado no se puede cambiar', {
-        position: 'top-right',
-        duration: 2000
-      })
-      return
-    }
-
-    if (order.status === 'paided') {
-      status = 'shipped'
-    }
-
-    if (order.status === 'shipped') {
-      status = 'delivered'
-    }
-
-    if (order.status === 'delivered') {
-      toast.error('Pedido entregado no se puede cambiar', {
-        position: 'top-right',
-        duration: 2000
-      })
-      return
-    }
-
-    toast('Cambiar status', {
-      description: `¿Estás seguro? Se cambiara el estado del pedido #${orderId.split('-').at(-1)} a ${statusNameSpanish[status]}`,
-      position: 'top-right',
-      duration: Infinity,
-      className: 'grid grid-cols-[1fr,110px] items-start justify-center text-sm p-2 col-span-2 pb-4',
-      classNames: {
-        content: 'flex items-start justify-center text-sm col-span-4 p-2'
-      },
-      actionButtonStyle: {
-        color: 'white',
-        backgroundColor: '#1E40AF',
-        font: 'message-box',
-        padding: '0.5rem 1rem',
-        height: '2rem'
-      },
-      action: {
-        label: 'Confirmar',
-        onClick: async () => { await handleChangeStatus(orderId, status) }
-      },
-      cancel:
-      {
-        label: 'Cancelar',
-        onClick: () => { toast.dismiss() }
-      },
-      cancelButtonStyle: {
-        color: 'white',
-        backgroundColor: 'red',
-        font: 'message-box',
-        padding: '0.5rem 1rem',
-        height: '2rem'
-      }
-    })
-  }
-
-  const handleChangeStatus = async (orderId: string, status: Status) => {
-    const { ok, message } = await changeOrderStatus(orderId, status)
-
-    if (!ok) {
-      toast.error(message, {
-        position: 'top-right',
-        duration: 2000
-      })
-      return
-    }
-
-    toast.success(message, {
-      position: 'top-right',
-      duration: 2000
-    })
-  }
+export const MenuOptions = ({ order }: Props) => {
+  if (!order) return null
+  const { id, isPaid, status, paymentMethod } = order
 
   return (
     <DropdownMenu>
@@ -179,7 +40,7 @@ export const MenuOptions = ({ orderId }: Props) => {
             asChild
           >
             <Link
-              href={`/orders/${orderId}`}
+              href={`/orders/${id}`}
             >
               Ver pedido
             </Link>
@@ -192,9 +53,20 @@ export const MenuOptions = ({ orderId }: Props) => {
             size='sm'
             variant='ghost'
             className='h-6 gap-1'
-            onClick={() => { openConfirmationChangeStatus() }}
+            onClick={() => { openConfirmationChangeStatus(id, status) }}
           >
             Cambiar estado
+          </Button>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <IoCheckmarkCircleOutline className="h-3.5 w-3.5" />
+          <Button
+            size='sm'
+            variant='ghost'
+            className='h-6 gap-1'
+            onClick={() => { openConfirmationPaid(id, isPaid, paymentMethod) }}
+          >
+            Pagar pedido
           </Button>
         </DropdownMenuItem>
         <DropdownMenuItem>
@@ -203,7 +75,7 @@ export const MenuOptions = ({ orderId }: Props) => {
             size='sm'
             variant='ghost'
             className='h-6'
-            onClick={() => { openConfirmationDelete() }}
+            onClick={() => { openConfirmationDelete(id, isPaid) }}
           >
             Eliminar pedido
           </Button>

@@ -40,6 +40,7 @@ export default async function OrdersPage({ searchParams }: Props) {
       id: order.id,
       name: `${order.orderAddresses?.firstName} ${order.orderAddresses?.lastName}`,
       isPaid: order.isPaid,
+      paymentMethod: order.paymentMethod,
       status: order.status
     }
 

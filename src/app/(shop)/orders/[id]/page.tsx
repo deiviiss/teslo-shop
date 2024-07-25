@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation'
 import { getOrderById } from '@/actions'
-import { OrderStatus, PayPalButton, ProductImage, Title } from '@/components'
+import { CashButton, OrderStatus, paymentMethodNameSpanish, PayPalButton, ProductImage, Title, TransferButton } from '@/components'
 import { currencyFormat } from '@/utils'
 
 interface Props {
@@ -20,6 +20,16 @@ export default async function OrdersByIdPage({ params }: Props) {
 
   const orderItem = order.orderItem
   const orderAddress = order.orderAddresses
+
+  // Mapping object for payment methods and corresponding components
+  const paymentButtonComponents = {
+    paypal: <PayPalButton orderId={order.id} amount={order.total} />,
+    mercadopago: <p>mercadopago</p>,
+    cash: <CashButton amount={order.total} />,
+    transfer: <TransferButton amount={order.total} />
+  }
+
+  const isMethodPickup = order.shippingMethod === 'pickup'
 
   return (
     <>
@@ -62,7 +72,8 @@ export default async function OrdersByIdPage({ params }: Props) {
 
               <h2 className='text-2xl mb-2'>Dirección de entrega</h2>
               <div className="mb-10">
-                <p>{orderAddress?.firstName} {orderAddress?.lastName}</p>
+                <p className='text-xl'>{isMethodPickup ? orderAddress?.firstName : `${orderAddress?.firstName} ${orderAddress?.lastName}`}</p>
+                <p className='text-xl'>{isMethodPickup && orderAddress?.lastName}</p>
                 <p>{orderAddress?.address}</p>
                 <p>{orderAddress?.city}</p>
                 <p>CP {orderAddress?.postalCode}</p>
@@ -88,18 +99,26 @@ export default async function OrdersByIdPage({ params }: Props) {
                 <span className='mt-5 text-2xl text-right'>{currencyFormat(order.total)}</span>
               </div>
 
+              {/* divider */}
+              <div className='w-full h-0.5 rounded bg-gray-200 my-10'></div>
+
               {
                 order.isPaid
                   ? (
-                    <div className='mt-10'>
+                    <div className='mt-6'>
                       <OrderStatus isPaid={order.isPaid} />
                     </div>)
-                  : (
-                    <PayPalButton orderId={order.id} amount={order.total} />)
+                  : (paymentButtonComponents[order.paymentMethod])
+              }
+
+              {
+                order.isPaid && (<div className='text-center text-green-700 mb-5'>
+                  <p>Pagado con {paymentMethodNameSpanish[order.paymentMethod]}</p>
+                  <p>¡Gracias por tu compra!</p>
+                </div>)
               }
 
             </div>
-
           </div>
         </div>
       </div >

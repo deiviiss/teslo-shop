@@ -33,7 +33,7 @@ export default function CartPage() {
 
               <div className='mt-5 mb-2 w-full'>
                 <Link
-                  href="/checkout/address"
+                  href="/checkout/shipping-method"
                   className='flex btn-primary justify-center'
                 >
                   Comprar

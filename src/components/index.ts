@@ -5,6 +5,7 @@ export * from './auth/ButtonLogout'
 export { OrderStatus } from './orders/OrderStatus'
 export { MenuOptions } from './orders-table/MenuOptions'
 export { StatusNameWithIcon } from './orders/StatusNameWithIcon'
+export { PaymentMethodNameWithIcon, paymentMethodNameSpanish } from './orders/PaymentMethodNameWithIcon'
 export { CardOrder } from './orders/card/CardOrder'
 export { CardOrderAdmin } from './orders/card/CardOrderAdmin'
 export { TableOrder } from './orders-table/TableOrder'
@@ -12,8 +13,10 @@ export { TableOrder } from './orders-table/TableOrder'
 // Providers
 export * from './providers/Providers'
 
-// PayPal
-export * from './paypal/PayPalButton'
+// payment-methods
+export * from './payment-methods/paypal/PayPalButton'
+export { TransferButton } from './payment-methods/transfer/TransferButton'
+export { CashButton } from './payment-methods/cash/CashButton'
 
 // Products
 export * from './products/product-grid/ProductGrid'

@@ -459,7 +459,7 @@ export const initialData: SeedData = {
       price: 1,
       slug: 'camiseta_cuello_redondo_manga_corta_gran_logo_mujer',
       type: 'camisas',
-      title: 'Camiseta de Cuello Redondo de Manga Corta con Gran Logo en el Pecho para Mujer',
+      title: 'Camiseta de Cuello Redondo de Manga Corta para Mujer',
       gender: 'women'
     },
     {
