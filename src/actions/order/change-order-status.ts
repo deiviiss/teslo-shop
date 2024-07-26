@@ -41,11 +41,11 @@ export const changeOrderStatus = async (id: string, status: Status) => {
     })
 
     if (status === 'shipped') {
-      await sendNotificationsShipment()
+      await sendNotificationsShipment({ userEmail: user.email, userName: user.name, userPhoneNumber: user.phoneNumber })
     }
 
     if (status === 'delivered') {
-      await sendNotificationsDelivered()
+      await sendNotificationsDelivered({ userEmail: user.email, userName: user.name, userPhoneNumber: user.phoneNumber })
     }
 
     revalidatePath('/admin/orders')
