@@ -42,8 +42,7 @@ export const getPaginatedOrders = async ({ page = 1, take = 12 }: PaginationOpti
     if (orders.length === 0) {
       return {
         ok: false,
-        message: 'No se encontraron pedidos',
-        orders: null
+        message: 'No se encontraron pedidos'
       }
     }
 

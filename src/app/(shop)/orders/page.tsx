@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { redirect } from 'next/navigation'
 import { IoCardOutline } from 'react-icons/io5'
 import { getOrdersByUser } from '@/actions'
 import { CardOrder, Pagination, StatusNameWithIcon, Title } from '@/components'
@@ -12,13 +11,9 @@ interface Props {
 
 export default async function OrdersPage({ searchParams }: Props) {
   const page = searchParams.page ? parseInt(searchParams.page) : 1
-  const { ok, orders, totalPages } = await getOrdersByUser({ page })
+  const { orders, totalPages } = await getOrdersByUser({ page })
 
-  if (!ok) {
-    redirect('/')
-  }
-
-  if (orders?.length === 0) {
+  if (!orders) {
     return (
       <div className='flex flex-col gap-3 items-center justify-center h-[300px] max-w-[920px] my-5 text-center mx-auto'>
 

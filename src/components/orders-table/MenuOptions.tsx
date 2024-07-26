@@ -20,7 +20,7 @@ interface Props {
 
 export const MenuOptions = ({ order }: Props) => {
   if (!order) return null
-  const { id, isPaid, status, paymentMethod } = order
+  const { id, isPaid, status, paymentMethod, userId } = order
 
   return (
     <DropdownMenu>
@@ -64,7 +64,7 @@ export const MenuOptions = ({ order }: Props) => {
             size='sm'
             variant='ghost'
             className='h-6 gap-1'
-            onClick={() => { openConfirmationPaid(id, isPaid, paymentMethod) }}
+            onClick={() => { openConfirmationPaid(id, isPaid, paymentMethod, userId) }}
           >
             Pagar pedido
           </Button>

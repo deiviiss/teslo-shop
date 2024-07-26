@@ -177,11 +177,11 @@ export const placeOrder = async ({ productsId, address, paymentMethod, shippingM
       })
 
       if (paymentMethod === 'cash') {
-        await sendNotificationsPaymentMethod(paymentMethod)
+        await sendNotificationsPaymentMethod({ userName: user.name, paymentMethod })
       }
 
       if (paymentMethod === 'transfer') {
-        await sendNotificationsPaymentMethod(paymentMethod)
+        await sendNotificationsPaymentMethod({ userName: user.name, paymentMethod })
       }
 
       return {

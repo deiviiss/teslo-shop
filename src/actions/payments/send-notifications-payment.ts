@@ -2,8 +2,26 @@
 
 import { sendWhatsappMessage, sendSmsMessage, getUserSessionServer, getPhoneNumberAdmin, getEmailAdmin, sendEmail } from '@/actions'
 
-export const sendNotificationsPayment = async () => {
+interface Props {
+  userPhoneNumber?: string
+  userEmail?: string
+  userName?: string
+}
+
+export const sendNotificationsPayment = async ({ userEmail, userPhoneNumber, userName }: Props) => {
   const user = await getUserSessionServer()
+
+  if (!user) {
+    return {
+      ok: false,
+      message: 'No se pudo enviar la notificación de pago'
+    }
+  }
+
+  const email = userEmail || user.email
+  const phoneNumber = userPhoneNumber || user.phoneNumber
+  const name = userName || user.name
+
   const { phoneNumberAdmin } = await getPhoneNumberAdmin()
   const { emailAdmin } = await getEmailAdmin()
 
@@ -15,20 +33,20 @@ export const sendNotificationsPayment = async () => {
   }
 
   // send whatsapp to user to notify payment
-  await sendWhatsappMessage(user.phoneNumber, `¡${user.name} gracias por realizar el pago! Ya hemos verificado la información del mismo. Su pedido será enviado en el transcurso de 24 horas.`)
+  await sendWhatsappMessage(phoneNumber, `¡${name} gracias por realizar el pago! Ya hemos verificado la información del mismo. Su pedido será enviado en el transcurso de 24 horas.`)
 
   // send whatsapp to admin to notify payment
-  await sendWhatsappMessage(`${phoneNumberAdmin.phoneNumber}`, `¡${user.name} ha realizado un pago!`)
+  await sendWhatsappMessage(`${phoneNumberAdmin.phoneNumber}`, `¡${name} ha realizado un pago!`)
 
   // send sms to user to notify payment
-  await sendSmsMessage(user.phoneNumber, `¡${user.name} gracias por realizar el pago! Ya hemos verificado la información del mismo. Su pedido será enviado en el transcurso de 24 horas.`)
+  await sendSmsMessage(phoneNumber, `¡${name} gracias por realizar el pago! Ya hemos verificado la información del mismo. Su pedido será enviado en el transcurso de 24 horas.`)
 
   // send sms to admin to notify payment
-  await sendSmsMessage(`${phoneNumberAdmin.phoneNumber}`, `¡${user.name} ha realizado un pago!`)
+  await sendSmsMessage(`${phoneNumberAdmin.phoneNumber}`, `¡${name} ha realizado un pago!`)
 
   // send email to user to notify payment
   await sendEmail({
-    email: user.email,
+    email,
     subject: 'Pago confirmado',
     message: `
       <p>Hola</p>
@@ -40,10 +58,10 @@ export const sendNotificationsPayment = async () => {
   // send email to admin to notify payment
   await sendEmail({
     email: emailAdmin.email,
-    subject: `Pago de ${user.name} confirmado`,
+    subject: `Pago de ${name} confirmado`,
     message: `
       <p>Hola</p>
-      <p>¡${user.name} ha realizado un pago!</p>
+      <p>¡${name} ha realizado un pago!</p>
       <p>Prepara su pedido.</p>
       <p>SLDS</p>
       `

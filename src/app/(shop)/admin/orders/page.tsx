@@ -1,6 +1,4 @@
 import Link from 'next/link'
-import { redirect } from 'next/navigation'
-
 import { getPaginatedOrders, validateUserAdmin } from '@/actions'
 import { CardOrderAdmin, Pagination, TableOrder, Title } from '@/components'
 
@@ -15,11 +13,7 @@ export default async function OrdersPage({ searchParams }: Props) {
 
   const page = searchParams.page ? parseInt(searchParams.page) : 1
 
-  const { ok, orders, totalPages } = await getPaginatedOrders({ page })
-
-  if (!ok) {
-    redirect('/auth/login')
-  }
+  const { orders, totalPages } = await getPaginatedOrders({ page })
 
   if (!orders) {
     return (

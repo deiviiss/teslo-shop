@@ -141,7 +141,7 @@ const handleChangeStatus = async (orderId: string, status: Status) => {
   })
 }
 
-export const openConfirmationPaid = async (orderId: string, isPaid: boolean, paymentMethod: PaymentMethod) => {
+export const openConfirmationPaid = async (orderId: string, isPaid: boolean, paymentMethod: PaymentMethod, userId: string) => {
   if (isPaid) {
     toast.error('El pedido ya se ha pagado', {
       position: 'top-right',
@@ -183,7 +183,7 @@ export const openConfirmationPaid = async (orderId: string, isPaid: boolean, pay
     },
     action: {
       label: 'Confirmar',
-      onClick: async () => { await handlePaidOrder(orderId) }
+      onClick: async () => { await handlePaidOrder(orderId, userId) }
     },
     cancel:
     {
@@ -200,8 +200,8 @@ export const openConfirmationPaid = async (orderId: string, isPaid: boolean, pay
   })
 }
 
-export const handlePaidOrder = async (orderId: string) => {
-  const { ok, message } = await paidOrder(orderId)
+export const handlePaidOrder = async (orderId: string, userId: string) => {
+  const { ok, message } = await paidOrder(orderId, userId)
 
   if (!ok) {
     toast.error(message, {

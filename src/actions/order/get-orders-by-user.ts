@@ -40,7 +40,7 @@ export const getOrdersByUser = async ({ page = 1, take = 12 }: PaginationOptions
     }
   })
 
-  if (!orders) {
+  if (orders.length === 0) {
     return {
       ok: false,
       message: 'No se encontraron pedidos'

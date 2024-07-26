@@ -45,7 +45,7 @@ export const paypalCheckPayment = async (transactionId: string) => {
     })
 
     // send notifications to user and admin
-    await sendNotificationsPayment()
+    await sendNotificationsPayment({})
 
     revalidatePath(`/orders/${orderId}`)
 

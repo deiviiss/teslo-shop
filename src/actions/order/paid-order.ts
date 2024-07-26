@@ -1,11 +1,20 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
-import { sendNotificationsPayment } from '@/actions'
+import { getUserById, sendNotificationsPayment } from '@/actions'
 import prisma from '@/lib/prisma'
 
-export const paidOrder = async (orderId: string) => {
+export const paidOrder = async (orderId: string, userId: string) => {
   try {
+    const { user } = await getUserById(userId)
+
+    if (!user) {
+      return {
+        ok: false,
+        message: 'Usuario no encontrado'
+      }
+    }
+
     await prisma.order.update({
       where: { id: orderId },
       data: {
@@ -16,7 +25,7 @@ export const paidOrder = async (orderId: string) => {
     })
 
     // send notifications to user and admin
-    await sendNotificationsPayment()
+    await sendNotificationsPayment({ userEmail: user.email, userPhoneNumber: user.phoneNumber, userName: user.name })
 
     revalidatePath(`/orders/${orderId}`)
 
