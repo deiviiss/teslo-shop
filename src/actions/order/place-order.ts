@@ -176,20 +176,20 @@ export const placeOrder = async ({ productsId, address, paymentMethod, shippingM
         }
       })
 
-      if (paymentMethod === 'cash') {
-        await sendNotificationsPaymentMethod({ userName: user.name, paymentMethod })
-      }
-
-      if (paymentMethod === 'transfer') {
-        await sendNotificationsPaymentMethod({ userName: user.name, paymentMethod })
-      }
-
       return {
         order,
         updatedProducts,
         orderAddress
       }
     })
+
+    if (paymentMethod === 'cash') {
+      await sendNotificationsPaymentMethod({ userName: user.name, paymentMethod })
+    }
+
+    if (paymentMethod === 'transfer') {
+      await sendNotificationsPaymentMethod({ userName: user.name, paymentMethod })
+    }
 
     return { ok: true, order: prismaTX.order }
   } catch (error) {

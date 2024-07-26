@@ -19,6 +19,9 @@ export const changeOrderStatus = async (id: string, status: Status) => {
     const order = await prisma.order.findUnique({
       where: {
         id
+      },
+      include: {
+        user: true
       }
     })
 
@@ -41,11 +44,11 @@ export const changeOrderStatus = async (id: string, status: Status) => {
     })
 
     if (status === 'shipped') {
-      await sendNotificationsShipment({ userEmail: user.email, userName: user.name, userPhoneNumber: user.phoneNumber })
+      await sendNotificationsShipment({ userEmail: order.user.email, userName: order.user.name, userPhoneNumber: order.user.phoneNumber })
     }
 
     if (status === 'delivered') {
-      await sendNotificationsDelivered({ userEmail: user.email, userName: user.name, userPhoneNumber: user.phoneNumber })
+      await sendNotificationsDelivered({ userEmail: order.user.email, userName: order.user.name, userPhoneNumber: order.user.phoneNumber })
     }
 
     revalidatePath('/admin/orders')
