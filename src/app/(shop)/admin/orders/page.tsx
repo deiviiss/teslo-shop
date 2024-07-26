@@ -35,7 +35,8 @@ export default async function OrdersPage({ searchParams }: Props) {
       name: `${order.orderAddresses?.firstName} ${order.orderAddresses?.lastName}`,
       isPaid: order.isPaid,
       paymentMethod: order.paymentMethod,
-      status: order.status
+      status: order.status,
+      userId: order.userId
     }
 
     return orderItem

@@ -16,7 +16,7 @@ interface Props {
 }
 
 export const CardOrderAdmin = ({ order }: Props) => {
-  const { name, id, isPaid, status, paymentMethod } = order
+  const { name, id, isPaid, status, paymentMethod, userId } = order
 
   return (
     <Card className="overflow-hidden">
@@ -73,7 +73,7 @@ export const CardOrderAdmin = ({ order }: Props) => {
                   size='sm'
                   variant='ghost'
                   className='h-6 gap-1'
-                  onClick={() => { openConfirmationPaid(id, isPaid, paymentMethod) }}
+                  onClick={() => { openConfirmationPaid(id, isPaid, paymentMethod, userId) }}
                 >
                   <IoCheckmarkCircleOutline className="h-3.5 w-3.5 mr-1" />
                   <span>Pagar pedido</span>

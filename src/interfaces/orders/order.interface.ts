@@ -27,4 +27,5 @@ export interface IOrderCard {
   isPaid: boolean
   paymentMethod: PaymentMethod
   status: Status
+  userId: string
 }
