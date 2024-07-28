@@ -1,8 +1,7 @@
 'use client'
 
-import { EyeIcon } from 'lucide-react'
 import Link from 'next/link'
-import { IoTrashOutline, IoEllipsisHorizontalSharp, IoSwapHorizontalOutline, IoCheckmarkCircleOutline } from 'react-icons/io5'
+import { IoTrashOutline, IoEllipsisHorizontalSharp, IoSwapHorizontalOutline, IoCheckmarkCircleOutline, IoEyeOutline } from 'react-icons/io5'
 import { openConfirmationChangeStatus, openConfirmationDelete, openConfirmationPaid } from '../orders/orderHandlers'
 import { Button } from '@/components/ui/button'
 import {
@@ -32,7 +31,7 @@ export const MenuOptions = ({ order }: Props) => {
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem>
-          <EyeIcon className="h-3.5 w-3.5" />
+          <IoEyeOutline className="h-3.5 w-3.5" />
           <Button
             size='sm'
             variant='ghost'

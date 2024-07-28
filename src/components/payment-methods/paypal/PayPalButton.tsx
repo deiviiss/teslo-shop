@@ -3,7 +3,7 @@
 import { type CreateOrderData, type CreateOrderActions, type OnApproveActions, type OnApproveData } from '@paypal/paypal-js'
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js'
 import { useRouter } from 'next/navigation'
-import Swal from 'sweetalert2'
+import { toast } from 'sonner'
 import { paypalCheckPayment, setTransactionId } from '@/actions'
 
 interface Props {
@@ -26,15 +26,38 @@ export const PayPalButton = ({ orderId, amount }: Props) => {
     )
   }
 
+  // const noticeConfirmPaid = async () => {
+  //   await Swal.fire({
+  //     text: 'Pago completado, estamos preparando tu pedido',
+  //     background: '#ffffff',
+  //     confirmButtonColor: '#3085d6',
+  //     confirmButtonText: 'Ver pedidos',
+  //     color: '#000000',
+  //     preConfirm: () => {
+  //       router.replace('/orders')
+  //     }
+  //   })
+  // }
+
   const noticeConfirmPaid = async () => {
-    await Swal.fire({
-      text: 'Pago completado, estamos preparando tu pedido',
-      background: '#ffffff',
-      confirmButtonColor: '#3085d6',
-      confirmButtonText: 'Ver pedidos',
-      color: '#000000',
-      preConfirm: () => {
-        router.replace('/orders')
+    toast('Pago completado', {
+      description: 'Estamos preparando tu pedido',
+      position: 'top-right',
+      duration: Infinity,
+      className: 'grid grid-cols-[1fr,110px] items-start justify-center text-sm p-2 col-span-2 pb-4',
+      classNames: {
+        content: 'flex items-start justify-center text-sm col-span-4 p-2'
+      },
+      actionButtonStyle: {
+        color: 'white',
+        backgroundColor: '#1E40AF',
+        font: 'message-box',
+        padding: '0.5rem 1rem',
+        height: '2rem'
+      },
+      action: {
+        label: 'Ver pedidos',
+        onClick: async () => { router.replace('/orders') }
       }
     })
   }

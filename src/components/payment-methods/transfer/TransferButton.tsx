@@ -1,9 +1,8 @@
 'use client'
 
-import { CopyIcon } from 'lucide-react'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { IoTimeOutline } from 'react-icons/io5'
+import { IoCopy, IoTimeOutline } from 'react-icons/io5'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
 import { Card, CardFooter } from '@/components/ui/card'
@@ -49,7 +48,7 @@ export const TransferButton = ({ amount }: Props) => {
               }}
               className="h-6 w-6"
             >
-              <CopyIcon className="h-3 w-3" />
+              <IoCopy className="h-3 w-3" />
               <span className="sr-only">Copiar CLABE</span>
             </Button>
           </div>

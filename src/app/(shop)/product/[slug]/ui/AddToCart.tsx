@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Swal from 'sweetalert2'
+import { toast } from 'sonner'
 import { QuantitySelector, SizeSelector } from '@/components'
 import { type Size, type Product, type CartProduct } from '@/interfaces'
 import { useCartStore } from '@/store'
@@ -10,25 +10,17 @@ interface Props {
   product: Product
 }
 
-const noticeAddToCart = async () => {
-  await Swal.fire({
-    background: '#ffffff',
-    showConfirmButton: false,
-    color: '#000000',
-    position: 'top-end',
-    text: 'Producto agregado al carrito',
-    timer: 1000
+const noticeAddToCart = () => {
+  toast('Producto agregado al carrito', {
+    position: 'top-right',
+    duration: 2000
   })
 }
 
-const noticeCopyLinkProduct = async () => {
-  await Swal.fire({
-    background: '#ffffff',
-    showConfirmButton: false,
-    color: '#000000',
-    position: 'top-end',
-    text: 'Link copiado al portapapeles',
-    timer: 1000
+const noticeCopyLinkProduct = () => {
+  toast('Link copiado al portapapeles', {
+    position: 'top-right',
+    duration: 2000
   })
 }
 

@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { redirect, useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 import { useEffect, useState } from 'react'
-import Swal from 'sweetalert2'
+import { toast } from 'sonner'
 import { placeOrder } from '@/actions'
 import { PaymentMethodNameWithIcon } from '@/components'
 import { useAddressStore, useCartStore } from '@/store'
@@ -30,14 +30,23 @@ export const PlaceOrder = ({ paymentMethod, shippingMethod }: Props) => {
   const noticeConfirmOrder = async (id?: string) => {
     if (!id) return
 
-    await Swal.fire({
-      text: 'Pedido generado con éxito, procede con el pago',
-      background: '#ffffff',
-      confirmButtonColor: '#3085d6',
-      confirmButtonText: 'Ver pedido',
-      color: '#000000',
-      preConfirm: () => {
-        router.replace(`/orders/${id}`)
+    toast('Pedido generado con éxito, procede con el pago', {
+      position: 'top-right',
+      duration: Infinity,
+      className: 'grid grid-cols-[1fr,110px] items-start justify-center text-sm p-2 col-span-2 pb-4',
+      classNames: {
+        content: 'flex items-start justify-center text-sm col-span-4 p-2'
+      },
+      actionButtonStyle: {
+        color: 'white',
+        backgroundColor: '#1E40AF',
+        font: 'message-box',
+        padding: '0.5rem 1rem',
+        height: '2rem'
+      },
+      action: {
+        label: 'Ver pedido',
+        onClick: async () => { router.replace(`/orders/${id}`) }
       }
     })
   }

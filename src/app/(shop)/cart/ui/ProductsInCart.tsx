@@ -3,19 +3,15 @@
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import Swal from 'sweetalert2'
+import { toast } from 'sonner'
 import { ProductImage, QuantitySelector } from '@/components'
 import { useCartStore } from '@/store'
 import { currencyFormat } from '@/utils'
 
 const noticeRemoveFromCart = async () => {
-  await Swal.fire({
-    background: '#ffffff',
-    showConfirmButton: false,
-    color: '#000000',
-    position: 'top-end',
-    text: 'Producto eliminado del carrito',
-    timer: 1000
+  toast.success('Producto eliminado del carrito', {
+    position: 'top-right',
+    duration: 2000
   })
 }
 

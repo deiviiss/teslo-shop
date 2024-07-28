@@ -1,8 +1,7 @@
 'use client'
 
-import { CopyIcon, EyeIcon } from 'lucide-react'
 import Link from 'next/link'
-import { IoEllipsisHorizontalSharp, IoCardOutline, IoSwapHorizontalOutline, IoTrashOutline, IoCheckmarkCircleOutline } from 'react-icons/io5'
+import { IoEllipsisHorizontalSharp, IoCardOutline, IoSwapHorizontalOutline, IoTrashOutline, IoCheckmarkCircleOutline, IoCopy, IoEyeOutline } from 'react-icons/io5'
 import { toast } from 'sonner'
 import { openConfirmationChangeStatus, openConfirmationDelete, openConfirmationPaid } from '../orderHandlers'
 import { StatusNameWithIcon, PaymentMethodNameWithIcon } from '@/components'
@@ -35,7 +34,7 @@ export const CardOrderAdmin = ({ order }: Props) => {
               }}
               className="h-6 w-6 opacity-0 transition-opacity group-hover:opacity-100 absolute right-0"
             >
-              <CopyIcon className="h-3 w-3" />
+              <IoCopy className="h-3 w-3" />
               <span className="sr-only">Copiar ID de pedido</span>
             </Button>
           </CardTitle>
@@ -45,7 +44,7 @@ export const CardOrderAdmin = ({ order }: Props) => {
             <Link
               href={`/orders/${id}`}
               className="flex items-center gap-2">
-              <EyeIcon className="h-3.5 w-3.5" />
+              <IoEyeOutline className="h-3.5 w-3.5" />
               <span className='hidden min-[500px]:block'>Ver pedido</span>
             </Link>
           </Button>

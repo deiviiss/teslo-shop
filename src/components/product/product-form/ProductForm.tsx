@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import Swal from 'sweetalert2'
+import { toast } from 'sonner'
 import { createUpdateProduct, deleteProductImage } from '@/actions'
 import { ProductImage } from '@/components'
 import { type ProductImage as ProductWithImage, type Category, type Size, type ProductWithStock } from '@/interfaces'
@@ -34,52 +34,31 @@ interface FormInputs {
 
 const sizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
 
-// TODO: change to toast shadcn
-const noticeFailSaved = async () => {
-  await Swal.fire({
-    text: 'No se pudo guardar el producto, intente nuevamente',
-    background: '#ffffff',
-    icon: 'error',
-    cancelButtonColor: '#d33',
-    showConfirmButton: false,
-    cancelButtonText: 'Cerrar',
-    showCancelButton: true,
-    color: '#000000'
+const noticeFailSaved = () => {
+  toast.error('No se pudo guardar el producto, intente nuevamente', {
+    position: 'top-right',
+    duration: 5000
   })
 }
 
-const noticeSuccessSaved = async () => {
-  await Swal.fire({
-    text: 'Producto guardado correctamente',
-    background: '#ffffff',
-    icon: 'success',
-    showConfirmButton: false,
-    color: '#000000',
-    timer: 1500
+const noticeSuccessSaved = () => {
+  toast.success('Producto guardado correctamente', {
+    position: 'top-right',
+    duration: 2000
   })
 }
 
-const noticeSuccessDeleteImage = async () => {
-  await Swal.fire({
-    text: 'Imagen eliminada correctamente',
-    background: '#ffffff',
-    showConfirmButton: false,
-    color: '#000000',
-    position: 'top-end',
-    timer: 1500
+const noticeSuccessDeleteImage = () => {
+  toast.success('Imagen eliminada correctamente', {
+    position: 'top-right',
+    duration: 2000
   })
 }
 
-const noticeFailSavedDeleteImage = async (message: string) => {
-  await Swal.fire({
-    text: message,
-    background: '#ffffff',
-    icon: 'error',
-    cancelButtonColor: '#d33',
-    showConfirmButton: false,
-    cancelButtonText: 'Cerrar',
-    showCancelButton: true,
-    color: '#000000'
+const noticeFailSavedDeleteImage = (message: string) => {
+  toast.error(message, {
+    position: 'top-right',
+    duration: 2000
   })
 }
 

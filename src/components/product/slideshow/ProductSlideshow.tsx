@@ -1,82 +1,45 @@
 'use client'
 
-import { useState } from 'react'
-import { type Swiper as SwiperObject } from 'swiper'
-import { Autoplay, FreeMode, Navigation, Thumbs } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
-
-// import Swiper styles
-import 'swiper/css'
-import 'swiper/css/free-mode'
-import 'swiper/css/navigation'
-import 'swiper/css/thumbs'
-
-import './slideshow.css'
-import { ProductImage } from '../product-image/ProductImage'
+import { ProductImage } from '@/components'
+import { Card, CardContent } from '@/components/ui/card'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from '@/components/ui/carousel'
 
 interface ProductSlideshowProps {
   images: string[]
   title: string
-  className?: string
 }
 
-export const ProductSlideshow = ({ images, title, className }: ProductSlideshowProps) => {
-  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperObject>()
-
+export const ProductSlideshow = ({ images, title }: ProductSlideshowProps) => {
   return (
-    <div className={className}>
-      <Swiper
-        spaceBetween={10}
-        navigation={true}
-        autoplay={{
-          delay: 2500
-        }}
-        thumbs={{
-          swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null
-        }}
-        modules={[FreeMode, Navigation, Thumbs, Autoplay]}
-        className="mySwiper2"
-      >
-
-        {
-          images.map(image => (
-            <SwiperSlide key={image}>
-              <ProductImage
-                width={1024}
-                height={800}
-                src={image}
-                alt={title}
-                className='rounded-lg object-fill'
-              />
-            </SwiperSlide>
-          ))
-        }
-      </Swiper>
-
-      <Swiper
-        onSwiper={setThumbsSwiper}
-        spaceBetween={10}
-        slidesPerView={4}
-        freeMode={true}
-        watchSlidesProgress={true}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className='mySwiper'
-      >
-        {
-          images.map(image => (
-            <SwiperSlide key={image}>
-              <ProductImage
-                width={300}
-                height={300}
-                src={image}
-                alt={title}
-                className='rounded-lg object-fill'
-              />
-            </SwiperSlide>
-
-          ))
-        }
-      </Swiper>
-    </div>
+    <Carousel className="w-full"
+      autoplay={5000}>
+      <CarouselContent>
+        {images.map((item, index) => (
+          <CarouselItem key={index}>
+            <div className="p-0 flex items-center justify-center">
+              <Card>
+                <CardContent className=" w-full flex aspect-square items-center justify-center">
+                  <ProductImage
+                    width={600}
+                    height={500}
+                    src={item}
+                    alt={title}
+                    className='object-fill'
+                  />
+                </CardContent>
+              </Card>
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
   )
 }

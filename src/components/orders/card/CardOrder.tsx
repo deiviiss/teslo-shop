@@ -1,8 +1,7 @@
 'use client'
 
-import { CopyIcon, EyeIcon } from 'lucide-react'
 import Link from 'next/link'
-import { IoCardOutline } from 'react-icons/io5'
+import { IoCardOutline, IoCopy, IoEyeOutline } from 'react-icons/io5'
 import { toast } from 'sonner'
 import { StatusNameWithIcon } from '@/components'
 import { Button } from '@/components/ui/button'
@@ -33,7 +32,7 @@ export const CardOrder = ({ order }: Props) => {
               }}
               className="h-6 w-6 opacity-0 transition-opacity group-hover:opacity-100 absolute right-0"
             >
-              <CopyIcon className="h-3 w-3" />
+              <IoCopy className="h-3 w-3" />
               <span className="sr-only">Copiar ID de pedido</span>
             </Button>
           </CardTitle>
@@ -43,7 +42,7 @@ export const CardOrder = ({ order }: Props) => {
             <Link
               href={`/orders/${id}`}
               className="flex items-center gap-2">
-              <EyeIcon className="h-3.5 w-3.5" />
+              <IoEyeOutline className="h-3.5 w-3.5" />
               <span className='hidden min-[500px]:block'>Ver pedido</span>
             </Link>
           </Button>

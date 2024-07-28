@@ -1,8 +1,7 @@
 'use client'
 
-import { PencilIcon } from 'lucide-react'
 import Link from 'next/link'
-import { BsToggleOff, BsToggleOn } from 'react-icons/bs'
+import { BsPencil, BsToggleOff, BsToggleOn } from 'react-icons/bs'
 import { toast } from 'sonner'
 import { toggleUserStatus } from '@/actions'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
@@ -102,7 +101,7 @@ export const CardUser = ({ user }: Props) => {
             <Link
               href={`/admin/users/${user.id}/edit`}
               className="hover:underline flex items-center gap-2">
-              <PencilIcon className="h-3.5 w-3.5" />
+              <BsPencil className="h-3.5 w-3.5" />
               <span className='hidden min-[500px]:block'>Editar</span>
             </Link>
           </Button>

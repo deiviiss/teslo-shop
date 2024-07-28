@@ -2,7 +2,7 @@ import { type Metadata, type ResolvingMetadata } from 'next'
 import { notFound } from 'next/navigation'
 import { AddToCart } from './ui/AddToCart'
 import { getProductBySlug } from '@/actions'
-import { ProductMobileSlideshow, ProductSlideshow, StockLabel } from '@/components'
+import { ProductSlideshow, StockLabel } from '@/components'
 import { titleFont } from '@/config/fonts'
 export const revalidate = 60 * 60 * 24 * 7 // 1 week
 
@@ -38,23 +38,12 @@ export default async function ProductPage({ params }: Props) {
   }
 
   return (
-    <div className='mt5 mb-20 grid grid-cols-1 md:grid-cols-3 gap-3'>
+    <div className='mb-20 grid grid-cols-1 md:grid-cols-3 gap-3'>
 
-      {/* mobile slideshow */}
       <div className='col-span-1 md:col-span-2'>
-        <ProductMobileSlideshow
-          title={product.title}
-          images={product.images.map((image) => image.url)}
-          className='block md:hidden'
-        />
-      </div>
-
-      {/* desktop sideshow */}
-      <div className='col-span-1 md:col-span-2 bg-slate-200'>
         <ProductSlideshow
           title={product.title}
           images={product.images.map((image) => image.url)}
-          className='hidden md:block'
         />
       </div>
 
