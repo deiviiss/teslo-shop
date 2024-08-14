@@ -143,7 +143,7 @@ export const PlaceOrder = ({ paymentMethod, shippingMethod }: Props) => {
 
       <div className='grid grid-cols-2'>
         <span className='text-right'>No. Productos</span>
-        <span className='text-right'>{itemsInCart === 1 ? '1 artículo' : `${itemsInCart} artíulos`}</span>
+        <span className='text-right'>{itemsInCart === 1 ? '1 artículo' : `${itemsInCart} artículos`}</span>
 
         <span className='text-right'>Subtotal</span>
         <span className='text-right'>{currencyFormat(subtotal)}</span>
