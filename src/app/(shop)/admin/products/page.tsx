@@ -17,7 +17,7 @@ export default async function ProductsPage({ searchParams }: Props) {
 
   return (
     <>
-      <Title title="Matenimiento de productos" subtitle='Lista de todos los productos' />
+      <Title title="Mantenimiento de productos" subtitle='Lista de todos los productos' />
 
       <div className='flex justify-end mb-5 gap-2'>
         <ProductSearch placeholder='Buscar producto...' />
