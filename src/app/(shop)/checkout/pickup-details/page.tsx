@@ -29,7 +29,7 @@ export default async function PickupDetailsPage() {
 
       <Card className="overflow-hidden max-w-[600px] mx-auto mb-10 shadow-lg rounded-lg border border-gray-200">
         <CardHeader className="bg-gray-100 text-lg font-medium text-center py-4">
-          ¡Vamos a prepar tu pedido!
+          ¡Vamos a preparar tu pedido!
         </CardHeader>
 
         <CardContent className="p-6 pb-4 text-gray-700">
